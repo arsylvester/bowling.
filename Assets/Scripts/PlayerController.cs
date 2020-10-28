@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public CharacterController charBody;
     public float moveSpeed = 2.0f;
@@ -40,12 +40,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         Quaternion rotation = Quaternion.Euler(0, yaw, 0);
         charBody.Move(rotation * movement * moveSpeed);
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 }
