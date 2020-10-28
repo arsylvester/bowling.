@@ -34,7 +34,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_6036105F:
-        m_Texture: {fileID: 2800000, guid: 7801804018a7dcf42abb827444e18660, type: 3}
+        m_Texture: {fileID: 8400000, guid: 7b598c68612137041b248d3e87f7ed4b, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -43,6 +43,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CRT_Texture:
+        m_Texture: {fileID: 8400000, guid: 7b598c68612137041b248d3e87f7ed4b, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
