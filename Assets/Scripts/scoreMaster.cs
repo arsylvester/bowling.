@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class scoreMaster : MonoBehaviour {
     
@@ -11,6 +11,8 @@ public class scoreMaster : MonoBehaviour {
     public string[,] displayScore = new string[11,2]; //string representations of roll scores. Used for dispay on HUD
     //public Queue<int[]> bonus = new Queue<int[]>(); //Used to calculate bonus points from strikes or spares
     public ArrayList bonus = new ArrayList(); //i'm going to try using an arraylist I guess
+    public TextMesh hud1;
+    public TextMesh hud2;
     public int frame;
     public int roll;
     public bool exampleMethodCall;
@@ -37,6 +39,7 @@ public class scoreMaster : MonoBehaviour {
         //if ball has touched a pin (this needs the script to be in the ball)
         if (exampleMethodCall) {
             rollEnd();
+            printScore();
             exampleMethodCall = false;
         }
     }
@@ -62,10 +65,30 @@ public class scoreMaster : MonoBehaviour {
         //respawn ball in ball return
     }
 
+    void printScore() {
+        string output = "";
+        for (int j=0; j<11; j++){
+            output += "\t";
+            for (int k=0; k<2; k++){
+                output += displayScore[j,k] + " ";
+            }
+        }
+        hud1.text = output;
+
+        output = "";
+        for (int j=0; j<11; j++){
+            output += "\t";
+            if (total[j] != 0){
+                output += total[j];
+            }
+        }
+        hud2.text = output;
+    }
+
     void updateScore(GameObject[] knocked){
         int pinFall = knocked.Length;
 
-        //pinFall = pin_script.getKnockedInt();
+        pinFall = pin_script.getKnockedInt(); //TODO: replace this with sothing more streamlined
 
         print("Pinfall: " + pinFall);
 
@@ -74,6 +97,7 @@ public class scoreMaster : MonoBehaviour {
             total[frame] += pinFall;
             
             if (bonus.Count != 0){ //if there's an active bonus
+                /*
                 foreach (int[] o in bonus)
                 {
                     if (o[1] == 0){
@@ -83,10 +107,33 @@ public class scoreMaster : MonoBehaviour {
                     else{
                         score[o[0], 3-o[1]] = pinFall;
                         total[o[0]] += pinFall;
-                        o[1] -= 1;
+
+                        int[] ImGoingToPunchAHoleInMyWall = o;
+
+                        int id = bonus.IndexOf(o);
+                        ImGoingToPunchAHoleInMyWall[1] -= 1;
+                        bonus.Remove(id);
+                        bonus.Add(ImGoingToPunchAHoleInMyWall);
+                        
                         //if it doesn't change, then I'll need to figure something out
                     }
 
+                }
+                */
+                for (int y=0; y<bonus.Count; y++){ //I am in pain
+                    int[] o = (int[])bonus[y];
+                    if (o[1] == 0){
+                        bonus.Remove(o);
+                        continue;
+                    }
+                    else{
+                        score[o[0], 3-o[1]] = pinFall;
+                        total[o[0]] += pinFall;
+
+                        bonus.Remove(o);
+                        o[1] -= 1;
+                        bonus.Insert(y,o);
+                    }
                 }
             }
             
