@@ -1,45 +1,67 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public CharacterController charBody;
-    public float moveSpeed = 2.0f;
-    public float horizontalCameraSpeed = 2.0f; 
-    public float verticalCameraSpeed = 2.0f;
+    const int LANE = 0;
+    const int BALL_RETURN = 1;
+    const int SCORE_SCREEN = 2;
 
-    private float yaw = 0.0f;
-    private float pitch = 0.0f;
+    public static int lookingAt = LANE;
 
-    public float pitchMin = -45.0f;
-    public float pitchMax = 45.0f;
+    public Transform ballReturn;
+    public Transform lane;
+    public Transform scoreScreen;
+
+    public static BallController holding;
 
     // Start is called before the first frame update
     void Start()
     {
+        transform.LookAt(lane);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        //camera
-        yaw += horizontalCameraSpeed * Input.GetAxis("Mouse X");
-        pitch -= verticalCameraSpeed * Input.GetAxis("Mouse Y");
+        if (lookingAt == LANE)
+        {
+            if (Input.GetAxis("Switch View") > 0)
+            {
+                lookingAt = BALL_RETURN;
+                transform.LookAt(ballReturn);
+            }
 
-        if (pitch < pitchMin)
-            pitch = pitchMin;
-        else if (pitch > pitchMax)
-            pitch = pitchMax;
+            if(Input.GetAxis("Vertical") > 0)
+            {
+                lookingAt = SCORE_SCREEN;
+                transform.LookAt(scoreScreen);
+            }
+        }
 
-        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+        if (lookingAt == BALL_RETURN)
+        {
+            if(Input.GetAxis("Switch View") < 0)
+            {
+                lookingAt = LANE;
+                transform.LookAt(lane);
+            }
+        }
 
-        //movement
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        Quaternion rotation = Quaternion.Euler(0, yaw, 0);
-        charBody.Move(rotation * movement * moveSpeed);
-        
+        if(lookingAt == SCORE_SCREEN)
+        {
+            if(Input.GetAxis("Vertical") < 0)
+            {
+                lookingAt = LANE;
+                transform.LookAt(lane);
+            }
+        }
     }
 }
