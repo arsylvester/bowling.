@@ -14,9 +14,11 @@ public class PlayerController : MonoBehaviour
     public static int lookingAt = LANE;
     private int toLookAt;
 
-    public Transform ballReturn;
-    public Transform lane;
-    public Transform scoreScreen;
+    private float currentX;
+    public float minX;
+    public float maxX;
+
+    public float moveSpeed;
 
     public static BallController holding;
 
@@ -29,10 +31,10 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.LookAt(lane);
         currentCamera = bowlingCamera;
         currentCamera.gameObject.SetActive(true);
         cameraBrain = GetComponentInChildren<CinemachineBrain>();
+        currentX = transform.position.x;
     }
 
     // Update is called once per frame
@@ -54,7 +56,6 @@ public class PlayerController : MonoBehaviour
             {
                 toLookAt = BALL_RETURN;
                 lookingAt = INBETWEEN;
-                transform.LookAt(ballReturn);
                 ChangeCamera(ballsCamera);
             }
 
@@ -62,18 +63,32 @@ public class PlayerController : MonoBehaviour
             {
                 lookingAt = INBETWEEN;
                 toLookAt = SCORE_SCREEN;
-                transform.LookAt(scoreScreen);
                 ChangeCamera(scoreCamera);
+            }
+
+            if(Input.GetAxis("Horizontal") != 0)
+            {
+                currentX += Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+
+                if (currentX < minX)
+                    currentX = minX;
+                if (currentX > maxX)
+                    currentX = maxX;
+
+                transform.position = new Vector3(currentX, transform.position.y, transform.position.z);
+                bowlingCamera.transform.position = new Vector3(currentX, bowlingCamera.transform.position.y, bowlingCamera.transform.position.z);
             }
         }
 
         if (lookingAt == BALL_RETURN)
         {
-            if(Input.GetAxis("Switch View") < 0)
+            transform.position = new Vector3(currentX - 10.0f, transform.position.y, transform.position.z);
+
+            if (Input.GetAxis("Switch View") < 0)
             {
+                transform.position = new Vector3(currentX, transform.position.y, transform.position.z);
                 toLookAt = LANE;
                 lookingAt = INBETWEEN;
-                transform.LookAt(lane);
                 ChangeCamera(bowlingCamera);
             }
         }
@@ -84,7 +99,6 @@ public class PlayerController : MonoBehaviour
             {
                 toLookAt = LANE;
                 lookingAt = INBETWEEN;
-                transform.LookAt(lane);
                 ChangeCamera(bowlingCamera);
             }
         }
