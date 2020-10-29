@@ -11,8 +11,8 @@ public class scoreMaster : MonoBehaviour {
     public string[,] displayScore = new string[11,2]; //string representations of roll scores. Used for dispay on HUD
     //public Queue<int[]> bonus = new Queue<int[]>(); //Used to calculate bonus points from strikes or spares
     public ArrayList bonus = new ArrayList(); //i'm going to try using an arraylist I guess
-    public TextMesh hud1;
-    public TextMesh hud2;
+    public TextMesh[] rollText;
+    public TextMesh[] totalText;
     public int frame;
     public int roll;
     public bool exampleMethodCall;
@@ -20,7 +20,7 @@ public class scoreMaster : MonoBehaviour {
     void Start () {
         
         for (int x = 0; x < 11; x++){ //initialize score array to all zeros
-            total[x] = 0;
+            total[x] = -1;
             for (int y = 0; y < 3; y++){
                 score[x,y] = 0;
             }
@@ -66,23 +66,24 @@ public class scoreMaster : MonoBehaviour {
     }
 
     void printScore() {
-        string output = "";
-        for (int j=0; j<11; j++){
-            output += "\t";
+        //ROLLS//
+        for (int j=0; j<10; j++){
+            string t = "";
             for (int k=0; k<2; k++){
-                output += displayScore[j,k] + " ";
+                t += displayScore[j,k] + " ";
             }
+            rollText[j].text = t;
         }
-        hud1.text = output;
 
-        output = "";
-        for (int j=0; j<11; j++){
-            output += "\t";
-            if (total[j] != 0){
-                output += total[j];
+        //TOTALS//
+        for (int j=0; j<10; j++){
+            if (total[j] != -1){
+                totalText[j].text = "" + total[j];
+            }
+            else{
+                totalText[j].text = "";
             }
         }
-        hud2.text = output;
     }
 
     void updateScore(GameObject[] knocked){
@@ -93,6 +94,7 @@ public class scoreMaster : MonoBehaviour {
         print("Pinfall: " + pinFall);
 
         if (roll == 0) {
+            total[frame] = 0; //set total from -1 to 0
             score[frame, roll] = pinFall;
             total[frame] += pinFall;
             
