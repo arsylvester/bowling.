@@ -41,11 +41,11 @@ GameObject:
   - component: {fileID: 11679046510538154}
   - component: {fileID: 11679046510538153}
   - component: {fileID: 11679046510538152}
-  - component: {fileID: 11679046510538159}
   - component: {fileID: 11679046510538158}
-  - component: {fileID: 11679046510538157}
   - component: {fileID: 11679046510538156}
-  - component: {fileID: 11679046510538155}
+  - component: {fileID: 6152841744405797637}
+  - component: {fileID: 8399614858838324132}
+  - component: {fileID: 1048992788587469734}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -119,14 +119,6 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11679046510538147}
   m_Enabled: 1
---- !u!81 &11679046510538159
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11679046510538147}
-  m_Enabled: 1
 --- !u!114 &11679046510538158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,39 +153,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &11679046510538157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11679046510538147}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 803b00b1c55094e499a99684ddbd9b57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Title: BlendList camera
-  m_Description: 'Turn this window off by removing the script on Main Camera
-
-
-
-    BlendList
-    cameras are a simple way to do camera movement within each shot
-
-
-    You trigger
-    just one BlendList camera and it will then sequence however many sub-cameras
-    are inside
-
-
-    A BlendList camera can have as many sub-cameras under it which
-    you can sequence together to create common moves like crash-zooms and dolly in/outs
-
-
-    Note
-    the Default camera Blend for this scene has been set to Cut, you can find that
-    on the MainCamera Cinemachine Brain'
 --- !u!114 &11679046510538156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,21 +184,67 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &11679046510538155
+--- !u!114 &6152841744405797637
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 11679046510538147}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6fcd3e1ad91bde4eacb87b860aa64f1, type: 3}
+  m_Script: {fileID: 11500000, guid: abc4b9c5b3a838e44875b2116d01e1af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bowlingCamera: {fileID: 0}
-  scoreCamera: {fileID: 0}
-  ballsCamera: {fileID: 0}
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 0
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!114 &8399614858838324132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11679046510538147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec03923da22ca984195b65451ad5af7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDefaultListener: 1
+  listenerId: 0
+--- !u!114 &1048992788587469734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11679046510538147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bce134437dcf524bb9ad51d4c1e6432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9bdf356c01bc0854ab52f1b20d00d787,
+      type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 
+  bankNameInternal: 
+  valueGuidInternal: 
 --- !u!1 &11679046847953264
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,9 +308,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f019a2cb239fe04a95e0b3c630a1566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballReturn: {fileID: 0}
-  lane: {fileID: 0}
-  scoreScreen: {fileID: 0}
+  minX: 0
+  maxX: 0
+  moveSpeed: 0
+  minRotY: 0
+  maxRotY: 0
+  rotationSpeed: 0
   bowlingCamera: {fileID: 0}
   scoreCamera: {fileID: 0}
   ballsCamera: {fileID: 0}

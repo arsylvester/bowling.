@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{D609D29B-A0BE-4DB6-A5F0-5FAD442CB0BC}" SchemaVersion="97">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{D609D29B-A0BE-4DB6-A5F0-5FAD442CB0BC}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{D609D29B-A0BE-4DB6-A5F0-5FAD442CB0BC}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="BowlingBall" ID="{8558D386-A7CF-4A85-9741-B4A1C27D7CF1}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Ballhit" ID="{27B28631-2129-4367-B80A-9465F4430BC9}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>

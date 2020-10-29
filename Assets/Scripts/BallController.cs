@@ -64,6 +64,13 @@ public class BallController : MonoBehaviour
             }
         }
         showVel = GetComponent<Rigidbody>().velocity;
+
+        //Testing
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            AkSoundEngine.PostEvent("Ballhit", gameObject);
+            print("Sound played");
+        }
     }
     
     private void OnMouseDown()
@@ -117,7 +124,7 @@ public class BallController : MonoBehaviour
     {
         if(collision.gameObject.tag != "Player")
         {
-            audio.PlayOneShot(laneHit);
+            AkSoundEngine.PostEvent("Ballhit", gameObject);
         }
     }
 }

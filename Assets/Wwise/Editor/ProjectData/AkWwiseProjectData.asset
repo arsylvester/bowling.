@@ -49,8 +49,17 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 9bd209d6bea0b64da5f05fad442cb0bc
     GuidInternal: 
-    m_lastTime: -8585976682935642519
-    List: []
+    m_lastTime: -8585976147049026626
+    List:
+    - name: BowlingBall
+      guid: 86d35885cfa7854a9741b4a1c27d7cf1
+      id: 3814693852
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: BowlingBall
+        ObjectType: 7
+      Path: Default Work Unit\BowlingBall
   EventWwu:
   - PhysicalPath: Events\Default Work Unit.wwu
     PathAndIcons:
@@ -59,8 +68,20 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 89f2ca2c2e71fc4f91e36a27c72bb383
     GuidInternal: 
-    m_lastTime: -8585976682936142648
-    List: []
+    m_lastTime: -8585976142924877795
+    List:
+    - name: Ballhit
+      guid: 3186b22729216743b80a9465f4430bc9
+      id: 4066630945
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Ballhit
+        ObjectType: 3
+      Path: Default Work Unit\Ballhit
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -104,6 +125,8 @@ MonoBehaviour:
   ExpandedItems:
   - /SGDA-Hack-UTD-Jam_WwiseProject
   - /SGDA-Hack-UTD-Jam_WwiseProject/Events
+  - /SGDA-Hack-UTD-Jam_WwiseProject/Events/Default Work Unit
   - /SGDA-Hack-UTD-Jam_WwiseProject/SoundBanks
+  - /SGDA-Hack-UTD-Jam_WwiseProject/SoundBanks/Default Work Unit
   autoPopulateEnabled: 1
   CurrentPluginConfig: 
