@@ -29,8 +29,6 @@ public class BallController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //GetComponent<Rigidbody>().useGravity = false;
-        GetComponent<Rigidbody>().useGravity = false;
         audio = GetComponent<AudioSource>();
     }
     
