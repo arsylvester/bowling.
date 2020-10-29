@@ -14,11 +14,16 @@ public class BallController : MonoBehaviour
     public Vector3 showVel;
     public Vector3 showAngularVel;
 
-    private float startMouseX;
-    private float startMouseY;
+    public Vector2 startMousePos;
     private float startTime;
     private Boolean launching = false;
     public float speedModifyer = 0.7f;
+    public float speedModifyer2;
+    public float showDistanceX;
+    public float showDistanceY;
+    public Vector2 showDifVec;
+    public Vector2 showCurrentMouse;
+    public float showDifference;
 
     // Start is called before the first frame update
     void Start()
@@ -30,23 +35,27 @@ public class BallController : MonoBehaviour
     {
         if (PlayerController.lookingAt == 0)
         {
-            if (thisBallInHand && Input.GetAxis("Fire1") == 1)
+            if (thisBallInHand && !launching && Input.GetAxis("Fire1") == 1)
             {
                 launching = true;
-                startMouseX = Input.GetAxis("Mouse X");
-                startMouseY = Input.GetAxis("Mouse Y");
+                startMousePos = Input.mousePosition;
                 startTime = Time.time;
             }
 
             if(thisBallInHand && launching && Input.GetAxis("Fire1") == 0)
             {
-                float distanceX = Mathf.Abs(Input.GetAxis("Mouse X") - startMouseX);
-                float distanceY = Mathf.Abs(Input.GetAxis("Mouse Y") - startMouseY);
-                float distance = Mathf.Sqrt(Mathf.Pow(distanceX, 2f) + Mathf.Pow(distanceY, 2f));
+                Vector2 CurrentMousePos = Input.mousePosition;
+                showCurrentMouse = CurrentMousePos;
+                Vector2 difference = CurrentMousePos - startMousePos;
+                showDifVec = difference;
+                float distance = difference.magnitude;
+                showDifference = distance;
+                showDistanceX = difference.x;
+                showDistanceY = difference.y;
                 float finalTime = Time.time - startTime;
-                ballSpeed = (distance / finalTime) * speedModifyer;
+                ballSpeed = Mathf.Abs((distance / finalTime) * speedModifyer);
                 LaunchBall();
-                GetComponent<Rigidbody>().angularVelocity = new Vector3(ballSpeed, 0f, (distanceX / startTime) * 100f);
+                GetComponent<Rigidbody>().angularVelocity = new Vector3(ballSpeed * speedModifyer2, 0f, (-1) * (difference.x / startTime) * speedModifyer2);
                 showAngularVel = GetComponent<Rigidbody>().angularVelocity;
             }
         }
