@@ -5,6 +5,7 @@ using UnityEngine;
 public class LaneHitbox : MonoBehaviour
 {
     public bool isTouched;
+    public GameObject touchedBy;
     
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,9 @@ public class LaneHitbox : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "BowlingBall"){
+            if (touchedBy == null){
+                touchedBy = other.gameObject;
+            }
             isTouched = true;
             print("TRIGGER HIT");
         }
