@@ -12,6 +12,13 @@ public class BallController : MonoBehaviour
     private static Boolean anyBallInHand = false;
     private Boolean thisBallInHand = false;
     public Vector3 showVel;
+    public Vector3 showAngularVel;
+
+    private float startMouseX;
+    private float startMouseY;
+    private float startTime;
+    private Boolean launching = false;
+    public float speedModifyer = 0.7f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +32,22 @@ public class BallController : MonoBehaviour
         {
             if (thisBallInHand && Input.GetAxis("Fire1") == 1)
             {
+                launching = true;
+                startMouseX = Input.GetAxis("Mouse X");
+                startMouseY = Input.GetAxis("Mouse Y");
+                startTime = Time.time;
+            }
+
+            if(thisBallInHand && launching && Input.GetAxis("Fire1") == 0)
+            {
+                float distanceX = Mathf.Abs(Input.GetAxis("Mouse X") - startMouseX);
+                float distanceY = Mathf.Abs(Input.GetAxis("Mouse Y") - startMouseY);
+                float distance = Mathf.Sqrt(Mathf.Pow(distanceX, 2f) + Mathf.Pow(distanceY, 2f));
+                float finalTime = Time.time - startTime;
+                ballSpeed = (distance / finalTime) * speedModifyer;
                 LaunchBall();
+                GetComponent<Rigidbody>().angularVelocity = new Vector3(ballSpeed, 0f, (distanceX / startTime) * 100f);
+                showAngularVel = GetComponent<Rigidbody>().angularVelocity;
             }
         }
         showVel = GetComponent<Rigidbody>().velocity;
@@ -75,41 +97,4 @@ public class BallController : MonoBehaviour
         GetComponent<Rigidbody>().velocity = vel;
         PlayerController.holding = null;
     }
-
-    /*
-    // Update is called once per frame
-    
-   /* 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "Player" && !inHand)
-        {
-            if (Input.GetAxis("Interact") == 1)
-                PickUp();
-        }
-    }
-   
-    private void OnMouseDown()
-    {
-        if (PlayerController.ballSelect)
-        {
-            if(!anyBallInHand)
-                PickUp();
-        }
-    }
-
-    
-
-    
-
-    
-    
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("PlayArea"))
-        {
-            Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), GetComponent<Collider>(), true);
-        }
-    }
-    */
 }
