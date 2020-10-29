@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa1e0737b2a0b0409a4bf7044f31a00, type: 3}
+  m_Name: 8558D386-A7CF-4A85-9741-B4A1C27D7CF1
+  m_EditorClassIdentifier: 
+  objectName: Props
+  id: 968010305
+  guid: 8558D386-A7CF-4A85-9741-B4A1C27D7CF1
