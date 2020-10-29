@@ -23,7 +23,7 @@ public class BallController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody>().useGravity = false;
+        //GetComponent<Rigidbody>().useGravity = false;
     }
     
     void Update()
@@ -69,10 +69,12 @@ public class BallController : MonoBehaviour
         }
         anyBallInHand = true;
         thisBallInHand = true;
+        GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Collider>().enabled = false;
         this.transform.position = ballHolder.position;
-        this.transform.parent = ballHolder.parent;
+        this.transform.parent = ballHolder;
         GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
         PlayerController.holding = this;
     }
 
@@ -80,6 +82,7 @@ public class BallController : MonoBehaviour
     {
         anyBallInHand = false;
         thisBallInHand = false;
+        GetComponent<Rigidbody>().useGravity = true;
         GetComponent<Collider>().enabled = true;
         this.transform.position = ballReturnPosition.position;
         this.transform.parent = null;
