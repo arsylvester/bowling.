@@ -14,12 +14,16 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID BALLHIT = 4066630945U;
+        static const AkUniqueID BALLRETURN = 1692875524U;
+        static const AkUniqueID CRT = 731352134U;
+        static const AkUniqueID PINHIT = 2039252157U;
     } // namespace EVENTS
 
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
-        static const AkUniqueID BOWLINGBALL = 3814693852U;
+        static const AkUniqueID AMBIENT = 77978275U;
+        static const AkUniqueID PROPS = 968010305U;
     } // namespace BANKS
 
     namespace BUSSES

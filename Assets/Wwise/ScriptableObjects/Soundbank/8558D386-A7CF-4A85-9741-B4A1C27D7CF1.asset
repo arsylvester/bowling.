@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa1e0737b2a0b0409a4bf7044f31a00, type: 3}
   m_Name: 8558D386-A7CF-4A85-9741-B4A1C27D7CF1
   m_EditorClassIdentifier: 
-  objectName: BowlingBall
-  id: 3814693852
+  objectName: Props
+  id: 968010305
   guid: 8558D386-A7CF-4A85-9741-B4A1C27D7CF1

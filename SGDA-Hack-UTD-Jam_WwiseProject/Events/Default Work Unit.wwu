@@ -5,10 +5,53 @@
 			<ChildrenList>
 				<Event Name="Ballhit" ID="{27B28631-2129-4367-B80A-9465F4430BC9}">
 					<ChildrenList>
-						<Action Name="" ID="{30D978DD-0866-41C2-9F53-2EB180B77902}" ShortID="493383027">
+						<Action Name="" ID="{F9FFF4CB-8CD0-44E2-8E67-5E12EAC08324}" ShortID="587026982">
+							<PropertyList>
+								<Property Name="Delay" Type="Real64" Value="0.5"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Thud1" ID="{9B7D9147-2173-4B89-910B-60ADE34C4406}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
+									<ObjectRef Name="Rolling" ID="{6F6579DC-9B89-4A8F-992D-C836358EB6B5}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{70FE7B76-64A9-4C24-B071-FF1B0EEBAC6B}" ShortID="189400810">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Thuds" ID="{84740655-4654-440C-A878-F9E1DB8D5FD2}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="CRT" ID="{231DE5DB-1B3A-43A7-A89B-1049534F99E1}">
+					<ChildrenList>
+						<Action Name="" ID="{B40F316E-8FD1-4B78-832F-CB3F9547528D}" ShortID="1013772717">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Soft CRT" ID="{A1AB3347-9DEE-4C3A-82BE-4965A45B4938}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Pinhit" ID="{13B8C6E7-972C-4B60-81F8-32DD42966AD2}">
+					<ChildrenList>
+						<Action Name="" ID="{AE6FFAC2-45A8-4E37-BF8C-F6A0DDC11649}" ShortID="735175690">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Strike" ID="{FF40FAD4-130A-4AEC-85A4-027A326580CE}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Ballreturn" ID="{A49A0240-E849-42F1-A481-72B972534B7B}">
+					<ChildrenList>
+						<Action Name="" ID="{72B3486A-5955-4358-818C-ACAEECEFAC43}" ShortID="777395290">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Mechanical" ID="{C5DF9C55-0209-46C2-9BE8-674CC4B771A8}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

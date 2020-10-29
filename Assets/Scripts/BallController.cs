@@ -26,7 +26,6 @@ public class BallController : MonoBehaviour
     public float showDifference;
 
     private AudioSource audio;
-    [SerializeField] AudioClip laneHit;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,12 +64,6 @@ public class BallController : MonoBehaviour
         }
         showVel = GetComponent<Rigidbody>().velocity;
 
-        //Testing
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            AkSoundEngine.PostEvent("Ballhit", gameObject);
-            print("Sound played");
-        }
     }
     
     private void OnMouseDown()
@@ -122,7 +115,7 @@ public class BallController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag != "Player")
+        if(collision.gameObject.tag == "PlayArea")
         {
             AkSoundEngine.PostEvent("Ballhit", gameObject);
         }

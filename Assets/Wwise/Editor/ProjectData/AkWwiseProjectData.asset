@@ -49,17 +49,26 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 9bd209d6bea0b64da5f05fad442cb0bc
     GuidInternal: 
-    m_lastTime: -8585976147049026626
+    m_lastTime: -8585975991066474311
     List:
-    - name: BowlingBall
-      guid: 86d35885cfa7854a9741b4a1c27d7cf1
-      id: 3814693852
+    - name: Ambient
+      guid: fb3dc52f38ee3448a95b44555fd22fb9
+      id: 77978275
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: BowlingBall
+      - ElementName: Ambient
         ObjectType: 7
-      Path: Default Work Unit\BowlingBall
+      Path: Default Work Unit\Ambient
+    - name: Props
+      guid: 86d35885cfa7854a9741b4a1c27d7cf1
+      id: 968010305
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Props
+        ObjectType: 7
+      Path: Default Work Unit\Props
   EventWwu:
   - PhysicalPath: Events\Default Work Unit.wwu
     PathAndIcons:
@@ -68,7 +77,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 89f2ca2c2e71fc4f91e36a27c72bb383
     GuidInternal: 
-    m_lastTime: -8585976142924877795
+    m_lastTime: -8585975994796458208
     List:
     - name: Ballhit
       guid: 3186b22729216743b80a9465f4430bc9
@@ -79,9 +88,45 @@ MonoBehaviour:
       - ElementName: Ballhit
         ObjectType: 3
       Path: Default Work Unit\Ballhit
-      maxAttenuation: 0
+      maxAttenuation: 50
       maxDuration: -1
       minDuration: -1
+    - name: Ballreturn
+      guid: 40029aa449e8f142a48172b972534b7b
+      id: 1692875524
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Ballreturn
+        ObjectType: 3
+      Path: Default Work Unit\Ballreturn
+      maxAttenuation: 50
+      maxDuration: 1.348833
+      minDuration: 1.348833
+    - name: CRT
+      guid: dbe51d233a1ba743a89b1049534f99e1
+      id: 731352134
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: CRT
+        ObjectType: 3
+      Path: Default Work Unit\CRT
+      maxAttenuation: 30
+      maxDuration: -1
+      minDuration: -1
+    - name: Pinhit
+      guid: e7c6b8132c97604b81f832dd42966ad2
+      id: 2039252157
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Pinhit
+        ObjectType: 3
+      Path: Default Work Unit\Pinhit
+      maxAttenuation: 50
+      maxDuration: 1.452279
+      minDuration: 1.29234
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
