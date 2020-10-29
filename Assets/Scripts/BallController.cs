@@ -25,10 +25,13 @@ public class BallController : MonoBehaviour
     public Vector2 showCurrentMouse;
     public float showDifference;
 
+    private AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
         //GetComponent<Rigidbody>().useGravity = false;
+        GetComponent<Rigidbody>().useGravity = false;
+        audio = GetComponent<AudioSource>();
     }
     
     void Update()
@@ -60,6 +63,7 @@ public class BallController : MonoBehaviour
             }
         }
         showVel = GetComponent<Rigidbody>().velocity;
+
     }
     
     private void OnMouseDown()
@@ -108,5 +112,12 @@ public class BallController : MonoBehaviour
         Vector3 vel = player.transform.forward * ballSpeed;
         GetComponent<Rigidbody>().velocity = vel;
         PlayerController.holding = null;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "PlayArea")
+        {
+            AkSoundEngine.PostEvent("Ballhit", gameObject);
+        }
     }
 }
