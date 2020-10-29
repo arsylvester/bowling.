@@ -13,10 +13,13 @@ public class BallController : MonoBehaviour
     private Boolean thisBallInHand = false;
     public Vector3 showVel;
 
+    private AudioSource audio;
+    [SerializeField] AudioClip laneHit;
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Rigidbody>().useGravity = false;
+        audio = GetComponent<AudioSource>();
     }
     
     void Update()
@@ -74,6 +77,14 @@ public class BallController : MonoBehaviour
         Vector3 vel = player.transform.forward * ballSpeed;
         GetComponent<Rigidbody>().velocity = vel;
         PlayerController.holding = null;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag != "Player")
+        {
+            audio.PlayOneShot(laneHit);
+        }
     }
 
     /*
