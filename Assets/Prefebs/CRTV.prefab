@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fc2b6dd0497a9794f8a360890649a033, type: 2}
+  - {fileID: 2100000, guid: ec9be2813648f6a4484f29363330865c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 6984175478009461784}
   - component: {fileID: 6984175478009461783}
   - component: {fileID: 6984175478009461782}
+  - component: {fileID: 1595742327}
   m_Layer: 0
   m_Name: Screen
   m_TagString: Untagged
@@ -174,3 +175,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1595742327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6984175478009461781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb2440498bc994d4892f8f5683811e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreSheet: {fileID: 8400000, guid: 7b598c68612137041b248d3e87f7ed4b, type: 2}
+  BallCam: {fileID: 8400000, guid: f8deb4b291437c74584413f65d29287a, type: 2}
+  Screen: {fileID: 6984175478009461783}
+  callToScore: 0
+  callToBall: 0

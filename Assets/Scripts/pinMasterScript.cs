@@ -33,22 +33,24 @@ public class pinMasterScript : MonoBehaviour {
         GameObject[] knockedPins = new GameObject[pins.Length];
 
         foreach (GameObject p in pins) {
-            bool isKnocked = false;
+            if(p.activeInHierarchy){
+                bool isKnocked = false;
 
-            float rotX = p.transform.rotation.eulerAngles.x;
-            float rotY = p.transform.rotation.eulerAngles.y;
-            float rotZ = p.transform.rotation.eulerAngles.z;
-            
-            if (Mathf.Abs (rotX) < 358.5 && Mathf.Abs (rotX) > 1.5) {
-                isKnocked = true;
-                print ("rotX triggered: " + Mathf.Abs (rotX));
-            } else if (Mathf.Abs (rotZ) < 358.5 && Mathf.Abs (rotZ) > 1.5) {
-                isKnocked = true;
-                print ("rotZ triggered: " + Mathf.Abs (rotZ));
-            }
+                float rotX = p.transform.rotation.eulerAngles.x;
+                float rotY = p.transform.rotation.eulerAngles.y;
+                float rotZ = p.transform.rotation.eulerAngles.z;
+                
+                if (Mathf.Abs (rotX) < 358.5 && Mathf.Abs (rotX) > 1.5) {
+                    isKnocked = true;
+                    //print ("rotX triggered: " + Mathf.Abs (rotX));
+                } else if (Mathf.Abs (rotZ) < 358.5 && Mathf.Abs (rotZ) > 1.5) {
+                    isKnocked = true;
+                    //print ("rotZ triggered: " + Mathf.Abs (rotZ));
+                }
 
-            if (isKnocked){
-                knockedPins[k++] = p;
+                if (isKnocked){
+                    knockedPins[k++] = p;
+                }
             }
         }
 
@@ -61,22 +63,24 @@ public class pinMasterScript : MonoBehaviour {
         GameObject[] knockedPins = new GameObject[pins.Length];
 
         foreach (GameObject p in pins) {
-            bool isKnocked = false;
+            if(p.activeInHierarchy){
+                bool isKnocked = false;
 
-            float rotX = p.transform.rotation.eulerAngles.x;
-            float rotY = p.transform.rotation.eulerAngles.y;
-            float rotZ = p.transform.rotation.eulerAngles.z;
-            
-            if (Mathf.Abs (rotX) < 358.5 && Mathf.Abs (rotX) > 1.5) {
-                isKnocked = true;
-                print ("rotX triggered: " + Mathf.Abs (rotX));
-            } else if (Mathf.Abs (rotZ) < 358.5 && Mathf.Abs (rotZ) > 1.5) {
-                isKnocked = true;
-                print ("rotZ triggered: " + Mathf.Abs (rotZ));
-            }
+                float rotX = p.transform.rotation.eulerAngles.x;
+                float rotY = p.transform.rotation.eulerAngles.y;
+                float rotZ = p.transform.rotation.eulerAngles.z;
+                
+                if (Mathf.Abs (rotX) < 358.5 && Mathf.Abs (rotX) > 1.5) {
+                    isKnocked = true;
+                    //print ("rotX triggered: " + Mathf.Abs (rotX));
+                } else if (Mathf.Abs (rotZ) < 358.5 && Mathf.Abs (rotZ) > 1.5) {
+                    isKnocked = true;
+                    //print ("rotZ triggered: " + Mathf.Abs (rotZ));
+                }
 
-            if (isKnocked){
-                knockedPins[k++] = p;
+                if (isKnocked){
+                    knockedPins[k++] = p;
+                }
             }
         }
 
