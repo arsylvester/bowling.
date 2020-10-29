@@ -13,9 +13,10 @@ public class scoreMaster : MonoBehaviour {
     public ArrayList bonus = new ArrayList(); //i'm going to try using an arraylist I guess
     public TextMesh[] rollText;
     public TextMesh[] totalText;
-    public int frame;
-    public int roll;
+    public LaneHitbox laneEnd, pinZone;
+    public int frame, roll;
     public bool exampleMethodCall;
+    public bool inSetup;
 
     void Start () {
         
@@ -27,7 +28,7 @@ public class scoreMaster : MonoBehaviour {
         }
 
         bonus.Capacity = 2;
-
+        inSetup = false;
         frame = 0;
         roll = 0;
     }
@@ -35,24 +36,45 @@ public class scoreMaster : MonoBehaviour {
     
     void Update () {
         //ROLL END TRIGGERS//
-        
-        //if ball has touched a pin (this needs the script to be in the ball)
         if (exampleMethodCall) {
             rollEnd();
-            printScore();
+            //printScore();
             exampleMethodCall = false;
+        }
+
+        if(pinZone.isTouched){
+            print("pinZone touched.");
+            pinZone.isTouched = false;
+            StartCoroutine(timedRollEnd(3f));
+        }
+
+        // if(laneEnd.isTouched){
+        //     print("laneEnd touched.");
+        //     laneEnd.isTouched = false;
+        //     StartCoroutine(timedRollEnd(1f));
+        // }
+    }
+
+    public IEnumerator timedWait(float S){
+        yield return new WaitForSecondsRealtime(S);
+    }
+
+    IEnumerator timedRollEnd(float S){
+        yield return new WaitForSecondsRealtime(S);
+        if(!inSetup){
+            rollEnd();
         }
     }
 
     void rollEnd(){
-        // GameObject[] knocked = new GameObject[];
-        // knocked = pin_script.getKnocked();
+        inSetup = true;
 
         //move object to obscure pins from view
 
         updateScore(pin_script.getKnocked()); // this is pointless. move the code from updateScore() to here
 
         //display score
+        printScore();
 
         //despawn ball
 
@@ -63,6 +85,9 @@ public class scoreMaster : MonoBehaviour {
         //remove pin obscuring object
 
         //respawn ball in ball return
+
+        StartCoroutine(timedWait(0.6f));
+        inSetup = false;
     }
 
     void printScore() {
@@ -99,29 +124,6 @@ public class scoreMaster : MonoBehaviour {
             total[frame] += pinFall;
             
             if (bonus.Count != 0){ //if there's an active bonus
-                /*
-                foreach (int[] o in bonus)
-                {
-                    if (o[1] == 0){
-                        bonus.Remove(o);
-                        continue;
-                    }
-                    else{
-                        score[o[0], 3-o[1]] = pinFall;
-                        total[o[0]] += pinFall;
-
-                        int[] ImGoingToPunchAHoleInMyWall = o;
-
-                        int id = bonus.IndexOf(o);
-                        ImGoingToPunchAHoleInMyWall[1] -= 1;
-                        bonus.Remove(id);
-                        bonus.Add(ImGoingToPunchAHoleInMyWall);
-                        
-                        //if it doesn't change, then I'll need to figure something out
-                    }
-
-                }
-                */
                 for (int y=0; y<bonus.Count; y++){ //I am in pain
                     int[] o = (int[])bonus[y];
                     if (o[1] == 0){
@@ -166,8 +168,8 @@ public class scoreMaster : MonoBehaviour {
             total[frame] += pinFall;
 
             if (bonus.Count != 0){ //if there's an active bonus
-                foreach (int[] o in bonus)
-                {
+                for (int y=0; y<bonus.Count; y++){ //I am in pain
+                    int[] o = (int[])bonus[y];
                     if (o[1] == 0){
                         bonus.Remove(o);
                         continue;
@@ -175,8 +177,10 @@ public class scoreMaster : MonoBehaviour {
                     else{
                         score[o[0], 3-o[1]] = pinFall;
                         total[o[0]] += pinFall;
+
+                        bonus.Remove(o);
                         o[1] -= 1;
-                        //if it doesn't change, then I'll need to figure something out
+                        bonus.Insert(y,o);
                     }
                 }
             }
