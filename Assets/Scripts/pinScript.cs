@@ -17,4 +17,12 @@ public class pinScript : MonoBehaviour
     {
       
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "BowlingBall")
+        {
+            AkSoundEngine.PostEvent("Pinhit", gameObject);
+        }
+    }
 }
