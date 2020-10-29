@@ -41,10 +41,10 @@ public class pinMasterScript : MonoBehaviour {
             
             if (Mathf.Abs (rotX) < 358.5 && Mathf.Abs (rotX) > 1.5) {
                 isKnocked = true;
-                print ("rotX triggered: " + Mathf.Abs (rotX));
+                //print ("rotX triggered: " + Mathf.Abs (rotX));
             } else if (Mathf.Abs (rotZ) < 358.5 && Mathf.Abs (rotZ) > 1.5) {
                 isKnocked = true;
-                print ("rotZ triggered: " + Mathf.Abs (rotZ));
+                //print ("rotZ triggered: " + Mathf.Abs (rotZ));
             }
 
             if (isKnocked){
@@ -69,10 +69,10 @@ public class pinMasterScript : MonoBehaviour {
             
             if (Mathf.Abs (rotX) < 358.5 && Mathf.Abs (rotX) > 1.5) {
                 isKnocked = true;
-                print ("rotX triggered: " + Mathf.Abs (rotX));
+                //print ("rotX triggered: " + Mathf.Abs (rotX));
             } else if (Mathf.Abs (rotZ) < 358.5 && Mathf.Abs (rotZ) > 1.5) {
                 isKnocked = true;
-                print ("rotZ triggered: " + Mathf.Abs (rotZ));
+                //print ("rotZ triggered: " + Mathf.Abs (rotZ));
             }
 
             if (isKnocked){
