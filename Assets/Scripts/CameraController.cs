@@ -10,41 +10,48 @@ public class CameraController : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera ballsCamera;
     private CinemachineVirtualCamera currentCamera;
 
+    private PauseMenuController pauseMenu;
+
     // Start is called before the first frame update
     void Start()
     {
         currentCamera = bowlingCamera;
         currentCamera.gameObject.SetActive(true);
+
+        pauseMenu = FindObjectOfType<PauseMenuController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(currentCamera == bowlingCamera)
-        {
-            if(Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                ChangeCamera(scoreCamera);
-            }
-            else if(Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                ChangeCamera(ballsCamera);
-            }
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                ChangeCamera(bowlingCamera);
+        if(!pauseMenu || !pauseMenu.paused) {
+            if(currentCamera == bowlingCamera) {
+                if(Input.GetKeyDown(KeyCode.Alpha1)) {
+                    ChangeCamera(scoreCamera);
+                } else if(Input.GetKeyDown(KeyCode.Alpha2)) {
+                    ChangeCamera(ballsCamera);
+                }
+            } else {
+                if(Input.GetKeyDown(KeyCode.Alpha1)) {
+                    ChangeCamera(bowlingCamera);
+                }
             }
         }
     }
 
-    void ChangeCamera(CinemachineVirtualCamera newCamera)
+    private void ChangeCamera(CinemachineVirtualCamera newCamera)
     {
         newCamera.gameObject.SetActive(true);
         currentCamera.gameObject.SetActive(false);
         currentCamera = newCamera;
+    }
+
+    public void PauseCamera() {
+        ChangeCamera(scoreCamera);
+    }
+
+    public void UnpauseCamera() {
+        ChangeCamera(bowlingCamera);
     }
 
 }
