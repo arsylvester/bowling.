@@ -56,24 +56,37 @@ public class PlayerController : MonoBehaviour
         {
             lookingAt = toLookAt;
         }
-
-        if (lookingAt == LANE)
+        
+        if(lookingAt != INBETWEEN)
         {
-            if (Input.GetAxis("Switch View") > 0)
+            if (lookingAt != LANE && Input.GetAxis("Vertical") > 0)
             {
+                transform.position = new Vector3(currentX, transform.position.y, transform.position.z);
+                lookingAt = INBETWEEN;
+                toLookAt = LANE;
+                ChangeCamera(bowlingCamera);
+            }
+
+            if (lookingAt != BALL_RETURN && Input.GetAxis("Switch View") > 0)
+            {
+                transform.position = new Vector3(currentX - 10.0f, transform.position.y, transform.position.z);
                 toLookAt = BALL_RETURN;
                 lookingAt = INBETWEEN;
                 ChangeCamera(ballsCamera);
             }
 
-            if(Input.GetAxis("Vertical") > 0)
+            if (lookingAt != SCORE_SCREEN && Input.GetAxis("Switch View") < 0)
             {
                 lookingAt = INBETWEEN;
                 toLookAt = SCORE_SCREEN;
                 ChangeCamera(scoreCamera);
             }
+        }
 
-            if(Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Fire2") == 0)
+        if (lookingAt == LANE)
+        {
+            //&& Input.GetAxis("Fire2") == 0
+            if (Input.GetAxis("Horizontal") != 0)
             {
                 currentX += Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
 
@@ -88,9 +101,9 @@ public class PlayerController : MonoBehaviour
 
             if(Input.GetAxis("Fire2") == 1)
             {
-                if (Input.GetAxis("Horizontal") != 0)
+                if (Input.GetAxis("Mouse X") != 0)
                 {
-                    currentRotY += Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
+                    currentRotY += Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
 
                     if (currentRotY < minRotY)
                         currentRotY = minRotY;
@@ -103,28 +116,15 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        /*
         if (lookingAt == BALL_RETURN)
         {
-            transform.position = new Vector3(currentX - 10.0f, transform.position.y, transform.position.z);
-
-            if (Input.GetAxis("Switch View") < 0)
-            {
-                transform.position = new Vector3(currentX, transform.position.y, transform.position.z);
-                toLookAt = LANE;
-                lookingAt = INBETWEEN;
-                ChangeCamera(bowlingCamera);
-            }
         }
 
         if(lookingAt == SCORE_SCREEN)
         {
-            if(Input.GetAxis("Vertical") < 0)
-            {
-                toLookAt = LANE;
-                lookingAt = INBETWEEN;
-                ChangeCamera(bowlingCamera);
-            }
         }
+        */
     }
 
     void ChangeCamera(CinemachineVirtualCamera newCamera)
