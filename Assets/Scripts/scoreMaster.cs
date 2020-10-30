@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class scoreMaster : MonoBehaviour {
 
     public pinMasterScript pin_script;
+    [SerializeField] RenderSelector screen;
     [SerializeField] GameObject[] knocked_pins;
     [SerializeField] int[, ] score = new int[11, 3]; //scores for each frame including bonus rolls
     [SerializeField] int[] total = new int[11]; //total score for each frame. Used for dispay on HUD
@@ -74,6 +75,9 @@ public class scoreMaster : MonoBehaviour {
     void rollEnd () {
         inSetup = true;
 
+        //reset crt screen to display score
+        screen.cameraSwapToScore();
+
         //move object to obscure pins from view
 
         knocked_pins = pin_script.getKnocked ();
@@ -89,9 +93,7 @@ public class scoreMaster : MonoBehaviour {
 
         //reset remaining pins
         foreach (GameObject pin in pin_script.pins) {
-            print("checking pin");
             if (pin != null && pin.activeSelf) {
-                print("pin is not null & is active");
                 pin.transform.rotation = pin.GetComponent<pinScript> ().defaultRot;
                 pin.transform.position = pin.GetComponent<pinScript> ().defaultPos;
                 pin.GetComponent<Rigidbody> ().velocity = Vector3.zero;
@@ -161,6 +163,26 @@ public class scoreMaster : MonoBehaviour {
         totalText[9].text = "" + runningTotal;
     }
 
+    void applyBonus (int pinFall){
+         if (bonus.Count != 0) { //if there's an active bonus
+                print("amount of active bonuses: " + bonus.Count);
+                List<int> toRemove = new List<int>();
+                ArrayList temp = new ArrayList ();
+                for (int y = 0; y < bonus.Count; y++) { //I am in pain
+                    int[] o = (int[]) bonus[y];
+                    print("bonus for frame " + o[0] + ": " + o[1]);
+                    if (o[1] != 0) {
+                        score[o[0], 3 - o[1]] = pinFall; //score[1] and score[2] need to be modified
+                        total[o[0]] += pinFall;
+
+                        o[1] -= 1;
+                        temp.Add(o);
+                    }
+                }
+                bonus = temp;
+            }
+    }
+
     void updateScore (GameObject[] knocked) {
         int pinFall = knocked.Length;
 
@@ -173,22 +195,7 @@ public class scoreMaster : MonoBehaviour {
             score[frame, roll] = pinFall;
             total[frame] += pinFall;
 
-            if (bonus.Count != 0) { //if there's an active bonus
-                for (int y = 0; y < bonus.Count; y++) { //I am in pain
-                    int[] o = (int[]) bonus[y];
-                    if (o[1] == 0) {
-                        bonus.Remove (o);
-                        continue;
-                    } else {
-                        score[o[0], 3 - o[1]] = pinFall;
-                        total[o[0]] += pinFall;
-
-                        bonus.Remove (o);
-                        o[1] -= 1;
-                        bonus.Insert (y, o);
-                    }
-                }
-            }
+            applyBonus(pinFall);
 
             if (pinFall == 10) { //strike
                 //adjust displayScore
@@ -225,26 +232,30 @@ public class scoreMaster : MonoBehaviour {
             score[frame, roll] = pinFall;
             total[frame] += pinFall;
 
-            if (bonus.Count != 0) { //if there's an active bonus
-                for (int y = 0; y < bonus.Count; y++) { //I am in pain
-                    int[] o = (int[]) bonus[y];
-                    if (o[1] == 0) {
-                        bonus.Remove (o);
-                        continue;
-                    } else {
-                        score[o[0], 3 - o[1]] = pinFall;
-                        total[o[0]] += pinFall;
+            // if (bonus.Count != 0) { //if there's an active bonus
+            //     print("amount of active bonuses: " + bonus.Count);
+            //     for (int y = 0; y < bonus.Count; y++) { //I am in pain
+            //         int[] o = (int[]) bonus[y];
+            //         print("bonus for frame " + o[0] + ": " + o[1]);
+            //         if (o[1] == 0) {
+            //             bonus.Remove (o);
+            //             continue;
+            //         } else {
+            //             score[o[0], 3 - o[1]] = pinFall; //score[1] and score[2] need to be modified
+            //             total[o[0]] += pinFall;
 
-                        bonus.Remove (o);
-                        o[1] -= 1;
-                        bonus.Insert (y, o);
-                    }
-                }
-            }
+            //             bonus.Remove (o);
+            //             o[1] -= 1;
+            //             bonus.Insert (y, o);
+            //         }
+            //     }
+            // }
+
+            applyBonus(pinFall);
 
             if (pinFall == 10 && frame == 10 && displayScore[11, 0] == "X") { //frame 10 3rd strike
                 displayScore[frame, roll] = "X";
-            } else if (total[frame] == 9) { //spare
+            } else if (total[frame] == 10) { //spare
                 displayScore[frame, roll] = "/";
 
                 int[] b = new int[2];
