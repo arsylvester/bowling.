@@ -284,6 +284,59 @@
 						<ActiveSource Name="Mechanical" ID="{4492257E-E4DF-4A3D-9DFC-BA21F4FC8018}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
+				<Sound Name="Intense CRT" ID="{418F983C-607B-4A39-AC4A-81F783F65FB5}" ShortID="242104463">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FFA48498-EF4F-4809-8AEB-529CA18FD4FF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{53D93E22-ECEB-43BE-99C3-7B70AE8EA072}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Intense CRT" ID="{3AC24D4D-8AF4-44B5-B073-B888D3D2E44B}">
+							<Language>SFX</Language>
+							<AudioFile>Intense CRT.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="991547222"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Intense CRT" ID="{3AC24D4D-8AF4-44B5-B073-B888D3D2E44B}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Ragtime_Cut_Short" ID="{C6226C0D-8711-45F6-98EC-1659F07DF0F2}" ShortID="1012168472">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FFA48498-EF4F-4809-8AEB-529CA18FD4FF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{53D93E22-ECEB-43BE-99C3-7B70AE8EA072}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Ragtime_Cut_Short" ID="{8A2B52EA-04E8-45AA-859F-FCC240FF1000}">
+							<PropertyList>
+								<Property Name="FadeInDuration" Type="Real64" Value="0.469685838824283"/>
+								<Property Name="FadeOutDuration" Type="Real64" Value="0.176132189559105"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimBegin" Type="Real64" Value="41.0388001672713"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>Ragtime_Cut_Short.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="462004310"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Ragtime_Cut_Short" ID="{8A2B52EA-04E8-45AA-859F-FCC240FF1000}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
