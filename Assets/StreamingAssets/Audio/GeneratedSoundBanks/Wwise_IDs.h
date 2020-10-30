@@ -16,8 +16,14 @@ namespace AK
         static const AkUniqueID BALLHIT = 4066630945U;
         static const AkUniqueID BALLRETURN = 1692875524U;
         static const AkUniqueID CRT = 731352134U;
+        static const AkUniqueID FINALSOUNDS = 2690523175U;
         static const AkUniqueID PINHIT = 2039252157U;
     } // namespace EVENTS
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID MASTERVOLUME = 2918011349U;
+    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {
