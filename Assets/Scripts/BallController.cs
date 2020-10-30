@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class BallController : MonoBehaviour
@@ -21,43 +22,61 @@ public class BallController : MonoBehaviour
     public float speedModifyer2;
     public float showDistanceX;
     public float showDistanceY;
-    public Vector2 showDifVec;
+    public Vector2 showAverageVelocity;
     public Vector2 showCurrentMouse;
     public float showDifference;
+
+    const int THROW_MOVE_SIZE = 100;
+    const float FIXED_FRAME_TIME = .02f;
+    private Vector2[] throwingMovements = new Vector2[THROW_MOVE_SIZE];
+    private int currentMove = 0;
+    private Vector2 screenScale;
 
     private AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
         audio = GetComponent<AudioSource>();
+        screenScale = new Vector2(Screen.width / 100, Screen.height / 100);
     }
     
-    void Update()
+    void FixedUpdate()
     {
         if (PlayerController.lookingAt == 0)
         {
-            if (thisBallInHand && !launching && Input.GetAxis("Fire1") == 1)
+            if (thisBallInHand && Input.GetAxis("Fire1") == 1)
             {
                 launching = true;
+
+                throwingMovements[currentMove] = Input.mousePosition / screenScale;
+                currentMove++;
+                if (currentMove >= THROW_MOVE_SIZE)
+                    currentMove = 0;
+
                 startMousePos = Input.mousePosition;
                 startTime = Time.time;
             }
 
             if(thisBallInHand && launching && Input.GetAxis("Fire1") == 0)
             {
-                Vector2 CurrentMousePos = Input.mousePosition;
-                showCurrentMouse = CurrentMousePos;
-                Vector2 difference = CurrentMousePos - startMousePos;
-                showDifVec = difference;
-                float distance = difference.magnitude;
-                showDifference = distance;
-                showDistanceX = difference.x;
-                showDistanceY = difference.y;
-                float finalTime = Time.time - startTime;
-                ballSpeed = Mathf.Abs((distance / finalTime) * speedModifyer);
+                Vector2 averageVelocity = getAverageVelocity();
+
+                //Vector2 CurrentMousePos = Input.mousePosition;
+                //showCurrentMouse = CurrentMousePos;
+                //Vector2 difference = CurrentMousePos - startMousePos;
+                //showDifVec = difference;
+                //float distance = difference.magnitude;
+                //showDifference = distance;
+                //showDistanceX = difference.x;
+                //showDistanceY = difference.y;
+                //float finalTime = Time.time - startTime;
+                //ballSpeed = Mathf.Abs((distance / finalTime) * speedModifyer);
+                showAverageVelocity = averageVelocity;
+                ballSpeed = Mathf.Sqrt(averageVelocity.magnitude);
                 LaunchBall();
-                GetComponent<Rigidbody>().angularVelocity = new Vector3(ballSpeed * speedModifyer2, 0f, (-1) * (difference.x / startTime) * speedModifyer2);
+                GetComponent<Rigidbody>().angularVelocity = new Vector3(averageVelocity.y * speedModifyer2, 0f, (-1) * averageVelocity.x * speedModifyer2);
                 showAngularVel = GetComponent<Rigidbody>().angularVelocity;
+                launching = false;
             }
         }
         showVel = GetComponent<Rigidbody>().velocity;
@@ -111,6 +130,25 @@ public class BallController : MonoBehaviour
         GetComponent<Rigidbody>().velocity = vel;
         PlayerController.holding = null;
     }
+
+    private Vector2 getAverageVelocity()
+    {
+        print("in average velocity");
+        Vector2 result = new Vector2(0, 0);
+        Vector2 temp = throwingMovements[0] - throwingMovements[1];
+        print(temp);
+        int nullCount = 0;
+        for(int i = 0; i < THROW_MOVE_SIZE - 1; i++)
+        {
+            Vector2 difference = throwingMovements[i + 1] - throwingMovements[i];
+            result += difference;
+            if (difference.magnitude == 0)
+                nullCount++;
+        }
+        print(result);
+        return (result / (THROW_MOVE_SIZE - 1 - nullCount)) / FIXED_FRAME_TIME;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "PlayArea")
