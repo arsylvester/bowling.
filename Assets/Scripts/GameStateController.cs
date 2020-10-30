@@ -64,7 +64,7 @@ public class GameStateController : MonoBehaviour
 
     private IEnumerator fadeInEnd()
     {
-        //AkSoundEngine.PostEvent("FinalSounds", gameObject);
+        AkSoundEngine.PostEvent("FinalSounds", gameObject);
 
         float alpha = white.color.a;
         while (alpha < 1)
