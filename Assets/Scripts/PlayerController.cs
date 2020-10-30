@@ -113,13 +113,37 @@ public class PlayerController : MonoBehaviour
                     bowlingCamera.transform.rotation = Quaternion.Euler(bowlingCamera.transform.rotation.x, currentRotY, bowlingCamera.transform.rotation.z);
                 }
             }
+
+            if(Input.GetAxis("Rotation Reset") != 0)
+            {
+                if(currentRotY > 0)
+                {
+                    currentRotY -= rotationSpeed * Time.deltaTime;
+                }
+                if(currentRotY < 0)
+                {
+                    currentRotY += rotationSpeed * Time.deltaTime;
+                }
+                transform.rotation = Quaternion.Euler(transform.rotation.x, currentRotY, transform.rotation.z);
+                bowlingCamera.transform.rotation = Quaternion.Euler(bowlingCamera.transform.rotation.x, currentRotY, bowlingCamera.transform.rotation.z);
+            }
         }
     }
 
-    void ChangeCamera(CinemachineVirtualCamera newCamera)
+    void ChangeCamera(CinemachineVirtualCamera newCamera, bool unpause = true)
     {
         newCamera.gameObject.SetActive(true);
         currentCamera.gameObject.SetActive(false);
         currentCamera = newCamera;
+        
+        if(unpause)
+            FindObjectOfType<PauseMenuController>().Unpause();
     }
+
+    public void ChangeCameraToScore() {
+        lookingAt = INBETWEEN;
+        toLookAt = SCORE_SCREEN;
+        ChangeCamera(scoreCamera, false);
+    }
+
 }
