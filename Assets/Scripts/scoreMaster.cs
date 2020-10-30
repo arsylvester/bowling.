@@ -209,6 +209,7 @@ public class scoreMaster : MonoBehaviour {
     void advanceFrame () {
         frame++;
         roll = 0;
+        GetComponent<GameStateController>().NewFrame(frame);
 
         foreach (GameObject pin in pin_script.pins) {
             pin.transform.rotation = pin.GetComponent<pinScript>().defaultRot;
