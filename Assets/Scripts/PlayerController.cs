@@ -135,15 +135,17 @@ public class PlayerController : MonoBehaviour
         newCamera.gameObject.SetActive(true);
         currentCamera.gameObject.SetActive(false);
         currentCamera = newCamera;
-        
+
         if(unpause)
             FindObjectOfType<PauseMenuController>().Unpause();
     }
 
     public void ChangeCameraToScore() {
-        lookingAt = INBETWEEN;
-        toLookAt = SCORE_SCREEN;
-        ChangeCamera(scoreCamera, false);
+        if(lookingAt != SCORE_SCREEN) {
+            lookingAt = INBETWEEN;
+            toLookAt = SCORE_SCREEN;
+            ChangeCamera(scoreCamera, false);
+        }
     }
 
 }
