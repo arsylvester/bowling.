@@ -112,6 +112,14 @@ public class scoreMaster : MonoBehaviour {
 
         //remove pin obscuring object
 
+        //Final roll actions
+        if (frame == 10 && displayScore[9,1] == "/"){
+            GetComponent<GameStateController> ().finalRoll();
+        }
+        else if (frame == 10 && roll == 1 && displayScore[9,0] == "X") {
+            GetComponent<GameStateController> ().finalRoll();
+        }
+
         //respawn ball in ball return
         bowler.GetComponent<Rigidbody>().useGravity = false;
         bowler.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -309,9 +317,15 @@ public class scoreMaster : MonoBehaviour {
             pin.transform.rotation = pin.GetComponent<pinScript> ().defaultRot;
             pin.transform.position = pin.GetComponent<pinScript> ().defaultPos;
         }
+        for (int z = 0; z < knocked_pins.Length; z++){
+            if (knocked_pins[z] != null)
+                knocked_pins[z] = null;
+        }
     }
 
     public void skipToFrameTen (){
+        pin_script.getKnockedInt();
+        
         for (int x = 0; x < 10; x++) {
             total[x] = 6;
             for (int y = 0; y < 2; y++) {
