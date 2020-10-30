@@ -11,10 +11,22 @@ public class Lights : MonoBehaviour {
 
     private bool isFlickering;
 
+    private static bool arraysSet;
+    private static Material[] onMaterialArray = new Material[2];
+    private static Material[] offMaterialArray = new Material[2];
+
     private void Awake() {
         if(offByDefault)
             SetLight(false);
         isFlickering = false;
+
+        if(!arraysSet) {
+            arraysSet = true;
+            onMaterialArray[0] = materialObj.material;
+            onMaterialArray[1] = onMaterial;
+            offMaterialArray[0] = materialObj.material;
+            offMaterialArray[1] = offMaterial;
+        }
     }
 
     public void SetLight(bool active) {
@@ -23,10 +35,12 @@ public class Lights : MonoBehaviour {
 
         lightObj.SetActive(active);
         if(onMaterial && offMaterial) {
-            if(active)
-                materialObj.material = onMaterial;
-            else
-                materialObj.material = offMaterial;
+            if(active) {
+                Debug.Log(materialObj.materials[1]);
+                materialObj.materials = onMaterialArray;
+            } else {
+                materialObj.materials = offMaterialArray;
+            }
         }
     }
 

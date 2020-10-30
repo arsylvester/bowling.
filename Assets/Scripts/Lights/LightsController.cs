@@ -17,12 +17,13 @@ public class LightsController : MonoBehaviour {
     }
 
     private IEnumerator FlickerRandomly() {
-        float waitTime = 20f;
+        float waitTime;
         float length = 0.5f;
         int amount = 4;
         float delay = Random.Range(1f, 3f);
 
         while(true) {
+            waitTime = Random.Range(15f, 20f);
             yield return new WaitForSecondsRealtime(waitTime);
             FlickerRandomLight(length, amount, delay);
         }

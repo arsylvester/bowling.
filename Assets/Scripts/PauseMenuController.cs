@@ -17,8 +17,9 @@ public class PauseMenuController : MonoBehaviour {
     [Header("Menu Objects")]
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject menuButtons;
+    [SerializeField] private GameObject scoreboard;
 
-    private CameraController cameraController;
+    private PlayerController cam;
     [HideInInspector] public bool paused;
 
     private void Start() {
@@ -26,11 +27,12 @@ public class PauseMenuController : MonoBehaviour {
         paused = false;
         pauseMenu.SetActive(false);
         menuButtons.SetActive(false);
-        cameraController = FindObjectOfType<CameraController>();
+        cam = FindObjectOfType<PlayerController>();
     }
 
     void Update() {
         if(Input.GetKeyDown(KeyCode.Escape)) {
+            Debug.Log("test");
             // Pause
             if(!paused)
                 Pause();
@@ -61,22 +63,27 @@ public class PauseMenuController : MonoBehaviour {
     }
 
     private void Pause() {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
+        paused = true;
+        Debug.Log("pause");
         pauseMenu.SetActive(true);
+        scoreboard.SetActive(false);
         menuButtons.SetActive(true);
-        cameraController.PauseCamera();
+        cam.ChangeCameraToScore();
     }
 
-    private void Unpause() {
-        Time.timeScale = 1;
-        menuButtons.SetActive(false);
-        cameraController.UnpauseCamera();
-        StartCoroutine(DisableMenuTimer(0.5f));
-    }
-
-    private IEnumerator DisableMenuTimer(float time) {
-        yield return new WaitForSeconds(time);
+    public void Unpause() {
+        //Time.timeScale = 1;
+        paused = false;
+        Debug.Log("unpause");
         pauseMenu.SetActive(false);
+        scoreboard.SetActive(true);
+        menuButtons.SetActive(false);
+
+        currentPage = title;
+        title.SetActive(true);
+        controlPage.SetActive(false);
+        creditPage.SetActive(false);
     }
 
     private void controlsPage() {
