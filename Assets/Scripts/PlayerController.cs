@@ -20,6 +20,12 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed;
 
+    private float currentRotY;
+    public float minRotY;
+    public float maxRotY;
+
+    public float rotationSpeed;
+
     public static BallController holding;
 
     [SerializeField] CinemachineVirtualCamera bowlingCamera;
@@ -35,6 +41,7 @@ public class PlayerController : MonoBehaviour
         currentCamera.gameObject.SetActive(true);
         cameraBrain = GetComponentInChildren<CinemachineBrain>();
         currentX = transform.position.x;
+        currentRotY = transform.rotation.y;
     }
 
     // Update is called once per frame
@@ -49,24 +56,37 @@ public class PlayerController : MonoBehaviour
         {
             lookingAt = toLookAt;
         }
-
-        if (lookingAt == LANE)
+        
+        if(lookingAt != INBETWEEN)
         {
-            if (Input.GetAxis("Switch View") > 0)
+            if (lookingAt != LANE && Input.GetAxis("Vertical") > 0)
             {
+                transform.position = new Vector3(currentX, transform.position.y, transform.position.z);
+                lookingAt = INBETWEEN;
+                toLookAt = LANE;
+                ChangeCamera(bowlingCamera);
+            }
+
+            if (lookingAt != BALL_RETURN && Input.GetAxis("Switch View") > 0)
+            {
+                transform.position = new Vector3(currentX - 10.0f, transform.position.y, transform.position.z);
                 toLookAt = BALL_RETURN;
                 lookingAt = INBETWEEN;
                 ChangeCamera(ballsCamera);
             }
 
-            if(Input.GetAxis("Vertical") > 0)
+            if (lookingAt != SCORE_SCREEN && Input.GetAxis("Switch View") < 0)
             {
                 lookingAt = INBETWEEN;
                 toLookAt = SCORE_SCREEN;
                 ChangeCamera(scoreCamera);
             }
+        }
 
-            if(Input.GetAxis("Horizontal") != 0)
+        if (lookingAt == LANE)
+        {
+            //&& Input.GetAxis("Fire2") == 0
+            if (Input.GetAxis("Horizontal") != 0)
             {
                 currentX += Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
 
@@ -78,30 +98,33 @@ public class PlayerController : MonoBehaviour
                 transform.position = new Vector3(currentX, transform.position.y, transform.position.z);
                 bowlingCamera.transform.position = new Vector3(currentX, bowlingCamera.transform.position.y, bowlingCamera.transform.position.z);
             }
+
+            if(Input.GetAxis("Fire2") == 1)
+            {
+                if (Input.GetAxis("Mouse X") != 0)
+                {
+                    currentRotY += Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
+
+                    if (currentRotY < minRotY)
+                        currentRotY = minRotY;
+                    if (currentRotY > maxRotY)
+                        currentRotY = maxRotY;
+
+                    transform.rotation = Quaternion.Euler(transform.rotation.x, currentRotY, transform.rotation.z);
+                    bowlingCamera.transform.rotation = Quaternion.Euler(bowlingCamera.transform.rotation.x, currentRotY, bowlingCamera.transform.rotation.z);
+                }
+            }
         }
 
+        /*
         if (lookingAt == BALL_RETURN)
         {
-            transform.position = new Vector3(currentX - 10.0f, transform.position.y, transform.position.z);
-
-            if (Input.GetAxis("Switch View") < 0)
-            {
-                transform.position = new Vector3(currentX, transform.position.y, transform.position.z);
-                toLookAt = LANE;
-                lookingAt = INBETWEEN;
-                ChangeCamera(bowlingCamera);
-            }
         }
 
         if(lookingAt == SCORE_SCREEN)
         {
-            if(Input.GetAxis("Vertical") < 0)
-            {
-                toLookAt = LANE;
-                lookingAt = INBETWEEN;
-                ChangeCamera(bowlingCamera);
-            }
         }
+        */
     }
 
     void ChangeCamera(CinemachineVirtualCamera newCamera)
