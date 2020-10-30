@@ -127,7 +127,10 @@ public class scoreMaster : MonoBehaviour {
         for (int j = 0; j < 11; j++) {
             string t = "";
             for (int k = 0; k < 2; k++) {
-                t += displayScore[j, k] + " ";
+                t += displayScore[j, k];
+                if (j != 9){
+                    t += " ";
+                }
             }
             if (j == 10) { //frame 11
                 rollText[9].text += t;

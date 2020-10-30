@@ -9,25 +9,20 @@ public class BallController : MonoBehaviour
     public GameObject player;
     public Transform ballHolder;
     public Transform ballReturnPosition;
-    public float ballSpeed = 10.0f;
+    public float ballSpeed;
     private static Boolean anyBallInHand = false;
     private Boolean thisBallInHand = false;
     public Vector3 showVel;
     public Vector3 showAngularVel;
 
-    public Vector2 startMousePos;
-    private float startTime;
     private Boolean launching = false;
     public float speedModifyer = 5.5f;
     public float speedModifyer2;
-    public float showDistanceX;
-    public float showDistanceY;
     public Vector2 showAverageVelocity;
     public Vector2 showCurrentMouse;
     public float showDifference;
 
     const int THROW_MOVE_SIZE = 100;
-    const float FIXED_FRAME_TIME = .02f;
     private Vector2[] throwingMovements = new Vector2[THROW_MOVE_SIZE];
     private int currentMove = 0;
     private Vector2 screenScale;
@@ -51,28 +46,14 @@ public class BallController : MonoBehaviour
                 throwingMovements[currentMove] = Input.mousePosition / screenScale;
                 //print(throwingMovements[currentMove]);
                 incrementCurrentMove();
-
-                startMousePos = Input.mousePosition;
-                startTime = Time.time;
             }
 
             if(thisBallInHand && launching && Input.GetAxis("Fire1") == 0)
             {
                 Vector2 averageVelocity = getAverageVelocity();
-
-                //Vector2 CurrentMousePos = Input.mousePosition;
-                //showCurrentMouse = CurrentMousePos;
-                //Vector2 difference = CurrentMousePos - startMousePos;
-                //showDifVec = difference;
-                //float distance = difference.magnitude;
-                //showDifference = distance;
-                //showDistanceX = difference.x;
-                //showDistanceY = difference.y;
-                //float finalTime = Time.time - startTime;
-                //ballSpeed = Mathf.Abs((distance / finalTime) * speedModifyer);
                 showAverageVelocity = averageVelocity;
-                print(averageVelocity);
-                //ballSpeed = averageVelocity.magnitude;
+                //print(averageVelocity);
+
                 float modifiedVectorMagnitude = Mathf.Sqrt(Mathf.Pow(averageVelocity.x, 2f) + Mathf.Pow(averageVelocity.y / 2, 2f));
                 ballSpeed = Mathf.Log(modifiedVectorMagnitude, 2) * speedModifyer;
                 print(ballSpeed);
@@ -149,13 +130,13 @@ public class BallController : MonoBehaviour
             else
             {
                 Vector2 difference = throwingMovements[move2] - throwingMovements[move1];
-                print(throwingMovements[move2] + " - " + throwingMovements[move1] + " = " + difference);
+                //print(throwingMovements[move2] + " - " + throwingMovements[move1] + " = " + difference);
                 result += difference;
                 if (difference == Vector2.zero)
                     nullCount++;
             }
         }
-        print(result);
+        //print(result);
         return result / (THROW_MOVE_SIZE - 1 - nullCount);
     }
 
