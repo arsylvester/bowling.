@@ -19,10 +19,8 @@ public class BallController : MonoBehaviour
     public float speedModifyer = 5.5f;
     public float speedModifyer2;
     public Vector2 showAverageVelocity;
-    public Vector2 showCurrentMouse;
-    public float showDifference;
 
-    const int THROW_MOVE_SIZE = 100;
+    const int THROW_MOVE_SIZE = 25;
     private Vector2[] throwingMovements = new Vector2[THROW_MOVE_SIZE];
     private int currentMove = 0;
     private Vector2 screenScale;

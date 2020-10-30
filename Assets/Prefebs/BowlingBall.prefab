@@ -104,7 +104,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3559622199897173496}
   serializedVersion: 2
-  m_Mass: 100
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -133,8 +133,6 @@ MonoBehaviour:
   speedModifyer: 5.5
   speedModifyer2: 0
   showAverageVelocity: {x: 0, y: 0}
-  showCurrentMouse: {x: 0, y: 0}
-  showDifference: 0
 --- !u!114 &3559622199897173473
 MonoBehaviour:
   m_ObjectHideFlags: 0
