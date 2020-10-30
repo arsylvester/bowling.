@@ -130,10 +130,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void ChangeCamera(CinemachineVirtualCamera newCamera)
+    void ChangeCamera(CinemachineVirtualCamera newCamera, bool unpause = true)
     {
         newCamera.gameObject.SetActive(true);
         currentCamera.gameObject.SetActive(false);
         currentCamera = newCamera;
+        
+        if(unpause)
+            FindObjectOfType<PauseMenuController>().Unpause();
     }
+
+    public void ChangeCameraToScore() {
+        lookingAt = INBETWEEN;
+        toLookAt = SCORE_SCREEN;
+        ChangeCamera(scoreCamera, false);
+    }
+
 }
