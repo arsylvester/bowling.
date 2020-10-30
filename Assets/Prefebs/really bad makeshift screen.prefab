@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 800027168}
   - component: {fileID: 800027171}
-  - component: {fileID: 800027170}
   - component: {fileID: 800027169}
   m_Layer: 0
   m_Name: Score Camera
@@ -76,14 +75,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &800027170
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 800027167}
-  m_Enabled: 1
 --- !u!114 &800027169
 MonoBehaviour:
   m_ObjectHideFlags: 0
