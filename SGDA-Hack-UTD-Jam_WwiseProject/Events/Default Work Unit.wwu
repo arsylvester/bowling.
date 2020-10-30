@@ -101,6 +101,39 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Strike" ID="{16010E85-9C94-40AD-B211-6390FF695CBD}">
+					<ChildrenList>
+						<Action Name="" ID="{F96CAF98-7497-4366-85C4-2CAFCF7B1099}" ShortID="1059775115">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Strike" ID="{FF40FAD4-130A-4AEC-85A4-027A326580CE}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Spare" ID="{1B557833-5DC7-4145-AA36-B1AD3C3FD303}">
+					<ChildrenList>
+						<Action Name="" ID="{A1935944-E2AC-46E2-BAEA-CE0E54150B43}" ShortID="718251065">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Mechanical" ID="{C5DF9C55-0209-46C2-9BE8-674CC4B771A8}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Score" ID="{63BE9ADB-9C08-42BB-838C-18BDDF03F796}">
+					<ChildrenList>
+						<Action Name="" ID="{FF4570F2-A58E-469D-BA31-FF86754A6631}" ShortID="921618601">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Creepy_End_Of_Broadcast_Day" ID="{9BBB4107-F938-4C7C-83C6-2EDE41859AEA}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

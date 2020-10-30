@@ -20,6 +20,9 @@ namespace AK
         static const AkUniqueID FINALSOUNDS = 2690523175U;
         static const AkUniqueID LIGHTS = 3192784746U;
         static const AkUniqueID PINHIT = 2039252157U;
+        static const AkUniqueID SCORE = 2398231425U;
+        static const AkUniqueID SPARE = 155090442U;
+        static const AkUniqueID STRIKE = 4110605575U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS
@@ -32,6 +35,7 @@ namespace AK
         static const AkUniqueID INIT = 1355168291U;
         static const AkUniqueID AMBIENT = 77978275U;
         static const AkUniqueID PROPS = 968010305U;
+        static const AkUniqueID SPEAKER = 2748973500U;
     } // namespace BANKS
 
     namespace BUSSES

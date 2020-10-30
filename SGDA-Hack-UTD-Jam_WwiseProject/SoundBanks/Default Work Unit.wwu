@@ -22,6 +22,15 @@
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
 				</SoundBank>
+				<SoundBank Name="Speaker" ID="{AEBD7ED2-B4F8-4DC7-A323-AA82BD2D5EFF}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Strike" ID="{16010E85-9C94-40AD-B211-6390FF695CBD}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Spare" ID="{1B557833-5DC7-4145-AA36-B1AD3C3FD303}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Score" ID="{63BE9ADB-9C08-42BB-838C-18BDDF03F796}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
 			</ChildrenList>
 		</WorkUnit>
 	</SoundBanks>

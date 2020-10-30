@@ -42,7 +42,7 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="968010305" Language="SFX" Hash="1442446704">
+		<SoundBank Id="968010305" Language="SFX" Hash="4255383419">
 			<ObjectPath>\SoundBanks\Default Work Unit\Props</ObjectPath>
 			<ShortName>Props</ShortName>
 			<Path>Props.bnk</Path>
@@ -64,6 +64,10 @@
 						<File Id="446046462" Language="SFX">
 							<ShortName>Thud1Short.wav</ShortName>
 							<Path>SFX\Thud1Short_10C4C929.wem</Path>
+						</File>
+						<File Id="640615964" Language="SFX">
+							<ShortName>Thud2.wav</ShortName>
+							<Path>SFX\Thud2_10C4C929.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -92,6 +96,37 @@
 			<GameParameters>
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\MasterVolume"/>
 			</GameParameters>
+		</SoundBank>
+		<SoundBank Id="2748973500" Language="SFX" Hash="27425055">
+			<ObjectPath>\SoundBanks\Default Work Unit\Speaker</ObjectPath>
+			<ShortName>Speaker</ShortName>
+			<Path>Speaker.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2398231425" Name="Score" ObjectPath="\Events\Default Work Unit\Score" DurationType="OneShot" DurationMin="1.307191" DurationMax="1.307191">
+					<IncludedMemoryFiles>
+						<File Id="71925337" Language="SFX">
+							<ShortName>Creepy_End_Of_Broadcast_Day.wav</ShortName>
+							<Path>SFX\Creepy_End_Of_Broadcast_Day_9E3E1C62.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="155090442" Name="Spare" ObjectPath="\Events\Default Work Unit\Spare" MaxAttenuation="90.000000" DurationType="OneShot" DurationMin="1.348833" DurationMax="1.348833">
+					<IncludedMemoryFiles>
+						<File Id="595865052" Language="SFX">
+							<ShortName>Mechanical.wav</ShortName>
+							<Path>SFX\Mechanical_75F2C9FD.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4110605575" Name="Strike" ObjectPath="\Events\Default Work Unit\Strike" MaxAttenuation="90.000000" DurationType="OneShot" DurationMin="1.292340" DurationMax="1.452279">
+					<IncludedMemoryFiles>
+						<File Id="257187427" Language="SFX">
+							<ShortName>Strike.wav</ShortName>
+							<Path>SFX\Strike_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>

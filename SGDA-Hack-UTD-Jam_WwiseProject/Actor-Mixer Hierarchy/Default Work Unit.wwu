@@ -207,6 +207,34 @@
 								<ActiveSource Name="Thud1Short" ID="{D158E928-2E0F-4192-8E9A-8A6B03A4968A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="Thud2" ID="{52067C13-3A37-43DC-A6B9-F7041EDB7543}" ShortID="472760339">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="Props" ID="{A7C04FE9-C8EE-445A-B7FC-F59B1B27DC57}" WorkUnitID="{02B41AA9-7624-48CE-9E96-2B89033F808F}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FFA48498-EF4F-4809-8AEB-529CA18FD4FF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{53D93E22-ECEB-43BE-99C3-7B70AE8EA072}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Thud2" ID="{F5457598-2DB7-4A2D-B81C-6F7C76751910}">
+									<Language>SFX</Language>
+									<AudioFile>Thud2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="640615964"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Thud2" ID="{F5457598-2DB7-4A2D-B81C-6F7C76751910}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
 				<Sound Name="Mechanical" ID="{C5DF9C55-0209-46C2-9BE8-674CC4B771A8}" ShortID="509151055">
@@ -260,28 +288,6 @@
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="Mechanical" ID="{4492257E-E4DF-4A3D-9DFC-BA21F4FC8018}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
-				<Sound Name="Intense CRT" ID="{418F983C-607B-4A39-AC4A-81F783F65FB5}" ShortID="242104463">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FFA48498-EF4F-4809-8AEB-529CA18FD4FF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{53D93E22-ECEB-43BE-99C3-7B70AE8EA072}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Intense CRT" ID="{3AC24D4D-8AF4-44B5-B073-B888D3D2E44B}">
-							<Language>SFX</Language>
-							<AudioFile>Intense CRT.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="991547222"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Intense CRT" ID="{3AC24D4D-8AF4-44B5-B073-B888D3D2E44B}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Ragtime_Cut_Short" ID="{C6226C0D-8711-45F6-98EC-1659F07DF0F2}" ShortID="1012168472">
@@ -381,6 +387,35 @@
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="Thud2" ID="{40B0C8E9-252C-4680-B21D-38581F95CF61}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Creepy_End_Of_Broadcast_Day" ID="{9BBB4107-F938-4C7C-83C6-2EDE41859AEA}" ShortID="410135394">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FFA48498-EF4F-4809-8AEB-529CA18FD4FF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{53D93E22-ECEB-43BE-99C3-7B70AE8EA072}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Creepy_End_Of_Broadcast_Day" ID="{0472D10A-04CF-4F41-A0FA-AB06C2DD810D}">
+							<PropertyList>
+								<Property Name="FadeInDuration" Type="Real64" Value="0.298375885803411"/>
+								<Property Name="FadeOutDuration" Type="Real64" Value="0.5"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+								<Property Name="TrimBegin" Type="Real64" Value="19.6928084630251"/>
+								<Property Name="TrimEnd" Type="Real64" Value="21"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>Creepy_End_Of_Broadcast_Day.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="71925337"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Creepy_End_Of_Broadcast_Day" ID="{0472D10A-04CF-4F41-A0FA-AB06C2DD810D}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>
