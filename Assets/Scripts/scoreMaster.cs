@@ -15,7 +15,7 @@ public class scoreMaster : MonoBehaviour {
     public TextMesh[] rollText;
     public TextMesh[] totalText;
     public LaneHitbox laneEnd, pinZone;
-    public int frame, roll;
+    public int frame, roll, runningTotal;
     public bool exampleMethodCall;
     public bool inSetup;
 
@@ -32,6 +32,9 @@ public class scoreMaster : MonoBehaviour {
         inSetup = false;
         frame = 0;
         roll = 0;
+        runningTotal = 0;
+
+        printScore();
     }
 
     void Update () {
@@ -76,21 +79,14 @@ public class scoreMaster : MonoBehaviour {
 
         knocked_pins = pin_script.getKnocked ();
         
-        //despawn ball
-        GameObject bowler = pinZone.touchedBy;
-        bowler.SetActive (false);
-
-        //despawn knocked pins
-        foreach (GameObject p in knocked_pins) {
-            if (p != null) {
-                p.SetActive (false);
-            }
-        }
-
         updateScore (pin_script.getKnocked ()); // this is pointless. move the code from updateScore() to here
 
         //display score
         printScore ();
+        
+        //despawn ball
+        GameObject bowler = pinZone.touchedBy;
+        bowler.SetActive (false);
 
         //reset remaining pins
         foreach (GameObject pin in pin_script.pins) {
@@ -103,6 +99,15 @@ public class scoreMaster : MonoBehaviour {
                 pin.GetComponent<Rigidbody> ().angularVelocity = Vector3.zero;
             }
         }
+
+        //despawn knocked pins
+        foreach (GameObject p in knocked_pins) {
+            if (p != null) {
+                p.SetActive (false);
+            }
+        }
+
+        
 
         //remove pin obscuring object
 
@@ -140,8 +145,17 @@ public class scoreMaster : MonoBehaviour {
                     totalText[j].text = "";
                 }
             }
-
         }
+
+        runningTotal = 0;
+        foreach (int frameScore in total)
+        {
+            if (frameScore != -1){
+                runningTotal += frameScore;
+            }
+        }
+
+        totalText[9].text = "" + runningTotal;
     }
 
     void updateScore (GameObject[] knocked) {
@@ -205,14 +219,6 @@ public class scoreMaster : MonoBehaviour {
             score[frame, roll] = pinFall;
             total[frame] += pinFall;
 
-            bool spare = true;
-            foreach (GameObject p in knocked_pins)
-            {
-                if (p.activeSelf){ //if every pin that is active is knocked
-
-                }
-            }
-
             if (bonus.Count != 0) { //if there's an active bonus
                 for (int y = 0; y < bonus.Count; y++) { //I am in pain
                     int[] o = (int[]) bonus[y];
@@ -232,7 +238,7 @@ public class scoreMaster : MonoBehaviour {
 
             if (pinFall == 10 && frame == 11 && displayScore[11, 0] == "X") { //frame 10 3rd strike
                 displayScore[frame, roll] = "X";
-            } else if (pinFall == pin_script.pins.Length) { //spare
+            } else if (total[frame] == 10) { //spare
                 displayScore[frame, roll] = "/";
 
                 int[] b = new int[2];
@@ -262,6 +268,9 @@ public class scoreMaster : MonoBehaviour {
         frame++;
         roll = 0;
         resetPins ();
+        for (int z = 0; z < 10; z++){
+            knocked_pins[z] = null;
+        }
         GetComponent<GameStateController> ().NewFrame (frame);
     }
 
