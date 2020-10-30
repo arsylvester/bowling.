@@ -314,7 +314,8 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 2ec6e1532acb1254f9f3797b5d82db44, type: 3}
   - {fileID: 2800000, guid: 5e98de278b2ccc14f89b76b85596a3f3, type: 3}
   - {fileID: 2800000, guid: ecb23393a0d1b424a82fff68a4c00a66, type: 3}
-  flickerFrequencyBase: 0.1
+  flickerFrequencyBase: 0.05
+  flickerFrequencyIncrease: 0.05
   betweenFlickerTime: 0.3
   randomFlickerTime: 0.1
   callToScore: 0

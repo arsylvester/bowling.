@@ -45,6 +45,7 @@ public class scoreMaster : MonoBehaviour {
             print ("pinZone touched.");
             pinZone.isTouched = false;
             StartCoroutine (timedRollEnd (3f));
+            //pinZone.touchedBy = null;
         }
 
         // if(laneEnd.isTouched){
@@ -62,6 +63,7 @@ public class scoreMaster : MonoBehaviour {
         yield return new WaitForSecondsRealtime (S);
         if (!inSetup) {
             rollEnd ();
+            pinZone.touchedBy = null;
         }
     }
 
@@ -207,8 +209,13 @@ public class scoreMaster : MonoBehaviour {
     void advanceFrame () {
         frame++;
         roll = 0;
+        GetComponent<GameStateController>().NewFrame(frame);
 
         foreach (GameObject pin in pin_script.pins) {
+            pin.transform.rotation = pin.GetComponent<pinScript>().defaultRot;
+            pin.transform.position = pin.GetComponent<pinScript>().defaultPos;
+            pin.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            pin.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             pin.SetActive (true);
         }
     }
