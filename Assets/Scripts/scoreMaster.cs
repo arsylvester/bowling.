@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class scoreMaster : MonoBehaviour {
 
     public pinMasterScript pin_script;
+    [SerializeField] GameObject[] knocked_pins;
     public int[, ] score = new int[11, 3]; //scores for each frame including bonus rolls
     public int[] total = new int[11]; //total score for each frame. Used for dispay on HUD
     public string[, ] displayScore = new string[11, 2]; //string representations of roll scores. Used for dispay on HUD
@@ -14,7 +15,7 @@ public class scoreMaster : MonoBehaviour {
     public TextMesh[] rollText;
     public TextMesh[] totalText;
     public LaneHitbox laneEnd, pinZone;
-    public int frame, roll;
+    public int frame, roll, runningTotal;
     public bool exampleMethodCall;
     public bool inSetup;
 
@@ -31,6 +32,9 @@ public class scoreMaster : MonoBehaviour {
         inSetup = false;
         frame = 0;
         roll = 0;
+        runningTotal = 0;
+
+        printScore();
     }
 
     void Update () {
@@ -68,28 +72,42 @@ public class scoreMaster : MonoBehaviour {
     }
 
     void rollEnd () {
+        print("ROLL END");
         inSetup = true;
 
         //move object to obscure pins from view
 
-        GameObject[] k = pin_script.getKnocked ();
+        knocked_pins = pin_script.getKnocked ();
+        
         updateScore (pin_script.getKnocked ()); // this is pointless. move the code from updateScore() to here
 
         //display score
         printScore ();
-
+        
         //despawn ball
         GameObject bowler = pinZone.touchedBy;
         bowler.SetActive (false);
 
+        //reset remaining pins
+        foreach (GameObject pin in pin_script.pins) {
+            print("checking pin");
+            if (pin != null && pin.activeSelf) {
+                print("pin is not null & is active");
+                pin.transform.rotation = pin.GetComponent<pinScript> ().defaultRot;
+                pin.transform.position = pin.GetComponent<pinScript> ().defaultPos;
+                pin.GetComponent<Rigidbody> ().velocity = Vector3.zero;
+                pin.GetComponent<Rigidbody> ().angularVelocity = Vector3.zero;
+            }
+        }
+
         //despawn knocked pins
-        foreach (GameObject p in k) {
+        foreach (GameObject p in knocked_pins) {
             if (p != null) {
                 p.SetActive (false);
             }
         }
 
-        //reset remaining pins
+        
 
         //remove pin obscuring object
 
@@ -101,22 +119,43 @@ public class scoreMaster : MonoBehaviour {
 
     void printScore () {
         //ROLLS//
-        for (int j = 0; j < 10; j++) {
+        for (int j = 0; j < 11; j++) {
             string t = "";
             for (int k = 0; k < 2; k++) {
                 t += displayScore[j, k] + " ";
             }
-            rollText[j].text = t;
+            if (j == 10) { //frame 11
+                rollText[9].text += t;
+            } else {
+                rollText[j].text = t;
+            }
         }
 
         //TOTALS//
-        for (int j = 0; j < 10; j++) {
-            if (total[j] != -1) {
-                totalText[j].text = "" + total[j];
+        for (int j = 0; j < 11; j++) {
+            if (j == 10) {
+                if (total[j] != -1) {
+                    int sum = total[9] + total[10];
+                    totalText[9].text = "" + sum;
+                }
             } else {
-                totalText[j].text = "";
+                if (total[j] != -1) {
+                    totalText[j].text = "" + total[j];
+                } else {
+                    totalText[j].text = "";
+                }
             }
         }
+
+        runningTotal = 0;
+        foreach (int frameScore in total)
+        {
+            if (frameScore != -1){
+                runningTotal += frameScore;
+            }
+        }
+
+        totalText[9].text = "" + runningTotal;
     }
 
     void updateScore (GameObject[] knocked) {
@@ -159,8 +198,18 @@ public class scoreMaster : MonoBehaviour {
                 b[1] = 2; //amount of bonus rolls
                 bonus.Add (b);
 
-                //skip to next frame
-                advanceFrame ();
+                if (frame != 11) {
+                    //skip to next frame
+                    advanceFrame ();
+                } else {
+                    if (displayScore[10, 1] == "/") {
+                        //GAME OVER
+                    } else {
+                        resetPins ();
+                        roll++;
+                    }
+                }
+
             } else {
                 //adjust displayScore
                 displayScore[frame, roll] = "" + pinFall;
@@ -187,36 +236,52 @@ public class scoreMaster : MonoBehaviour {
                 }
             }
 
-            if (pinFall == pin_script.pins.Length) { //spare
+            if (pinFall == 10 && frame == 11 && displayScore[11, 0] == "X") { //frame 10 3rd strike
+                displayScore[frame, roll] = "X";
+            } else if (total[frame] == 10) { //spare
                 displayScore[frame, roll] = "/";
 
-                //enqueue 1 bonus roll
                 int[] b = new int[2];
                 b[0] = frame;
                 b[1] = 1;
                 bonus.Add (b);
             } else {
                 displayScore[frame, roll] = "" + pinFall;
+                if (frame == 10) {
+                    //GAME OVER
+                }
             }
 
-            //continue to next frame
-            advanceFrame ();
+            if (frame == 11) {
+                //GAME OVER
+            } else {
+                //continue to next frame   
+                advanceFrame ();
+            }
         } else {
             print ("HOW?!");
         }
     }
 
     void advanceFrame () {
+        print("Frame advanced.");
         frame++;
         roll = 0;
-        GetComponent<GameStateController>().NewFrame(frame);
+        resetPins ();
+        for (int z = 0; z < 10; z++){
+            knocked_pins[z] = null;
+        }
+        GetComponent<GameStateController> ().NewFrame (frame);
+    }
 
+    void resetPins () {
         foreach (GameObject pin in pin_script.pins) {
-            pin.transform.rotation = pin.GetComponent<pinScript>().defaultRot;
-            pin.transform.position = pin.GetComponent<pinScript>().defaultPos;
-            pin.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            pin.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             pin.SetActive (true);
+            print(pin);
+            pin.GetComponent<Rigidbody> ().velocity = Vector3.zero;
+            pin.GetComponent<Rigidbody> ().angularVelocity = Vector3.zero;
+            pin.transform.rotation = pin.GetComponent<pinScript> ().defaultRot;
+            pin.transform.position = pin.GetComponent<pinScript> ().defaultPos;
         }
     }
 }
