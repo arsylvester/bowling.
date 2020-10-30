@@ -112,6 +112,7 @@ public class scoreMaster : MonoBehaviour {
         //remove pin obscuring object
 
         //respawn ball in ball return
+        bowler.SetActive (true);
 
         StartCoroutine (timedWait (0.6f));
         inSetup = false;
