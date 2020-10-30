@@ -331,6 +331,6 @@ public class scoreMaster : MonoBehaviour {
         }
 
         //perform spooky actions
-
+        GameStateController._instance.EndGame();
     }
 }
