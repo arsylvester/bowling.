@@ -85,7 +85,6 @@ public class PlayerController : MonoBehaviour
 
         if (lookingAt == LANE)
         {
-            //&& Input.GetAxis("Fire2") == 0
             if (Input.GetAxis("Horizontal") != 0)
             {
                 currentX += Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
@@ -115,16 +114,6 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-
-        /*
-        if (lookingAt == BALL_RETURN)
-        {
-        }
-
-        if(lookingAt == SCORE_SCREEN)
-        {
-        }
-        */
     }
 
     void ChangeCamera(CinemachineVirtualCamera newCamera)

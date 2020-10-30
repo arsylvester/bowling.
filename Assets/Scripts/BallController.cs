@@ -18,7 +18,7 @@ public class BallController : MonoBehaviour
     public Vector2 startMousePos;
     private float startTime;
     private Boolean launching = false;
-    public float speedModifyer = 0.7f;
+    public float speedModifyer = 5.5f;
     public float speedModifyer2;
     public float showDistanceX;
     public float showDistanceY;
@@ -49,9 +49,8 @@ public class BallController : MonoBehaviour
                 launching = true;
 
                 throwingMovements[currentMove] = Input.mousePosition / screenScale;
-                currentMove++;
-                if (currentMove >= THROW_MOVE_SIZE)
-                    currentMove = 0;
+                //print(throwingMovements[currentMove]);
+                incrementCurrentMove();
 
                 startMousePos = Input.mousePosition;
                 startTime = Time.time;
@@ -72,7 +71,11 @@ public class BallController : MonoBehaviour
                 //float finalTime = Time.time - startTime;
                 //ballSpeed = Mathf.Abs((distance / finalTime) * speedModifyer);
                 showAverageVelocity = averageVelocity;
-                ballSpeed = Mathf.Sqrt(averageVelocity.magnitude);
+                print(averageVelocity);
+                //ballSpeed = averageVelocity.magnitude;
+                float modifiedVectorMagnitude = Mathf.Sqrt(Mathf.Pow(averageVelocity.x, 2f) + Mathf.Pow(averageVelocity.y / 2, 2f));
+                ballSpeed = Mathf.Log(modifiedVectorMagnitude, 2) * speedModifyer;
+                print(ballSpeed);
                 LaunchBall();
                 GetComponent<Rigidbody>().angularVelocity = new Vector3(averageVelocity.y * speedModifyer2, 0f, (-1) * averageVelocity.x * speedModifyer2);
                 showAngularVel = GetComponent<Rigidbody>().angularVelocity;
@@ -133,20 +136,35 @@ public class BallController : MonoBehaviour
 
     private Vector2 getAverageVelocity()
     {
-        print("in average velocity");
         Vector2 result = new Vector2(0, 0);
-        Vector2 temp = throwingMovements[0] - throwingMovements[1];
-        print(temp);
         int nullCount = 0;
         for(int i = 0; i < THROW_MOVE_SIZE - 1; i++)
         {
-            Vector2 difference = throwingMovements[i + 1] - throwingMovements[i];
-            result += difference;
-            if (difference.magnitude == 0)
+            int move1 = currentMove;
+            int move2 = incrementCurrentMove();
+            if (throwingMovements[move1] == Vector2.zero || throwingMovements[move2] == Vector2.zero)
+            {
                 nullCount++;
+            }
+            else
+            {
+                Vector2 difference = throwingMovements[move2] - throwingMovements[move1];
+                print(throwingMovements[move2] + " - " + throwingMovements[move1] + " = " + difference);
+                result += difference;
+                if (difference == Vector2.zero)
+                    nullCount++;
+            }
         }
         print(result);
-        return (result / (THROW_MOVE_SIZE - 1 - nullCount)) / FIXED_FRAME_TIME;
+        return result / (THROW_MOVE_SIZE - 1 - nullCount);
+    }
+
+    private int incrementCurrentMove()
+    {
+        currentMove++;
+        if (currentMove >= THROW_MOVE_SIZE)
+            currentMove = 0;
+        return currentMove;
     }
 
     private void OnCollisionEnter(Collision collision)
