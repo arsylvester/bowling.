@@ -10,6 +10,7 @@ public class RenderSelector : MonoBehaviour
     [SerializeField] MeshRenderer Screen;
     [SerializeField] Texture[] flickerArray;
     [SerializeField] float flickerFrequencyBase;
+    [SerializeField] float flickerFrequencyIncrease = .1f;
     [SerializeField] float betweenFlickerTime = .3f;
     [SerializeField] float randomFlickerTime = .1f;
     private float flickerFrequency;
@@ -22,6 +23,7 @@ public class RenderSelector : MonoBehaviour
         Screen.sharedMaterial.SetTexture("_CRT_Texture", ScoreSheet);
         flickerFrequency = flickerFrequencyBase;
         StartCoroutine(flickerRandom());
+        GameStateController._instance.m_NewFrame.AddListener(IncreaseFrequency);
     }
 
     private void Update()
@@ -80,5 +82,10 @@ public class RenderSelector : MonoBehaviour
             }
             yield return new WaitForSeconds(1);
         }
+    }
+
+    public void IncreaseFrequency()
+    {
+        flickerFrequency += flickerFrequencyIncrease;
     }
 }

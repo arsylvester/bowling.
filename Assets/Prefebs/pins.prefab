@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 488508680475579569}
   - component: {fileID: 488508680475579470}
   - component: {fileID: 488508680475579471}
-  - component: {fileID: 927795187}
+  - component: {fileID: 425815692}
   m_Layer: 0
   m_Name: Pin 1
   m_TagString: Untagged
@@ -128,7 +128,7 @@ CapsuleCollider:
   m_Height: 0.38
   m_Direction: 1
   m_Center: {x: 0.000000007450581, y: 0.19, z: 0.001055859}
---- !u!114 &927795187
+--- !u!114 &425815692
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 488508680545754722}
   - component: {fileID: 488508680545754723}
   - component: {fileID: 488508680545754720}
-  - component: {fileID: 1406799585}
+  - component: {fileID: 1544192026}
   m_Layer: 0
   m_Name: Pin 2
   m_TagString: Untagged
@@ -270,7 +270,7 @@ CapsuleCollider:
   m_Height: 0.38
   m_Direction: 1
   m_Center: {x: 0.000000007450581, y: 0.19, z: 0.001055859}
---- !u!114 &1406799585
+--- !u!114 &1544192026
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 488508680634031827}
   - component: {fileID: 488508680634031824}
   - component: {fileID: 488508680634031825}
-  - component: {fileID: 468851683}
+  - component: {fileID: 1654855603}
   m_Layer: 0
   m_Name: Pin 4
   m_TagString: Untagged
@@ -412,7 +412,7 @@ CapsuleCollider:
   m_Height: 0.38
   m_Direction: 1
   m_Center: {x: 0.000000007450581, y: 0.19, z: 0.001055859}
---- !u!114 &468851683
+--- !u!114 &1654855603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 488508680843855224}
   - component: {fileID: 488508680843855225}
   - component: {fileID: 488508680843855222}
-  - component: {fileID: 1571874125}
+  - component: {fileID: 1380222024}
   m_Layer: 0
   m_Name: Pin 6
   m_TagString: Untagged
@@ -554,7 +554,7 @@ CapsuleCollider:
   m_Height: 0.38
   m_Direction: 1
   m_Center: {x: 0.000000007450581, y: 0.19, z: 0.001055859}
---- !u!114 &1571874125
+--- !u!114 &1380222024
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -622,7 +622,7 @@ GameObject:
   - component: {fileID: 488508681610759738}
   - component: {fileID: 488508681610759739}
   - component: {fileID: 488508681610759736}
-  - component: {fileID: 1955435635}
+  - component: {fileID: 619916367}
   m_Layer: 0
   m_Name: Pin 3
   m_TagString: Untagged
@@ -736,7 +736,7 @@ CapsuleCollider:
   m_Height: 0.38
   m_Direction: 1
   m_Center: {x: 0.000000007450581, y: 0.19, z: 0.001055859}
---- !u!114 &1955435635
+--- !u!114 &619916367
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -764,7 +764,7 @@ GameObject:
   - component: {fileID: 488508681759801278}
   - component: {fileID: 488508681759801249}
   - component: {fileID: 488508681759801248}
-  - component: {fileID: 488508681759801251}
+  - component: {fileID: 1351994296}
   m_Layer: 0
   m_Name: Pin 10
   m_TagString: Untagged
@@ -878,7 +878,7 @@ CapsuleCollider:
   m_Height: 0.38
   m_Direction: 1
   m_Center: {x: 0.000000007450581, y: 0.19, z: 0.001055859}
---- !u!114 &488508681759801251
+--- !u!114 &1351994296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -890,7 +890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7ff0a432262d2149ad4b27b0eeaff3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pin: {fileID: 488508681759801274}
+  pin: {fileID: 0}
   defaultPos: {x: 0, y: 0, z: 0}
 --- !u!1 &488508681781187974
 GameObject:
@@ -906,7 +906,7 @@ GameObject:
   - component: {fileID: 488508681781187978}
   - component: {fileID: 488508681781187979}
   - component: {fileID: 488508681781187976}
-  - component: {fileID: 728750863}
+  - component: {fileID: 1252300592}
   m_Layer: 0
   m_Name: Pin 5
   m_TagString: Untagged
@@ -1020,7 +1020,7 @@ CapsuleCollider:
   m_Height: 0.38
   m_Direction: 1
   m_Center: {x: 0.000000007450581, y: 0.19, z: 0.001055859}
---- !u!114 &728750863
+--- !u!114 &1252300592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1048,7 +1048,7 @@ GameObject:
   - component: {fileID: 488508682084457983}
   - component: {fileID: 488508682084457980}
   - component: {fileID: 488508682084457981}
-  - component: {fileID: 1320306639}
+  - component: {fileID: 1375172720}
   m_Layer: 0
   m_Name: Pin 8
   m_TagString: Untagged
@@ -1162,7 +1162,7 @@ CapsuleCollider:
   m_Height: 0.38
   m_Direction: 1
   m_Center: {x: 0.000000007450581, y: 0.19, z: 0.001055859}
---- !u!114 &1320306639
+--- !u!114 &1375172720
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1190,7 +1190,7 @@ GameObject:
   - component: {fileID: 488508682085776738}
   - component: {fileID: 488508682085776739}
   - component: {fileID: 488508682085776736}
-  - component: {fileID: 198307979}
+  - component: {fileID: 554028810}
   m_Layer: 0
   m_Name: Pin 9
   m_TagString: Untagged
@@ -1304,7 +1304,7 @@ CapsuleCollider:
   m_Height: 0.38
   m_Direction: 1
   m_Center: {x: 0.000000007450581, y: 0.19, z: 0.001055859}
---- !u!114 &198307979
+--- !u!114 &554028810
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1332,7 +1332,7 @@ GameObject:
   - component: {fileID: 488508682255620661}
   - component: {fileID: 488508682255620658}
   - component: {fileID: 488508682255620659}
-  - component: {fileID: 1951361047}
+  - component: {fileID: 145550163}
   m_Layer: 0
   m_Name: Pin 7
   m_TagString: Untagged
@@ -1446,7 +1446,7 @@ CapsuleCollider:
   m_Height: 0.38
   m_Direction: 1
   m_Center: {x: 0.000000007450581, y: 0.19, z: 0.001055859}
---- !u!114 &1951361047
+--- !u!114 &145550163
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
