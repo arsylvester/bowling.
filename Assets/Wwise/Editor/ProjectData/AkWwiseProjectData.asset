@@ -49,7 +49,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 9bd209d6bea0b64da5f05fad442cb0bc
     GuidInternal: 
-    m_lastTime: -8585975287474126413
+    m_lastTime: -8585975232568174537
     List:
     - name: Ambient
       guid: fb3dc52f38ee3448a95b44555fd22fb9
@@ -77,8 +77,20 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 89f2ca2c2e71fc4f91e36a27c72bb383
     GuidInternal: 
-    m_lastTime: -8585975287591446879
+    m_lastTime: -8585975215107519563
     List:
+    - name: BallColide
+      guid: d7fc0a2b5604d343b6242fab95b5214b
+      id: 1479855024
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: BallColide
+        ObjectType: 3
+      Path: Default Work Unit\BallColide
+      maxAttenuation: 90
+      maxDuration: 0.291906
+      minDuration: 0.291906
     - name: Ballhit
       guid: 3186b22729216743b80a9465f4430bc9
       id: 4066630945
@@ -88,7 +100,7 @@ MonoBehaviour:
       - ElementName: Ballhit
         ObjectType: 3
       Path: Default Work Unit\Ballhit
-      maxAttenuation: 50
+      maxAttenuation: 90
       maxDuration: -1
       minDuration: -1
     - name: Ballreturn
@@ -100,7 +112,7 @@ MonoBehaviour:
       - ElementName: Ballreturn
         ObjectType: 3
       Path: Default Work Unit\Ballreturn
-      maxAttenuation: 50
+      maxAttenuation: 90
       maxDuration: 1.348833
       minDuration: 1.348833
     - name: CRT
@@ -127,6 +139,18 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Lights
+      guid: e618b2954c460048a87cb5efb930f89e
+      id: 3192784746
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Lights
+        ObjectType: 3
+      Path: Default Work Unit\Lights
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Pinhit
       guid: e7c6b8132c97604b81f832dd42966ad2
       id: 2039252157
@@ -136,7 +160,7 @@ MonoBehaviour:
       - ElementName: Pinhit
         ObjectType: 3
       Path: Default Work Unit\Pinhit
-      maxAttenuation: 50
+      maxAttenuation: 90
       maxDuration: 1.452279
       minDuration: 1.29234
   RtpcWwu:

@@ -55,6 +55,17 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{C47771D1-A01F-45EE-A48E-387F6F06E869}" ShortID="518328193">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Rolling" ID="{6F6579DC-9B89-4A8F-992D-C836358EB6B5}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="FinalSounds" ID="{C4DC927C-1B98-42A9-A5D2-21045A829FD5}">
@@ -63,6 +74,28 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Ragtime_Cut_Short" ID="{C6226C0D-8711-45F6-98EC-1659F07DF0F2}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Lights" ID="{95B218E6-464C-4800-A87C-B5EFB930F89E}">
+					<ChildrenList>
+						<Action Name="" ID="{C6843D59-4EC2-4656-9334-12B2518D1AAB}" ShortID="387582330">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Light" ID="{32A95C78-D2E7-4D92-8A6C-AF50D413048D}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="BallColide" ID="{2B0AFCD7-0456-43D3-B624-2FAB95B5214B}">
+					<ChildrenList>
+						<Action Name="" ID="{EF20B50F-93AF-49AD-9A1C-7DA33BA437BC}" ShortID="951762101">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BallThud" ID="{F1EAB4DB-7003-4573-ADC2-13071D854679}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

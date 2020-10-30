@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="77978275" Language="SFX" Hash="764648784">
+		<SoundBank Id="77978275" Language="SFX" Hash="108576844">
 			<ObjectPath>\SoundBanks\Default Work Unit\Ambient</ObjectPath>
 			<ShortName>Ambient</ShortName>
 			<Path>Ambient.bnk</Path>
@@ -28,18 +28,34 @@
 					<IncludedMemoryFiles>
 						<File Id="462004310" Language="SFX">
 							<ShortName>Ragtime_Cut_Short.wav</ShortName>
-							<Path>SFX\Ragtime_Cut_Short_24C91A86.wem</Path>
+							<Path>SFX\Ragtime_Cut_Short_54AD773A.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3192784746" Name="Lights" ObjectPath="\Events\Default Work Unit\Lights" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="805918545" Language="SFX">
+							<ShortName>Light.wav</ShortName>
+							<Path>SFX\Light_D79FB2B7.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="968010305" Language="SFX" Hash="3671500388">
+		<SoundBank Id="968010305" Language="SFX" Hash="1442446704">
 			<ObjectPath>\SoundBanks\Default Work Unit\Props</ObjectPath>
 			<ShortName>Props</ShortName>
 			<Path>Props.bnk</Path>
 			<IncludedEvents>
-				<Event Id="4066630945" Name="Ballhit" ObjectPath="\Events\Default Work Unit\Ballhit" MaxAttenuation="50.000000" DurationType="Infinite">
+				<Event Id="1479855024" Name="BallColide" ObjectPath="\Events\Default Work Unit\BallColide" MaxAttenuation="90.000000" DurationType="OneShot" DurationMin="0.291906" DurationMax="0.291906">
+					<IncludedMemoryFiles>
+						<File Id="640615964" Language="SFX">
+							<ShortName>Thud2.wav</ShortName>
+							<Path>SFX\Thud2_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4066630945" Name="Ballhit" ObjectPath="\Events\Default Work Unit\Ballhit" MaxAttenuation="90.000000" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="174775429" Language="SFX">
 							<ShortName>Rolling.wav</ShortName>
@@ -49,13 +65,9 @@
 							<ShortName>Thud1Short.wav</ShortName>
 							<Path>SFX\Thud1Short_10C4C929.wem</Path>
 						</File>
-						<File Id="640615964" Language="SFX">
-							<ShortName>Thud2.wav</ShortName>
-							<Path>SFX\Thud2_10C4C929.wem</Path>
-						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1692875524" Name="Ballreturn" ObjectPath="\Events\Default Work Unit\Ballreturn" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="1.348833" DurationMax="1.348833">
+				<Event Id="1692875524" Name="Ballreturn" ObjectPath="\Events\Default Work Unit\Ballreturn" MaxAttenuation="90.000000" DurationType="OneShot" DurationMin="1.348833" DurationMax="1.348833">
 					<IncludedMemoryFiles>
 						<File Id="595865052" Language="SFX">
 							<ShortName>Mechanical.wav</ShortName>
@@ -63,7 +75,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2039252157" Name="Pinhit" ObjectPath="\Events\Default Work Unit\Pinhit" MaxAttenuation="50.000000" DurationType="OneShot" DurationMin="1.292340" DurationMax="1.452279">
+				<Event Id="2039252157" Name="Pinhit" ObjectPath="\Events\Default Work Unit\Pinhit" MaxAttenuation="90.000000" DurationType="OneShot" DurationMin="1.292340" DurationMax="1.452279">
 					<IncludedMemoryFiles>
 						<File Id="257187427" Language="SFX">
 							<ShortName>Strike.wav</ShortName>

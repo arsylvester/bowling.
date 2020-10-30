@@ -13,10 +13,12 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID BALLCOLIDE = 1479855024U;
         static const AkUniqueID BALLHIT = 4066630945U;
         static const AkUniqueID BALLRETURN = 1692875524U;
         static const AkUniqueID CRT = 731352134U;
         static const AkUniqueID FINALSOUNDS = 2690523175U;
+        static const AkUniqueID LIGHTS = 3192784746U;
         static const AkUniqueID PINHIT = 2039252157U;
     } // namespace EVENTS
 

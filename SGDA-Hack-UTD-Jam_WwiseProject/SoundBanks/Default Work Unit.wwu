@@ -7,6 +7,7 @@
 					<ObjectInclusionList>
 						<ObjectRef Name="Ballreturn" ID="{A49A0240-E849-42F1-A481-72B972534B7B}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Ballhit" ID="{27B28631-2129-4367-B80A-9465F4430BC9}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="BallColide" ID="{2B0AFCD7-0456-43D3-B624-2FAB95B5214B}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Pinhit" ID="{13B8C6E7-972C-4B60-81F8-32DD42966AD2}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
@@ -16,6 +17,7 @@
 					<ObjectInclusionList>
 						<ObjectRef Name="FinalSounds" ID="{C4DC927C-1B98-42A9-A5D2-21045A829FD5}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="CRT" ID="{231DE5DB-1B3A-43A7-A89B-1049534F99E1}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Lights" ID="{95B218E6-464C-4800-A87C-B5EFB930F89E}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

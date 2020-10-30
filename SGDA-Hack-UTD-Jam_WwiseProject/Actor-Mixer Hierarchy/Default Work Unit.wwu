@@ -207,28 +207,6 @@
 								<ActiveSource Name="Thud1Short" ID="{D158E928-2E0F-4192-8E9A-8A6B03A4968A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Thud2" ID="{E04742A3-984C-4019-9CF9-04E59E368AD9}" ShortID="1067025095">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FFA48498-EF4F-4809-8AEB-529CA18FD4FF}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{53D93E22-ECEB-43BE-99C3-7B70AE8EA072}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="Thud2" ID="{E4212E08-7322-4E13-8041-369E5F6CFFB5}">
-									<Language>SFX</Language>
-									<AudioFile>Thud2.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="640615964"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="Thud2" ID="{E4212E08-7322-4E13-8041-369E5F6CFFB5}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
 				<Sound Name="Mechanical" ID="{C5DF9C55-0209-46C2-9BE8-674CC4B771A8}" ShortID="509151055">
@@ -335,6 +313,74 @@
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="Ragtime_Cut_Short" ID="{8A2B52EA-04E8-45AA-859F-FCC240FF1000}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Light" ID="{32A95C78-D2E7-4D92-8A6C-AF50D413048D}" ShortID="995935824">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>6</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FFA48498-EF4F-4809-8AEB-529CA18FD4FF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{53D93E22-ECEB-43BE-99C3-7B70AE8EA072}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Light" ID="{B02C9897-A621-4808-8EFF-F17C881254AA}">
+							<Language>SFX</Language>
+							<AudioFile>Light.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="805918545"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Light" ID="{B02C9897-A621-4808-8EFF-F17C881254AA}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="BallThud" ID="{F1EAB4DB-7003-4573-ADC2-13071D854679}" ShortID="861736171">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>760</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Props" ID="{A7C04FE9-C8EE-445A-B7FC-F59B1B27DC57}" WorkUnitID="{02B41AA9-7624-48CE-9E96-2B89033F808F}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FFA48498-EF4F-4809-8AEB-529CA18FD4FF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{53D93E22-ECEB-43BE-99C3-7B70AE8EA072}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Thud2" ID="{40B0C8E9-252C-4680-B21D-38581F95CF61}">
+							<Language>SFX</Language>
+							<AudioFile>Thud2.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="640615964"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Thud2" ID="{40B0C8E9-252C-4680-B21D-38581F95CF61}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>
