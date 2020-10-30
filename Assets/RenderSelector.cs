@@ -6,7 +6,14 @@ public class RenderSelector : MonoBehaviour
 {
     [SerializeField] Texture ScoreSheet;
     [SerializeField] Texture BallCam;
+    [SerializeField] Texture blackScreen;
     [SerializeField] MeshRenderer Screen;
+    [SerializeField] Texture[] flickerArray;
+    [SerializeField] float flickerFrequencyBase;
+    [SerializeField] float flickerFrequencyIncrease = .1f;
+    [SerializeField] float betweenFlickerTime = .3f;
+    [SerializeField] float randomFlickerTime = .1f;
+    private float flickerFrequency;
 
     [SerializeField] bool callToScore;
     [SerializeField] bool callToBall;
@@ -14,6 +21,9 @@ public class RenderSelector : MonoBehaviour
     private void Start()
     {
         Screen.sharedMaterial.SetTexture("_CRT_Texture", ScoreSheet);
+        flickerFrequency = flickerFrequencyBase;
+        StartCoroutine(flickerRandom());
+        GameStateController._instance.m_NewFrame.AddListener(IncreaseFrequency);
     }
 
     private void Update()
@@ -44,11 +54,38 @@ public class RenderSelector : MonoBehaviour
 
     public void cameraSwapToScore()
     {
-        Screen.sharedMaterial.SetTexture("_CRT_Texture", ScoreSheet);
+        StartCoroutine(flickerBlack(ScoreSheet));
     }
 
     public void cameraSwapToBall()
     {
-        Screen.sharedMaterial.SetTexture("_CRT_Texture", BallCam);
+        StartCoroutine(flickerBlack(BallCam));
+    }
+
+    public IEnumerator flickerBlack(Texture textureToSwapTo)
+    {
+        Screen.sharedMaterial.SetTexture("_CRT_Texture", blackScreen);
+        yield return new WaitForSeconds(betweenFlickerTime);
+        Screen.sharedMaterial.SetTexture("_CRT_Texture", textureToSwapTo);
+    }
+
+    public IEnumerator flickerRandom()
+    {
+        while (true)
+        {
+            if (Random.value <= flickerFrequency)
+            {
+                Texture currentTexture = Screen.sharedMaterial.GetTexture("_CRT_Texture");
+                Screen.sharedMaterial.SetTexture("_CRT_Texture", flickerArray[(int)Random.Range(0, flickerArray.Length)]);
+                yield return new WaitForSeconds(randomFlickerTime);
+                Screen.sharedMaterial.SetTexture("_CRT_Texture", currentTexture);
+            }
+            yield return new WaitForSeconds(1);
+        }
+    }
+
+    public void IncreaseFrequency()
+    {
+        flickerFrequency += flickerFrequencyIncrease;
     }
 }
