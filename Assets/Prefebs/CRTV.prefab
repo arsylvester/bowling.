@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &999579315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 999579316}
+  - component: {fileID: 999579318}
+  - component: {fileID: 999579317}
+  m_Layer: 0
+  m_Name: Change Screen Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &999579316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999579315}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -9.54, z: -16.78}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3447498892663336167}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &999579318
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999579315}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 10, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &999579317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999579315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f5b901c6d348c4ba380e7d9d0e75be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvScreen: {fileID: 1595742327}
 --- !u!1 &2638028934137017949
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,6 +69,8 @@ GameObject:
   - component: {fileID: 3447498892663336167}
   - component: {fileID: 1763197116044223298}
   - component: {fileID: 4583772882103949192}
+  - component: {fileID: 5479029778932235025}
+  - component: {fileID: 4504922260921570353}
   m_Layer: 0
   m_Name: CRTV
   m_TagString: Untagged
@@ -27,9 +87,10 @@ Transform:
   m_GameObject: {fileID: 2638028934137017949}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 481.60638, y: 5.97801, z: 438.85742}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.72036, y: 0.72036, z: 0.72036}
   m_Children:
   - {fileID: 6984175478009461785}
+  - {fileID: 999579316}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -80,6 +141,62 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5479029778932235025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2638028934137017949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc4b9c5b3a838e44875b2116d01e1af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!114 &4504922260921570353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2638028934137017949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 455c83b09f5db0b4d9dba087a57bf0c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 43bb57ae367b72244bc316bfd3c7577c,
+      type: 2}
+  useCallbacks: 0
+  Callbacks: []
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  eventIdInternal: 0
+  valueGuidInternal: 
+  m_callbackDataInternal: {fileID: 0}
+  MultiPositionType: 1
+  multiPositionTypeLabel: 0
+  LargeModePositions: []
+  multiPositionArray: []
 --- !u!1 &6984175478009461781
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,6 +306,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreSheet: {fileID: 8400000, guid: 7b598c68612137041b248d3e87f7ed4b, type: 2}
   BallCam: {fileID: 8400000, guid: f8deb4b291437c74584413f65d29287a, type: 2}
+  blackScreen: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
   Screen: {fileID: 6984175478009461783}
+  flickerArray:
+  - {fileID: 2800000, guid: fa43b97f05c753c4dbf603ad59c31d47, type: 3}
+  - {fileID: 2800000, guid: 6ea50cf81e05dce4395defcd7888072c, type: 3}
+  - {fileID: 2800000, guid: 2ec6e1532acb1254f9f3797b5d82db44, type: 3}
+  - {fileID: 2800000, guid: 5e98de278b2ccc14f89b76b85596a3f3, type: 3}
+  - {fileID: 2800000, guid: ecb23393a0d1b424a82fff68a4c00a66, type: 3}
+  flickerFrequencyBase: 0.1
+  betweenFlickerTime: 0.3
+  randomFlickerTime: 0.1
   callToScore: 0
   callToBall: 0
