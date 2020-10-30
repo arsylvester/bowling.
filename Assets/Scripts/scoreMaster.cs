@@ -7,14 +7,14 @@ public class scoreMaster : MonoBehaviour {
 
     public pinMasterScript pin_script;
     [SerializeField] GameObject[] knocked_pins;
-    public int[, ] score = new int[11, 3]; //scores for each frame including bonus rolls
-    public int[] total = new int[11]; //total score for each frame. Used for dispay on HUD
-    public string[, ] displayScore = new string[11, 2]; //string representations of roll scores. Used for dispay on HUD
-    //public Queue<int[]> bonus = new Queue<int[]>(); //Used to calculate bonus points from strikes or spares
-    public ArrayList bonus = new ArrayList (); //i'm going to try using an arraylist I guess
+    [SerializeField] int[, ] score = new int[11, 3]; //scores for each frame including bonus rolls
+    [SerializeField] int[] total = new int[11]; //total score for each frame. Used for dispay on HUD
+    [SerializeField] string[, ] displayScore = new string[11, 2]; //string representations of roll scores. Used for dispay on CRT
+    [SerializeField] ArrayList bonus = new ArrayList (); //Used to calculate bonus points from strikes or spares
     public TextMesh[] rollText;
     public TextMesh[] totalText;
     public LaneHitbox laneEnd, pinZone;
+    public BallDispenser dispenser;
     public int frame, roll, runningTotal;
     public bool exampleMethodCall;
     public bool inSetup;
@@ -48,7 +48,7 @@ public class scoreMaster : MonoBehaviour {
         if (pinZone.isTouched) {
             print ("pinZone touched.");
             pinZone.isTouched = false;
-            StartCoroutine (timedRollEnd (3f));
+            StartCoroutine (timedRollEnd (4f));
             //pinZone.touchedBy = null;
         }
 
@@ -72,7 +72,6 @@ public class scoreMaster : MonoBehaviour {
     }
 
     void rollEnd () {
-        print("ROLL END");
         inSetup = true;
 
         //move object to obscure pins from view
@@ -112,6 +111,9 @@ public class scoreMaster : MonoBehaviour {
         //remove pin obscuring object
 
         //respawn ball in ball return
+        bowler.GetComponent<Rigidbody>().useGravity = false;
+        bowler.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        dispenser.MoveBall(bowler);
         bowler.SetActive (true);
 
         StartCoroutine (timedWait (0.6f));
@@ -164,7 +166,7 @@ public class scoreMaster : MonoBehaviour {
 
         pinFall = pin_script.getKnockedInt (); //TODO: replace this with sothing more streamlined
 
-        print ("Pinfall: " + pinFall);
+        //print ("Pinfall: " + pinFall);
 
         if (roll == 0) {
             total[frame] = 0; //set total from -1 to 0
@@ -199,13 +201,16 @@ public class scoreMaster : MonoBehaviour {
                 b[1] = 2; //amount of bonus rolls
                 bonus.Add (b);
 
-                if (frame != 11) {
+                if (frame != 10) {
                     //skip to next frame
                     advanceFrame ();
                 } else {
-                    if (displayScore[10, 1] == "/") {
+                    if (displayScore[9, 1] == "/") { //Spare in first 2 rolls of f10 and completed bonus roll
                         //GAME OVER
-                    } else {
+                        gameOver();
+                        return;
+                    } else { //f10 first roll was a strike
+                        print(displayScore[9, 1] + " != / . this means that you got a strike.");
                         resetPins ();
                         roll++;
                     }
@@ -237,9 +242,9 @@ public class scoreMaster : MonoBehaviour {
                 }
             }
 
-            if (pinFall == 10 && frame == 11 && displayScore[11, 0] == "X") { //frame 10 3rd strike
+            if (pinFall == 10 && frame == 10 && displayScore[11, 0] == "X") { //frame 10 3rd strike
                 displayScore[frame, roll] = "X";
-            } else if (total[frame] == 10) { //spare
+            } else if (total[frame] == 9) { //spare
                 displayScore[frame, roll] = "/";
 
                 int[] b = new int[2];
@@ -248,13 +253,19 @@ public class scoreMaster : MonoBehaviour {
                 bonus.Add (b);
             } else {
                 displayScore[frame, roll] = "" + pinFall;
-                if (frame == 10) {
+                if (frame == 9) { //No Mark on frame 10
+                    print("no mark on frame 10. Game over.");
                     //GAME OVER
+                    gameOver();
+                    return;
                 }
             }
 
-            if (frame == 11) {
+            if (frame == 10) { //Got a strike on f10-roll1 and completed both bonus rolls
+                print("frame 11 complete. Game over.");
                 //GAME OVER
+                gameOver();
+                return;
             } else {
                 //continue to next frame   
                 advanceFrame ();
@@ -265,7 +276,7 @@ public class scoreMaster : MonoBehaviour {
     }
 
     void advanceFrame () {
-        print("Frame advanced.");
+        //print("Frame advanced.");
         frame++;
         roll = 0;
         resetPins ();
@@ -278,11 +289,48 @@ public class scoreMaster : MonoBehaviour {
     void resetPins () {
         foreach (GameObject pin in pin_script.pins) {
             pin.SetActive (true);
-            print(pin);
+            //print(pin);
             pin.GetComponent<Rigidbody> ().velocity = Vector3.zero;
             pin.GetComponent<Rigidbody> ().angularVelocity = Vector3.zero;
             pin.transform.rotation = pin.GetComponent<pinScript> ().defaultRot;
             pin.transform.position = pin.GetComponent<pinScript> ().defaultPos;
         }
+    }
+
+    public void skipToFrameTen (){
+        for (int x = 0; x < 10; x++) {
+            total[x] = 6;
+            for (int y = 0; y < 2; y++) {
+                score[x, y] = 6;
+                displayScore[x, y] = "6";
+            }
+        }
+
+        displayScore[9, 0] = "";
+        displayScore[9, 1] = "";
+
+        frame = 9;
+        roll = 0;
+        printScore();
+        resetPins();
+    }
+
+    void gameOver() {
+        print("GAME OVER");
+
+        //lower thing to block pins from view
+        
+        BallController[] ballControllerBalls = FindObjectsOfType<BallController>();
+        foreach (BallController ball in ballControllerBalls)
+        {
+            ball.gameObject.SetActive(false);
+        }
+
+        foreach (GameObject pin in pin_script.pins) {
+            pin.SetActive (false);
+        }
+
+        //perform spooky actions
+
     }
 }
