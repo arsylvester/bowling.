@@ -20,6 +20,12 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed;
 
+    private float currentRotY;
+    public float minRotY;
+    public float maxRotY;
+
+    public float rotationSpeed;
+
     public static BallController holding;
 
     [SerializeField] CinemachineVirtualCamera bowlingCamera;
@@ -35,6 +41,7 @@ public class PlayerController : MonoBehaviour
         currentCamera.gameObject.SetActive(true);
         cameraBrain = GetComponentInChildren<CinemachineBrain>();
         currentX = transform.position.x;
+        currentRotY = transform.rotation.y;
     }
 
     // Update is called once per frame
@@ -66,7 +73,7 @@ public class PlayerController : MonoBehaviour
                 ChangeCamera(scoreCamera);
             }
 
-            if(Input.GetAxis("Horizontal") != 0)
+            if(Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Fire2") == 0)
             {
                 currentX += Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
 
@@ -77,6 +84,22 @@ public class PlayerController : MonoBehaviour
 
                 transform.position = new Vector3(currentX, transform.position.y, transform.position.z);
                 bowlingCamera.transform.position = new Vector3(currentX, bowlingCamera.transform.position.y, bowlingCamera.transform.position.z);
+            }
+
+            if(Input.GetAxis("Fire2") == 1)
+            {
+                if (Input.GetAxis("Horizontal") != 0)
+                {
+                    currentRotY += Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
+
+                    if (currentRotY < minRotY)
+                        currentRotY = minRotY;
+                    if (currentRotY > maxRotY)
+                        currentRotY = maxRotY;
+
+                    transform.rotation = Quaternion.Euler(transform.rotation.x, currentRotY, transform.rotation.z);
+                    bowlingCamera.transform.rotation = Quaternion.Euler(bowlingCamera.transform.rotation.x, currentRotY, bowlingCamera.transform.rotation.z);
+                }
             }
         }
 
