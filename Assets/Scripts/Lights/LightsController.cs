@@ -13,19 +13,20 @@ public class LightsController : MonoBehaviour {
 
     private void Start() {
         GameStateController._instance.m_NewFrame.AddListener(FlickerOnNextFrame);
-        StartCoroutine(FlickerRandomly());
+        StartCoroutine(FlickerRandomly(true));
+        StartCoroutine(FlickerRandomly(false));
     }
 
-    private IEnumerator FlickerRandomly() {
+    private IEnumerator FlickerRandomly(bool onlyIfOn) {
         float waitTime;
-        float length = 0.5f;
-        int amount = 4;
+        float length = Random.Range(0.3f, 0.75f);
+        int amount = Random.Range(3, 6);
         float delay = Random.Range(1f, 3f);
 
         while(true) {
             waitTime = Random.Range(15f, 20f);
             yield return new WaitForSecondsRealtime(waitTime);
-            FlickerRandomLight(length, amount, delay);
+            FlickerRandomLight(length, amount, delay, false, onlyIfOn);
         }
     }
 
@@ -35,8 +36,17 @@ public class LightsController : MonoBehaviour {
         int amount = 4;
         float delay = Random.Range(1f, 3f);
 
-        if(GameStateController.GetCurrentFrame() % 2 == 0 && GameStateController.GetCurrentFrame() <= 6) { // 2, 4, 6 - flicker and turn off
+        if(GameStateController.GetCurrentFrame() % 2 == 1 && GameStateController.GetCurrentFrame() <= 5) { // 2, 4, 6 - flicker and turn off
             TurnOffRandom(length, amount, delay, GameStateController.GetCurrentFrame() / 2);
+        } else if(GameStateController.GetCurrentFrame() == 7 || GameStateController.GetCurrentFrame() == 8) {
+            int index;
+            for(int i = 0; i < 10; i++) {
+                index = Random.Range(0, 9);
+                if(lights[index].IsLightOn()) {
+                    FlickerLight(index, length, amount, delay, true);
+                    break;
+                }
+            }
         } else // Odd - flicker
             FlickerRandomLight(length, amount, delay);
     }
@@ -44,7 +54,7 @@ public class LightsController : MonoBehaviour {
     private void TurnOffRandom(float length, int amount, float delay, int column = -1) {
         int index;
         if(column == -1)
-            index = Random.Range(0, lights.Length);
+            index = Random.Range(0, 9);
         else {
             index = (Random.Range(0, 3) * 3) + column;
         }
