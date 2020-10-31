@@ -30,7 +30,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 223ed953ebecbe4399c37b70ae8ea072
     GuidInternal: 
-    m_lastTime: -8585975303534894164
+    m_lastTime: -8585975066978048495
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -41,6 +41,15 @@ MonoBehaviour:
       - ElementName: Master Audio Bus
         ObjectType: 2
       Path: Default Work Unit\Master Audio Bus
+    - name: VO Audio Bus
+      guid: 6e3288b0d96ee1439666d1865c60cb36
+      id: 3480642292
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: VO Audio Bus
+        ObjectType: 2
+      Path: Default Work Unit\VO Audio Bus
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     PathAndIcons:
@@ -49,7 +58,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 9bd209d6bea0b64da5f05fad442cb0bc
     GuidInternal: 
-    m_lastTime: -8585975287474126413
+    m_lastTime: -8585975092073771300
     List:
     - name: Ambient
       guid: fb3dc52f38ee3448a95b44555fd22fb9
@@ -69,6 +78,15 @@ MonoBehaviour:
       - ElementName: Props
         ObjectType: 7
       Path: Default Work Unit\Props
+    - name: Speaker
+      guid: d27ebdaef8b4c74da323aa82bd2d5eff
+      id: 2748973500
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Speaker
+        ObjectType: 7
+      Path: Default Work Unit\Speaker
   EventWwu:
   - PhysicalPath: Events\Default Work Unit.wwu
     PathAndIcons:
@@ -77,8 +95,20 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 89f2ca2c2e71fc4f91e36a27c72bb383
     GuidInternal: 
-    m_lastTime: -8585975287591446879
+    m_lastTime: -8585975025805692807
     List:
+    - name: BallColide
+      guid: d7fc0a2b5604d343b6242fab95b5214b
+      id: 1479855024
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: BallColide
+        ObjectType: 3
+      Path: Default Work Unit\BallColide
+      maxAttenuation: 90
+      maxDuration: 0.291906
+      minDuration: 0.291906
     - name: Ballhit
       guid: 3186b22729216743b80a9465f4430bc9
       id: 4066630945
@@ -88,7 +118,7 @@ MonoBehaviour:
       - ElementName: Ballhit
         ObjectType: 3
       Path: Default Work Unit\Ballhit
-      maxAttenuation: 50
+      maxAttenuation: 90
       maxDuration: -1
       minDuration: -1
     - name: Ballreturn
@@ -100,9 +130,9 @@ MonoBehaviour:
       - ElementName: Ballreturn
         ObjectType: 3
       Path: Default Work Unit\Ballreturn
-      maxAttenuation: 50
-      maxDuration: 1.348833
-      minDuration: 1.348833
+      maxAttenuation: 30
+      maxDuration: 2.134229
+      minDuration: 2.134229
     - name: CRT
       guid: dbe51d233a1ba743a89b1049534f99e1
       id: 731352134
@@ -127,6 +157,18 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Lights
+      guid: e618b2954c460048a87cb5efb930f89e
+      id: 3192784746
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Lights
+        ObjectType: 3
+      Path: Default Work Unit\Lights
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Pinhit
       guid: e7c6b8132c97604b81f832dd42966ad2
       id: 2039252157
@@ -136,9 +178,45 @@ MonoBehaviour:
       - ElementName: Pinhit
         ObjectType: 3
       Path: Default Work Unit\Pinhit
-      maxAttenuation: 50
+      maxAttenuation: 90
       maxDuration: 1.452279
       minDuration: 1.29234
+    - name: Score
+      guid: db9abe63089cbb42838c18bddf03f796
+      id: 2398231425
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Score
+        ObjectType: 3
+      Path: Default Work Unit\Score
+      maxAttenuation: 20
+      maxDuration: 1.147097
+      minDuration: 1.147097
+    - name: Spare
+      guid: 3378551bc75d4541aa36b1ad3c3fd303
+      id: 155090442
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Spare
+        ObjectType: 3
+      Path: Default Work Unit\Spare
+      maxAttenuation: 20
+      maxDuration: 1.468284
+      minDuration: 1.468284
+    - name: Strike
+      guid: 850e0116949cad40b2116390ff695cbd
+      id: 4110605575
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Strike
+        ObjectType: 3
+      Path: Default Work Unit\Strike
+      maxAttenuation: 20
+      maxDuration: 1.101213
+      minDuration: 1.101213
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
