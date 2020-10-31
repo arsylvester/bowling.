@@ -20,7 +20,7 @@ public class RenderSelector : MonoBehaviour
 
     private void Start()
     {
-        Screen.sharedMaterial.SetTexture("_CRT_Texture", ScoreSheet);
+        cameraSwapToScore();
         flickerFrequency = flickerFrequencyBase;
         StartCoroutine(flickerRandom());
         GameStateController._instance.m_NewFrame.AddListener(IncreaseFrequency);

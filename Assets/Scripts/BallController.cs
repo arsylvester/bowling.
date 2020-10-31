@@ -159,5 +159,9 @@ public class BallController : MonoBehaviour
         {
             AkSoundEngine.PostEvent("Ballhit", gameObject);
         }
+        if (collision.gameObject.tag == "BowlingBall")
+        {
+            AkSoundEngine.PostEvent("BallColide", gameObject);
+        }
     }
 }

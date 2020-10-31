@@ -1,5 +1,4 @@
-﻿using Packages.Rider.Editor.UnitTesting;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,10 +23,12 @@ public class BallDispenser : MonoBehaviour {
             ball.GetComponent<Rigidbody>().useGravity = true;
             ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
             ball.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            AkSoundEngine.PostEvent("Ballreturn", gameObject);
         } catch { }
     }
 
-    public void SpawnBall(int index) {
+    public void SpawnBall(int index)
+    {
         MoveBall(Instantiate(ballList[index]));
     }
 

@@ -12,6 +12,7 @@ public class GameStateController : MonoBehaviour
     private static int currentFrame = 0;
     private bool canReturnToMenu = false;
     private float currentVolume = 50f;
+    private float currentVoicePitch = 100;
     public UnityEvent m_NewFrame = new UnityEvent();
     public static GameStateController _instance;
 
@@ -23,6 +24,7 @@ public class GameStateController : MonoBehaviour
     [SerializeField] float textFadeSpeed = .05f;
     [SerializeField] float textWaitTime = 5f;
     [SerializeField] GameObject postProcessingMain, postProcessingFR;
+    [SerializeField] float pitchChange = 5f;
 
     private void Awake()
     {
@@ -31,6 +33,8 @@ public class GameStateController : MonoBehaviour
         if (m_NewFrame == null)
             m_NewFrame = new UnityEvent();
 
+        AkSoundEngine.SetRTPCValue("VoicePitch", currentVoicePitch);
+        m_NewFrame.AddListener(changeVoicePitch);
         //EndGame();
     }
 
@@ -57,6 +61,12 @@ public class GameStateController : MonoBehaviour
     {
         int value = GetCurrentFrame();
         print("Frame is now: " + value);
+    }
+
+    private void changeVoicePitch()
+    {
+        currentVoicePitch -= pitchChange;
+        AkSoundEngine.SetRTPCValue("VoicePitch", currentVoicePitch);
     }
 
     public void EndGame()
@@ -92,15 +102,9 @@ public class GameStateController : MonoBehaviour
 
         akListener.enabled = false;
         AkSoundEngine.SetRTPCValue("MasterVolume", 50);
-        yield return new WaitForSeconds(textWaitTime);
+        AkSoundEngine.PostEvent("FinalSoundsStop", gameObject);
 
-        alpha = bowlingText.color.a;
-        while (alpha < 1)
-        {
-            alpha += textFadeSpeed;
-            bowlingText.color = new Color(0, 0, 0, alpha);
-            yield return new WaitForFixedUpdate();
-        }
+        bowlingText.color = new Color(0, 0, 0, 1);
 
         yield return new WaitForSeconds(textWaitTime);
 
