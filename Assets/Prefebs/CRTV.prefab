@@ -118,7 +118,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 25a9fb42d361f46ad89221f6d301e96e, type: 2}
+  - {fileID: 2100000, guid: a1e9300ec000fd242859fb884af772ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -860,11 +860,12 @@ MonoBehaviour:
   blackScreen: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
   Screen: {fileID: 6984175478009461783}
   flickerArray:
-  - {fileID: 2800000, guid: fa43b97f05c753c4dbf603ad59c31d47, type: 3}
-  - {fileID: 2800000, guid: 6ea50cf81e05dce4395defcd7888072c, type: 3}
-  - {fileID: 2800000, guid: 2ec6e1532acb1254f9f3797b5d82db44, type: 3}
-  - {fileID: 2800000, guid: 5e98de278b2ccc14f89b76b85596a3f3, type: 3}
-  - {fileID: 2800000, guid: ecb23393a0d1b424a82fff68a4c00a66, type: 3}
+  - {fileID: 2800000, guid: 50317d04b13be2a47b8986a33917cb5c, type: 3}
+  - {fileID: 2800000, guid: 552831788e11121419f7525af68500ea, type: 3}
+  - {fileID: 2800000, guid: 784d4865ba6fe444f93c954b2ea480e2, type: 3}
+  - {fileID: 2800000, guid: 61c7a5b8716262a42bde29ef0cbcd1af, type: 3}
+  - {fileID: 2800000, guid: 9988a9259f6d279438df1a746fe3a9b2, type: 3}
+  - {fileID: 2800000, guid: dc34e65e452e04f45b8978c4c433bc58, type: 3}
   flickerFrequencyBase: 0.05
   flickerFrequencyIncrease: 0.05
   betweenFlickerTime: 0.3

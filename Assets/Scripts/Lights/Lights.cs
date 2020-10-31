@@ -36,7 +36,6 @@ public class Lights : MonoBehaviour {
         lightObj.SetActive(active);
         if(onMaterial && offMaterial) {
             if(active) {
-                Debug.Log(materialObj.materials[1]);
                 materialObj.materials = onMaterialArray;
             } else {
                 materialObj.materials = offMaterialArray;
@@ -52,14 +51,16 @@ public class Lights : MonoBehaviour {
         return lightObj.activeSelf;
     }
 
-    public bool FlickerLight(float length, int amount, float delay = 0f) {
+    public bool FlickerLight(float length, int amount, float delay = 0f, bool toggle = false, bool onlyIfOn = false) {
         if(isFlickering)
             return false;
-        StartCoroutine(Flicker(length, amount, delay));
+        if(onlyIfOn && IsLightOn())
+            return false;
+        StartCoroutine(Flicker(length, amount, delay, toggle));
         return true;
     }
 
-    private IEnumerator Flicker(float length, int amount, float delay = 0f) {
+    private IEnumerator Flicker(float length, int amount, float delay = 0f, bool toggle = false) {
         isFlickering = true;
         yield return new WaitForSecondsRealtime(delay);
 
@@ -70,6 +71,12 @@ public class Lights : MonoBehaviour {
             yield return new WaitForSecondsRealtime(pauseTime);
             ToggleLight();
         }
+
+        if(toggle) {
+            yield return new WaitForSecondsRealtime(pauseTime);
+            ToggleLight();
+        }
+
         isFlickering = false;
     }
 
