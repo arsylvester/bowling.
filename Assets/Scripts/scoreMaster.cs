@@ -93,11 +93,9 @@ public class scoreMaster : MonoBehaviour {
 
         //despawn ball
         GameObject bowler = pinZone.touchedBy;
-        GameObject bowler2 = pinZone.lastMinOtherBallFix;
         if (bowler)
             bowler.SetActive (false);
-        if (bowler2)
-            bowler2.SetActive (false);
+        
 
         //reset remaining pins
         foreach (GameObject pin in pin_script.pins) {
@@ -129,18 +127,6 @@ public class scoreMaster : MonoBehaviour {
             dispenser.MoveBall (bowler);
 
             bowler.SetActive (true);
-
-        }
-
-        if (bowler2) {
-
-            bowler2.GetComponent<Rigidbody> ().useGravity = false;
-
-            bowler2.GetComponent<Rigidbody> ().velocity = Vector3.zero;
-
-            dispenser.MoveBall (bowler2);
-
-            bowler2.SetActive (true);
 
         }
 
