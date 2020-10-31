@@ -14,7 +14,7 @@ public class SpawnBlood : MonoBehaviour {
                 StartCoroutine(SpawnBloodFunc());
             });
         } else {
-            // summon him here
+            GameStateController._instance.SpawnStrongBall.AddListener(SpawnDudeFunction);
         }
     }
 
@@ -31,7 +31,9 @@ public class SpawnBlood : MonoBehaviour {
     }
 
     private void SpawnDudeFunction() {
-        blood[0].SetActive(true);
+        Debug.Log("SUMMON THE STRONG MAN");
+        foreach(GameObject obj in blood)
+            obj.SetActive(true);
     }
 
 }
