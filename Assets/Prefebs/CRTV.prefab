@@ -621,6 +621,7 @@ GameObject:
   - component: {fileID: 4583772882103949192}
   - component: {fileID: 5479029778932235025}
   - component: {fileID: 4504922260921570353}
+  - component: {fileID: 687015628173821190}
   m_Layer: 0
   m_Name: CRTV
   m_TagString: Untagged
@@ -735,6 +736,40 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 43bb57ae367b72244bc316bfd3c7577c,
+      type: 2}
+  useCallbacks: 0
+  Callbacks: []
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  eventIdInternal: 0
+  valueGuidInternal: 
+  m_callbackDataInternal: {fileID: 0}
+  MultiPositionType: 1
+  multiPositionTypeLabel: 0
+  LargeModePositions: []
+  multiPositionArray: []
+--- !u!114 &687015628173821190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2638028934137017949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 455c83b09f5db0b4d9dba087a57bf0c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: c4e7c4a0c4e3a6f42a3f4924dcd3d44b,
       type: 2}
   useCallbacks: 0
   Callbacks: []

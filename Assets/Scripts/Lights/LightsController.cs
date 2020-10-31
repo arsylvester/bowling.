@@ -70,7 +70,16 @@ public class LightsController : MonoBehaviour {
 
     public IEnumerator FlashAllLights(float pauseDelay = 2f) {
         pauseFlickerLoop = true;
+        yield return FlashAllLightsOff();
 
+        yield return new WaitForSeconds(pauseDelay);
+
+        yield return FlashAllLightsOn();
+        pauseFlickerLoop = false;
+        yield return null;
+    }
+
+    public IEnumerator FlashAllLightsOff() {
         // Flicker monitor off
         StartCoroutine(FlickerMonitor(0.75f, 6, 0.5f, false));
         // Flicker all lights off
@@ -84,9 +93,10 @@ public class LightsController : MonoBehaviour {
         for(int i = 0; i < lights.Length; i++) {
             lights[i].SetLight(false);
         }
+        yield return null;
+    }
 
-        yield return new WaitForSeconds(pauseDelay);
-
+    public IEnumerator FlashAllLightsOn() {
         // Flicker monitor on
         StartCoroutine(FlickerMonitor(0.75f, 6, 0.5f, true));
         // Flicker all lights on
@@ -98,14 +108,12 @@ public class LightsController : MonoBehaviour {
         yield return new WaitForSeconds(0.8f);
         for(int i = 0; i < lights.Length; i++)
             lights[i].SetLight(true);
-
-        pauseFlickerLoop = false;
         yield return null;
     }
 
     public void FlashAllWrapper() { StartCoroutine(FlashAllLights()); }
 
-    private IEnumerator FlickerMonitor(float length, int amount, float delay = 0f, bool finalState = false) {
+    public IEnumerator FlickerMonitor(float length, int amount, float delay = 0f, bool finalState = false) {
         yield return new WaitForSecondsRealtime(delay);
 
         float pauseTime = length / (amount * 2);

@@ -16,9 +16,12 @@
 				</SoundBank>
 				<SoundBank Name="Ambient" ID="{2FC53DFB-EE38-4834-A95B-44555FD22FB9}">
 					<ObjectInclusionList>
+						<ObjectRef Name="MusicStop" ID="{557C53B0-024F-42A5-BB2D-CDF05D53E849}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="FinalSounds" ID="{C4DC927C-1B98-42A9-A5D2-21045A829FD5}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="CRT" ID="{231DE5DB-1B3A-43A7-A89B-1049534F99E1}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Lights" ID="{95B218E6-464C-4800-A87C-B5EFB930F89E}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="DO_NOT_go_with_AM_on_5900" ID="{6F4E4776-A2A5-491B-9B58-3774287E0075}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="RagtimeMusic" ID="{B86B72BE-1FC9-4EBC-9B84-8CBFE56551C4}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

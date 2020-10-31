@@ -16,6 +16,8 @@ public class GameStateController : MonoBehaviour
     public UnityEvent m_NewFrame = new UnityEvent();
     public static GameStateController _instance;
 
+    
+    [SerializeField] LightsController lightControl;
     [SerializeField] RawImage white;
     [SerializeField] Text bowlingText;
     [SerializeField] Text highscoreText;
@@ -25,6 +27,7 @@ public class GameStateController : MonoBehaviour
     [SerializeField] float textWaitTime = 5f;
     [SerializeField] GameObject postProcessingMain, postProcessingFR;
     [SerializeField] float pitchChange = 5f;
+    [SerializeField] float fogIncrease = .001f;
 
     private void Awake()
     {
@@ -35,6 +38,8 @@ public class GameStateController : MonoBehaviour
 
         AkSoundEngine.SetRTPCValue("VoicePitch", currentVoicePitch);
         m_NewFrame.AddListener(changeVoicePitch);
+        m_NewFrame.AddListener(increaseFog);
+
         //EndGame();
     }
 
@@ -69,21 +74,62 @@ public class GameStateController : MonoBehaviour
         AkSoundEngine.SetRTPCValue("VoicePitch", currentVoicePitch);
     }
 
+    private void increaseFog()
+    {
+        RenderSettings.fogDensity += fogIncrease;
+    }
+
     public void EndGame()
     {
         white.gameObject.SetActive(true);
         StartCoroutine(fadeInEnd());
     }
 
-    public void finalRoll(){
-        //turn off lights
-
+    public IEnumerator red(){
         //flicker lights
+        yield return StartCoroutine(lightControl.FlashAllLights(3f));
+
+        //yield return new WaitForSecondsRealtime(6f);
+        
+        //turn off lights
+        // foreach (Lights l in lightControl.lights)
+        // {
+        //     l.SetLight(false);
+        // }
+
+        yield return StartCoroutine(lightControl.FlashAllLightsOff());
+        StartCoroutine(lightControl.FlickerMonitor(0f, 0, 0f, false));
+
+        yield return new WaitForSecondsRealtime(2f);
 
         //make everything red
         postProcessingFR.SetActive(true);
         postProcessingMain.SetActive(false);
         
+        yield return new WaitForSecondsRealtime(5f);
+
+        //PLAY DO NOT
+        AkSoundEngine.PostEvent("LastFrame", gameObject);
+
+        //turn on lights
+        StartCoroutine(lightControl.FlickerMonitor(0f, 0, 0f, true));
+        foreach (Lights l in lightControl.lights)
+        {
+            l.SetLight(true);
+        }
+        GetComponent<scoreMaster> ().inRedSequence = false;
+        
+    }
+
+    public IEnumerator finalRoll(){
+        //spawn strong ball
+
+        //play new sounds
+
+        while(true){
+            StartCoroutine(lightControl.FlashAllLights(0f));
+            yield return new WaitForSecondsRealtime(5f);
+        }
     }
 
     private IEnumerator fadeInEnd()
@@ -108,7 +154,7 @@ public class GameStateController : MonoBehaviour
 
         yield return new WaitForSeconds(textWaitTime);
 
-        highscoreText.text = "Highscore: " + GetComponent<scoreMaster>().runningTotal;
+        highscoreText.text = "score: " + GetComponent<scoreMaster>().runningTotal;
         alpha = highscoreText.color.a;
         while (alpha < 1)
         {
