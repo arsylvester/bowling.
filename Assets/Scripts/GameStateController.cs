@@ -109,6 +109,7 @@ public class GameStateController : MonoBehaviour
         yield return new WaitForSecondsRealtime(5f);
 
         //PLAY DO NOT
+        AkSoundEngine.PostEvent("LastFrame", gameObject);
 
         //turn on lights
         StartCoroutine(lightControl.FlickerMonitor(0f, 0, 0f, true));
@@ -116,6 +117,7 @@ public class GameStateController : MonoBehaviour
         {
             l.SetLight(true);
         }
+        GetComponent<scoreMaster> ().inRedSequence = false;
         
     }
 
@@ -125,7 +127,8 @@ public class GameStateController : MonoBehaviour
         //play new sounds
 
         while(true){
-            yield return StartCoroutine(lightControl.FlashAllLights(0f));
+            StartCoroutine(lightControl.FlashAllLights(0f));
+            yield return new WaitForSecondsRealtime(5f);
         }
     }
 
@@ -151,7 +154,7 @@ public class GameStateController : MonoBehaviour
 
         yield return new WaitForSeconds(textWaitTime);
 
-        highscoreText.text = "Highscore: " + GetComponent<scoreMaster>().runningTotal;
+        highscoreText.text = "score: " + GetComponent<scoreMaster>().runningTotal;
         alpha = highscoreText.color.a;
         while (alpha < 1)
         {
