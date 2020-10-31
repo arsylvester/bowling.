@@ -19,6 +19,7 @@ public class scoreMaster : MonoBehaviour {
     public int frame, roll, runningTotal;
     public bool exampleMethodCall;
     public bool inSetup;
+    private bool red;
 
     void Start () {
 
@@ -34,8 +35,9 @@ public class scoreMaster : MonoBehaviour {
         frame = 0;
         roll = 0;
         runningTotal = 0;
+        red = false;
 
-        printScore();
+        printScore ();
     }
 
     void Update () {
@@ -76,20 +78,20 @@ public class scoreMaster : MonoBehaviour {
         inSetup = true;
 
         //reset crt screen to display score
-        screen.cameraSwapToScore();
+        screen.cameraSwapToScore ();
 
         //move object to obscure pins from view
 
         knocked_pins = pin_script.getKnocked ();
-        
+
         updateScore (pin_script.getKnocked ()); // this is pointless. move the code from updateScore() to here
 
         //display score
         printScore ();
-        
+
         //despawn ball
         GameObject bowler = pinZone.touchedBy;
-        if(bowler)
+        if (bowler)
             bowler.SetActive (false);
 
         //reset remaining pins
@@ -109,46 +111,43 @@ public class scoreMaster : MonoBehaviour {
             }
         }
 
-
-
-
-
-
-
         //remove pin obscuring object
-
-
 
         //respawn ball in ball return
 
-        if(bowler) {
+        if (bowler) {
 
-            bowler.GetComponent<Rigidbody>().useGravity = false;
+            bowler.GetComponent<Rigidbody> ().useGravity = false;
 
-            bowler.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            bowler.GetComponent<Rigidbody> ().velocity = Vector3.zero;
 
-            dispenser.MoveBall(bowler);
+            dispenser.MoveBall (bowler);
 
-            bowler.SetActive(true);
+            bowler.SetActive (true);
 
         }
-
-        
 
         //remove pin obscuring object
 
         //Final roll actions
-        if (frame == 10 && displayScore[9,1] == "/"){
-            GetComponent<GameStateController> ().finalRoll();
+        if (frame == 9 && roll == 1) {
+            red = true;
+            StartCoroutine (GetComponent<GameStateController> ().finalRoll ());
+        } else if (frame == 10 && roll == 0 && !red) {
+            red = true;
+            StartCoroutine (GetComponent<GameStateController> ().finalRoll ());
         }
-        else if (frame == 10 && roll == 1 && displayScore[9,0] == "X") {
-            GetComponent<GameStateController> ().finalRoll();
-        }
+        // if (frame == 10 && (score[9,0] + score[9,1]) == 10){
+        //     GetComponent<GameStateController> ().finalRoll();
+        // }
+        // else if (frame == 10 && roll == 1 && displayScore[9,0] == "X") {
+        //     GetComponent<GameStateController> ().finalRoll();
+        // }
 
         //respawn ball in ball return
-        bowler.GetComponent<Rigidbody>().useGravity = false;
-        bowler.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        dispenser.MoveBall(bowler);
+        bowler.GetComponent<Rigidbody> ().useGravity = false;
+        bowler.GetComponent<Rigidbody> ().velocity = Vector3.zero;
+        dispenser.MoveBall (bowler);
         bowler.SetActive (true);
 
         StartCoroutine (timedWait (0.6f));
@@ -161,7 +160,7 @@ public class scoreMaster : MonoBehaviour {
             string t = "";
             for (int k = 0; k < 2; k++) {
                 t += displayScore[j, k];
-                if (j != 9){
+                if (j != 9) {
                     t += " ";
                 }
             }
@@ -189,9 +188,8 @@ public class scoreMaster : MonoBehaviour {
         }
 
         runningTotal = 0;
-        foreach (int frameScore in total)
-        {
-            if (frameScore != -1){
+        foreach (int frameScore in total) {
+            if (frameScore != -1) {
                 runningTotal += frameScore;
             }
         }
@@ -199,24 +197,24 @@ public class scoreMaster : MonoBehaviour {
         totalText[9].text = "" + runningTotal;
     }
 
-    void applyBonus (int pinFall){
-         if (bonus.Count != 0) { //if there's an active bonus
-                print("amount of active bonuses: " + bonus.Count);
-                List<int> toRemove = new List<int>();
-                ArrayList temp = new ArrayList ();
-                for (int y = 0; y < bonus.Count; y++) { //I am in pain
-                    int[] o = (int[]) bonus[y];
-                    print("bonus for frame " + o[0] + ": " + o[1]);
-                    if (o[1] != 0) {
-                        score[o[0], 3 - o[1]] = pinFall; //score[1] and score[2] need to be modified
-                        total[o[0]] += pinFall;
+    void applyBonus (int pinFall) {
+        if (bonus.Count != 0) { //if there's an active bonus
+            print ("amount of active bonuses: " + bonus.Count);
+            List<int> toRemove = new List<int> ();
+            ArrayList temp = new ArrayList ();
+            for (int y = 0; y < bonus.Count; y++) { //I am in pain
+                int[] o = (int[]) bonus[y];
+                print ("bonus for frame " + o[0] + ": " + o[1]);
+                if (o[1] != 0) {
+                    score[o[0], 3 - o[1]] = pinFall; //score[1] and score[2] need to be modified
+                    total[o[0]] += pinFall;
 
-                        o[1] -= 1;
-                        temp.Add(o);
-                    }
+                    o[1] -= 1;
+                    temp.Add (o);
                 }
-                bonus = temp;
             }
+            bonus = temp;
+        }
     }
 
     void updateScore (GameObject[] knocked) {
@@ -231,13 +229,13 @@ public class scoreMaster : MonoBehaviour {
             score[frame, roll] = pinFall;
             total[frame] += pinFall;
 
-            applyBonus(pinFall);
+            applyBonus (pinFall);
 
             if (pinFall == 10) { //strike
                 //adjust displayScore
                 displayScore[frame, roll] = "X";
                 displayScore[frame, roll + 1] = " ";
-                AkSoundEngine.PostEvent("Strike", gameObject); // Create function
+                AkSoundEngine.PostEvent ("Strike", gameObject); // Create function
 
                 //enqueue 2 bonus rolls
                 int[] b = new int[2];
@@ -251,10 +249,10 @@ public class scoreMaster : MonoBehaviour {
                 } else {
                     if (displayScore[9, 1] == "/") { //Spare in first 2 rolls of f10 and completed bonus roll
                         //GAME OVER
-                        gameOver();
+                        gameOver ();
                         return;
                     } else { //f10 first roll was a strike
-                        print(displayScore[9, 1] + " != / . this means that you got a strike.");
+                        print (displayScore[9, 1] + " != / . this means that you got a strike.");
                         resetPins ();
                         roll++;
                     }
@@ -264,7 +262,7 @@ public class scoreMaster : MonoBehaviour {
                 //adjust displayScore
                 displayScore[frame, roll] = "" + pinFall;
                 roll++;
-                AkSoundEngine.PostEvent("Score", gameObject);
+                AkSoundEngine.PostEvent ("Score", gameObject);
             }
         } else if (roll == 1) {
             score[frame, roll] = pinFall;
@@ -289,13 +287,13 @@ public class scoreMaster : MonoBehaviour {
             //     }
             // }
 
-            applyBonus(pinFall);
+            applyBonus (pinFall);
 
             if (pinFall == 10 && frame == 10 && displayScore[10, 0] == "X") { //frame 10 3rd strike
                 displayScore[frame, roll] = "X";
                 //GAME OVER
                 //TRUE ENDING
-                gameOver();
+                gameOver ();
                 return;
             } else if (total[frame] == 10) { //spare
                 displayScore[frame, roll] = "/";
@@ -304,22 +302,22 @@ public class scoreMaster : MonoBehaviour {
                 b[0] = frame;
                 b[1] = 1;
                 bonus.Add (b);
-                AkSoundEngine.PostEvent("Spare", gameObject);
+                AkSoundEngine.PostEvent ("Spare", gameObject);
             } else {
                 displayScore[frame, roll] = "" + pinFall;
-                AkSoundEngine.PostEvent("Score", gameObject);
+                AkSoundEngine.PostEvent ("Score", gameObject);
                 if (frame == 9) { //No Mark on frame 10
-                    print("no mark on frame 10. Game over.");
+                    print ("no mark on frame 10. Game over.");
                     //GAME OVER
-                    gameOver();
+                    gameOver ();
                     return;
                 }
             }
 
             if (frame == 10) { //Got a strike on f10-roll1 and completed both bonus rolls
-                print("frame 11 complete. Game over.");
+                print ("frame 11 complete. Game over.");
                 //GAME OVER
-                gameOver();
+                gameOver ();
                 return;
             } else {
                 //continue to next frame   
@@ -335,7 +333,7 @@ public class scoreMaster : MonoBehaviour {
         frame++;
         roll = 0;
         resetPins ();
-        for (int z = 0; z < 10; z++){
+        for (int z = 0; z < 10; z++) {
             knocked_pins[z] = null;
         }
         GetComponent<GameStateController> ().NewFrame (frame);
@@ -350,15 +348,15 @@ public class scoreMaster : MonoBehaviour {
             pin.transform.rotation = pin.GetComponent<pinScript> ().defaultRot;
             pin.transform.position = pin.GetComponent<pinScript> ().defaultPos;
         }
-        for (int z = 0; z < knocked_pins.Length; z++){
+        for (int z = 0; z < knocked_pins.Length; z++) {
             if (knocked_pins[z] != null)
                 knocked_pins[z] = null;
         }
     }
 
-    public void skipToFrameTen (){
-        pin_script.getKnockedInt();
-        
+    public void skipToFrameTen () {
+        pin_script.getKnockedInt ();
+
         for (int x = 0; x < 10; x++) {
             total[x] = 6;
             for (int y = 0; y < 2; y++) {
@@ -372,19 +370,18 @@ public class scoreMaster : MonoBehaviour {
 
         frame = 9;
         roll = 0;
-        printScore();
-        resetPins();
+        printScore ();
+        resetPins ();
     }
 
-    void gameOver() {
-        print("GAME OVER");
+    void gameOver () {
+        print ("GAME OVER");
 
         //lower thing to block pins from view
-        
-        BallController[] ballControllerBalls = FindObjectsOfType<BallController>();
-        foreach (BallController ball in ballControllerBalls)
-        {
-            ball.gameObject.SetActive(false);
+
+        BallController[] ballControllerBalls = FindObjectsOfType<BallController> ();
+        foreach (BallController ball in ballControllerBalls) {
+            ball.gameObject.SetActive (false);
         }
 
         foreach (GameObject pin in pin_script.pins) {
@@ -392,6 +389,6 @@ public class scoreMaster : MonoBehaviour {
         }
 
         //perform spooky actions
-        GameStateController._instance.EndGame();
+        GameStateController._instance.EndGame ();
     }
 }

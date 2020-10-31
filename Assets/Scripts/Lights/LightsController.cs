@@ -105,7 +105,7 @@ public class LightsController : MonoBehaviour {
 
     public void FlashAllWrapper() { StartCoroutine(FlashAllLights()); }
 
-    private IEnumerator FlickerMonitor(float length, int amount, float delay = 0f, bool finalState = false) {
+    public IEnumerator FlickerMonitor(float length, int amount, float delay = 0f, bool finalState = false) {
         yield return new WaitForSecondsRealtime(delay);
 
         float pauseTime = length / (amount * 2);
