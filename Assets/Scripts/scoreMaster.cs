@@ -132,9 +132,11 @@ public class scoreMaster : MonoBehaviour {
         //Final roll actions
         if (frame == 9 && roll == 1) {
             red = true;
-            StartCoroutine (GetComponent<GameStateController> ().finalRoll ());
+            StartCoroutine (GetComponent<GameStateController> ().red ());
         } else if (frame == 10 && roll == 0 && !red) {
             red = true;
+            StartCoroutine (GetComponent<GameStateController> ().red ());
+        } else if (frame == 10 && roll == 1){
             StartCoroutine (GetComponent<GameStateController> ().finalRoll ());
         }
         // if (frame == 10 && (score[9,0] + score[9,1]) == 10){

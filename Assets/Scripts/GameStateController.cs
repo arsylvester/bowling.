@@ -77,17 +77,19 @@ public class GameStateController : MonoBehaviour
         StartCoroutine(fadeInEnd());
     }
 
-    public IEnumerator finalRoll(){
+    public IEnumerator red(){
         //flicker lights
         yield return StartCoroutine(lightControl.FlashAllLights(3f));
 
         //yield return new WaitForSecondsRealtime(6f);
         
         //turn off lights
-        foreach (Lights l in lightControl.lights)
-        {
-            l.SetLight(false);
-        }
+        // foreach (Lights l in lightControl.lights)
+        // {
+        //     l.SetLight(false);
+        // }
+
+        yield return StartCoroutine(lightControl.FlashAllLightsOff());
         StartCoroutine(lightControl.FlickerMonitor(0f, 0, 0f, false));
 
         yield return new WaitForSecondsRealtime(2f);
@@ -96,7 +98,7 @@ public class GameStateController : MonoBehaviour
         postProcessingFR.SetActive(true);
         postProcessingMain.SetActive(false);
         
-        yield return new WaitForSecondsRealtime(4f);
+        yield return new WaitForSecondsRealtime(5f);
 
         //PLAY DO NOT
 
@@ -107,6 +109,16 @@ public class GameStateController : MonoBehaviour
             l.SetLight(true);
         }
         
+    }
+
+    public IEnumerator finalRoll(){
+        //spawn strong ball
+
+        //play new sounds
+
+        while(true){
+            yield return StartCoroutine(lightControl.FlashAllLights(0f));
+        }
     }
 
     private IEnumerator fadeInEnd()
