@@ -16,6 +16,7 @@ public class MainMenuController : MonoBehaviour
 
     private void Start()
     {
+        AkSoundEngine.PostEvent("Music", gameObject);
         currentPage = title;
     }
 
@@ -30,6 +31,7 @@ public class MainMenuController : MonoBehaviour
                 if(hit.transform.gameObject == start)
                 {
                     print("start");
+                    AkSoundEngine.PostEvent("MusicStop", gameObject);
                     SceneManager.LoadScene("_Main");
                 }
                 else if (hit.transform.gameObject == controls)

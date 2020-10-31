@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="77978275" Language="SFX" Hash="1450553456">
+		<SoundBank Id="77978275" Language="SFX" Hash="3960167331">
 			<ObjectPath>\SoundBanks\Default Work Unit\Ambient</ObjectPath>
 			<ShortName>Ambient</ShortName>
 			<Path>Ambient.bnk</Path>
@@ -32,15 +32,28 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="1996894508" Name="LastFrame" ObjectPath="\Events\Default Work Unit\LastFrame" DurationType="Infinite"/>
 				<Event Id="3192784746" Name="Lights" ObjectPath="\Events\Default Work Unit\Lights" DurationType="Infinite">
 					<IncludedMemoryFiles>
 						<File Id="805918545" Language="SFX">
 							<ShortName>Light.wav</ShortName>
-							<Path>SFX\Light_1237B537.wem</Path>
+							<Path>SFX\Light_B251139B.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="3991942870" Name="Music" ObjectPath="\Events\Default Work Unit\Music" MaxAttenuation="30.000000" DurationType="Infinite"/>
+				<Event Id="3978196478" Name="MusicStop" ObjectPath="\Events\Default Work Unit\MusicStop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="482479033" Language="SFX">
+					<ShortName>DO_NOT_go_with_AM_on_5900.wav</ShortName>
+					<Path>SFX\DO_NOT_go_with_AM_on_5900_A5DF3203.wem</Path>
+				</File>
+				<File Id="918713499" Language="SFX">
+					<ShortName>Ragtime_Cut_Short.wav</ShortName>
+					<Path>SFX\Ragtime_Cut_Short_5A7E5A87.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
 		</SoundBank>
 		<SoundBank Id="968010305" Language="SFX" Hash="1162770667">
 			<ObjectPath>\SoundBanks\Default Work Unit\Props</ObjectPath>
