@@ -6,6 +6,7 @@ public class LaneHitbox : MonoBehaviour
 {
     public bool isTouched;
     public GameObject touchedBy;
+    public GameObject lastMinOtherBallFix;
     
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,15 @@ public class LaneHitbox : MonoBehaviour
             }
             isTouched = true;
             print("TRIGGER HIT");
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "BowlingBall"){
+            if (touchedBy != other.gameObject){
+                lastMinOtherBallFix = other.gameObject;
+            }
         }
     }
 }
