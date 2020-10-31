@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class GameStateController : MonoBehaviour
 {
@@ -20,6 +22,7 @@ public class GameStateController : MonoBehaviour
     [SerializeField] float fadeSpeed = .05f;
     [SerializeField] float textFadeSpeed = .05f;
     [SerializeField] float textWaitTime = 5f;
+    [SerializeField] GameObject postProcessingMain, postProcessingFR;
 
     private void Awake()
     {
@@ -60,6 +63,17 @@ public class GameStateController : MonoBehaviour
     {
         white.gameObject.SetActive(true);
         StartCoroutine(fadeInEnd());
+    }
+
+    public void finalRoll(){
+        //turn off lights
+
+        //flicker lights
+
+        //make everything red
+        postProcessingFR.SetActive(true);
+        postProcessingMain.SetActive(false);
+        
     }
 
     private IEnumerator fadeInEnd()
