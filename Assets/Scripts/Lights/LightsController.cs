@@ -43,9 +43,9 @@ public class LightsController : MonoBehaviour {
         int amount = 4;
         float delay = Random.Range(1f, 3f);
 
-        if(GameStateController.GetCurrentFrame() % 2 == 0 && GameStateController.GetCurrentFrame() <= 5) { // 2, 4, 6 - flicker and turn off
+        if(GameStateController.GetCurrentFrame() % 2 == 0 && GameStateController.GetCurrentFrame() <= 6) { // 2, 4, 6 - flicker and turn off
             TurnOffRandom(length, amount, delay);
-        } else if(GameStateController.GetCurrentFrame() == 7 || GameStateController.GetCurrentFrame() == 8) {
+        } else if(GameStateController.GetCurrentFrame() == 7 || GameStateController.GetCurrentFrame() == 8) { // 8 & 9 - flicker and turn off random
             int index;
             for(int i = 0; i < 10; i++) {
                 index = Random.Range(0, 9);

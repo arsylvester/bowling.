@@ -16,6 +16,9 @@ public class BallDispenser : MonoBehaviour {
 #pragma warning disable 0649
 
     public void MoveBall(GameObject ball) {
+        if(ball.GetComponent<MeshRenderer>())
+            ball.GetComponent<MeshRenderer>().sharedMaterial.SetFloat("Vector1_75BF3378", BallDistorter.distortionRate);
+
         ball.transform.position = ballSpawnPos.position;
         ball.transform.parent = ballSpawnPos;
 
