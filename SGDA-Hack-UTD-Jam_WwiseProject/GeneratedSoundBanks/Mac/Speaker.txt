@@ -4,7 +4,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	4110605575	Strike			\Default Work Unit\Strike	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	71925337	Creepy_End_Of_Broadcast_Day	C:\Unity Projects\Git Kraken\SGDA-Hack-UTD-Jam\SGDA-Hack-UTD-Jam_WwiseProject\.cache\Mac\SFX\Creepy_End_Of_Broadcast_Day_9E3E1C62.wem		\Actor-Mixer Hierarchy\Default Work Unit\Creepy_End_Of_Broadcast_Day		18676
-	257187427	Strike	C:\Unity Projects\Git Kraken\SGDA-Hack-UTD-Jam\SGDA-Hack-UTD-Jam_WwiseProject\.cache\Mac\SFX\Strike_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Strike		241728
-	595865052	Mechanical	C:\Unity Projects\Git Kraken\SGDA-Hack-UTD-Jam\SGDA-Hack-UTD-Jam_WwiseProject\.cache\Mac\SFX\Mechanical_75F2C9FD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mechanical		217836
+	66047327	GreatShot	C:\Unity Projects\Git Kraken\SGDA-Hack-UTD-Jam\SGDA-Hack-UTD-Jam_WwiseProject\.cache\Mac\SFX\bowling_VO_6991711D.wem		\Actor-Mixer Hierarchy\Default Work Unit\VO\GreatShot		202412
+	478132973	Perfect	C:\Unity Projects\Git Kraken\SGDA-Hack-UTD-Jam\SGDA-Hack-UTD-Jam_WwiseProject\.cache\Mac\SFX\bowling_VO_09CF2502.wem		\Actor-Mixer Hierarchy\Default Work Unit\VO\Perfect		194320
+	568556353	Spare	C:\Unity Projects\Git Kraken\SGDA-Hack-UTD-Jam\SGDA-Hack-UTD-Jam_WwiseProject\.cache\Mac\SFX\bowling_VO_E2641307.wem		\Actor-Mixer Hierarchy\Default Work Unit\VO\Spare		259068
 

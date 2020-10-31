@@ -51,7 +51,7 @@
 						<Action Name="" ID="{72B3486A-5955-4358-818C-ACAEECEFAC43}" ShortID="777395290">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Mechanical" ID="{C5DF9C55-0209-46C2-9BE8-674CC4B771A8}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
+									<ObjectRef Name="Mechanical" ID="{7E1A865F-6F5E-41DE-88F9-7F30A82AE801}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -103,10 +103,10 @@
 				</Event>
 				<Event Name="Strike" ID="{16010E85-9C94-40AD-B211-6390FF695CBD}">
 					<ChildrenList>
-						<Action Name="" ID="{F96CAF98-7497-4366-85C4-2CAFCF7B1099}" ShortID="1059775115">
+						<Action Name="" ID="{12C5A481-778D-4CD9-B542-51A1CF8D572F}" ShortID="268519352">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Strike" ID="{FF40FAD4-130A-4AEC-85A4-027A326580CE}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
+									<ObjectRef Name="Perfect" ID="{8736AC12-2022-42CA-9078-C8C67FE8AA7B}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -114,10 +114,10 @@
 				</Event>
 				<Event Name="Spare" ID="{1B557833-5DC7-4145-AA36-B1AD3C3FD303}">
 					<ChildrenList>
-						<Action Name="" ID="{A1935944-E2AC-46E2-BAEA-CE0E54150B43}" ShortID="718251065">
+						<Action Name="" ID="{B0308D9D-04F9-406E-92DF-254C3881121D}" ShortID="473624963">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Mechanical" ID="{C5DF9C55-0209-46C2-9BE8-674CC4B771A8}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
+									<ObjectRef Name="Spare" ID="{4749ACDA-0A76-43D6-AD8F-708FD931954A}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -125,10 +125,10 @@
 				</Event>
 				<Event Name="Score" ID="{63BE9ADB-9C08-42BB-838C-18BDDF03F796}">
 					<ChildrenList>
-						<Action Name="" ID="{FF4570F2-A58E-469D-BA31-FF86754A6631}" ShortID="921618601">
+						<Action Name="" ID="{39DE242B-8420-4A30-8082-857ED6A32A70}" ShortID="280051204">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Creepy_End_Of_Broadcast_Day" ID="{9BBB4107-F938-4C7C-83C6-2EDE41859AEA}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
+									<ObjectRef Name="GreatShot" ID="{6C77FA25-4C60-490B-A646-6365474D04F2}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

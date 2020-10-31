@@ -8,6 +8,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	174775429	Rolling	C:\Unity Projects\Git Kraken\SGDA-Hack-UTD-Jam\SGDA-Hack-UTD-Jam_WwiseProject\.cache\Windows\SFX\Rolling_00FE5E52.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rolling		665004
 	257187427	Strike	C:\Unity Projects\Git Kraken\SGDA-Hack-UTD-Jam\SGDA-Hack-UTD-Jam_WwiseProject\.cache\Windows\SFX\Strike_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Strike		241728
 	446046462	Thud1	C:\Unity Projects\Git Kraken\SGDA-Hack-UTD-Jam\SGDA-Hack-UTD-Jam_WwiseProject\.cache\Windows\SFX\Thud1Short_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Thuds\Thud1		79460
-	595865052	Mechanical	C:\Unity Projects\Git Kraken\SGDA-Hack-UTD-Jam\SGDA-Hack-UTD-Jam_WwiseProject\.cache\Windows\SFX\Mechanical_75F2C9FD.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mechanical		217836
-	640615964	BallThud	C:\Unity Projects\Git Kraken\SGDA-Hack-UTD-Jam\SGDA-Hack-UTD-Jam_WwiseProject\.cache\Windows\SFX\Thud2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\BallThud		40000
+	595865052	Mechanical	C:\Unity Projects\Git Kraken\SGDA-Hack-UTD-Jam\SGDA-Hack-UTD-Jam_WwiseProject\.cache\Windows\SFX\Mechanical_37BCACEB.wem		\Actor-Mixer Hierarchy\Default Work Unit\Mechanical		217836
+	640615964	Thud2	C:\Unity Projects\Git Kraken\SGDA-Hack-UTD-Jam\SGDA-Hack-UTD-Jam_WwiseProject\.cache\Windows\SFX\Thud2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Thuds\Thud2		40000
 

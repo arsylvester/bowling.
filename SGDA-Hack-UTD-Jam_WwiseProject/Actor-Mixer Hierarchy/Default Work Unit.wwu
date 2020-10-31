@@ -237,59 +237,6 @@
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
-				<Sound Name="Mechanical" ID="{C5DF9C55-0209-46C2-9BE8-674CC4B771A8}" ShortID="509151055">
-					<PropertyList>
-						<Property Name="3DSpatialization" Type="int16" Value="1"/>
-						<Property Name="Highpass" Type="int16">
-							<ValueList>
-								<Value>20</Value>
-							</ValueList>
-						</Property>
-						<Property Name="Lowpass" Type="int16">
-							<ValueList>
-								<Value>33</Value>
-							</ValueList>
-						</Property>
-						<Property Name="Pitch" Type="int32">
-							<ValueList>
-								<Value>-300</Value>
-							</ValueList>
-						</Property>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>-4</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Attenuation">
-							<ObjectRef Name="Props" ID="{A7C04FE9-C8EE-445A-B7FC-F59B1B27DC57}" WorkUnitID="{02B41AA9-7624-48CE-9E96-2B89033F808F}"/>
-						</Reference>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FFA48498-EF4F-4809-8AEB-529CA18FD4FF}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{53D93E22-ECEB-43BE-99C3-7B70AE8EA072}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<AudioFileSource Name="Mechanical" ID="{4492257E-E4DF-4A3D-9DFC-BA21F4FC8018}">
-							<PropertyList>
-								<Property Name="FadeInDuration" Type="Real64" Value="0.0195556752873563"/>
-								<Property Name="FadeOutDuration" Type="Real64" Value="0.343310743933589"/>
-								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-							</PropertyList>
-							<Language>SFX</Language>
-							<AudioFile>Mechanical.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="595865052"/>
-							</MediaIDList>
-						</AudioFileSource>
-					</ChildrenList>
-					<ActiveSourceList>
-						<ActiveSource Name="Mechanical" ID="{4492257E-E4DF-4A3D-9DFC-BA21F4FC8018}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
 				<Sound Name="Ragtime_Cut_Short" ID="{C6226C0D-8711-45F6-98EC-1659F07DF0F2}" ShortID="1012168472">
 					<PropertyList>
 						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
@@ -416,6 +363,123 @@
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="Creepy_End_Of_Broadcast_Day" ID="{0472D10A-04CF-4F41-A0FA-AB06C2DD810D}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Folder Name="VO" ID="{8F112CA1-FA3D-4F79-86B0-31B75FC2C53B}" ShortID="449760394">
+					<ChildrenList>
+						<Sound Name="GreatShot" ID="{6C77FA25-4C60-490B-A646-6365474D04F2}" ShortID="639264624">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="VO" ID="{6EB51593-2FA9-4A7C-B071-B60FF48CA184}" WorkUnitID="{02B41AA9-7624-48CE-9E96-2B89033F808F}"/>
+								</Reference>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FFA48498-EF4F-4809-8AEB-529CA18FD4FF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="VO Audio Bus" ID="{B088326E-6ED9-43E1-9666-D1865C60CB36}" WorkUnitID="{53D93E22-ECEB-43BE-99C3-7B70AE8EA072}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="bowling_VO" ID="{B8FD4637-5426-447E-AC30-E9198151B3B9}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="7.11200076454591"/>
+										<Property Name="TrimEnd" Type="Real64" Value="8.25909766205335"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>bowling_VO.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="66047327"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="bowling_VO" ID="{B8FD4637-5426-447E-AC30-E9198151B3B9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Perfect" ID="{8736AC12-2022-42CA-9078-C8C67FE8AA7B}" ShortID="423852871">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FFA48498-EF4F-4809-8AEB-529CA18FD4FF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="VO Audio Bus" ID="{B088326E-6ED9-43E1-9666-D1865C60CB36}" WorkUnitID="{53D93E22-ECEB-43BE-99C3-7B70AE8EA072}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="bowling_VO" ID="{7F5482BF-2C7F-49A4-A83B-B8D21FCD2662}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="22.1848539977932"/>
+										<Property Name="TrimEnd" Type="Real64" Value="23.2860670194004"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>bowling_VO.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="478132973"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="bowling_VO" ID="{7F5482BF-2C7F-49A4-A83B-B8D21FCD2662}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Spare" ID="{4749ACDA-0A76-43D6-AD8F-708FD931954A}" ShortID="28603804">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FFA48498-EF4F-4809-8AEB-529CA18FD4FF}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="VO Audio Bus" ID="{B088326E-6ED9-43E1-9666-D1865C60CB36}" WorkUnitID="{53D93E22-ECEB-43BE-99C3-7B70AE8EA072}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="bowling_VO" ID="{FE03FB7E-5569-4166-9C7F-39F99392B6EF}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="17.1835115246609"/>
+										<Property Name="TrimEnd" Type="Real64" Value="18.6517955534704"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>bowling_VO.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="568556353"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="bowling_VO" ID="{FE03FB7E-5569-4166-9C7F-39F99392B6EF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Sound Name="Mechanical" ID="{7E1A865F-6F5E-41DE-88F9-7F30A82AE801}" ShortID="901927472">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FFA48498-EF4F-4809-8AEB-529CA18FD4FF}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{53D93E22-ECEB-43BE-99C3-7B70AE8EA072}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Mechanical" ID="{554B9A80-21D2-4442-8DD7-C22000FBE1D1}">
+							<PropertyList>
+								<Property Name="FadeOutDuration" Type="Real64" Value="0.133630447796935"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+							</PropertyList>
+							<Language>SFX</Language>
+							<AudioFile>Mechanical.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="595865052"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Mechanical" ID="{554B9A80-21D2-4442-8DD7-C22000FBE1D1}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>
