@@ -132,6 +132,7 @@ MonoBehaviour:
   showAngularVel: {x: 0, y: 0, z: 0}
   speedModifyer: 5.5
   speedModifyer2: 0
+  symbolicWeight: 0
   showAverageVelocity: {x: 0, y: 0}
 --- !u!114 &3559622199897173473
 MonoBehaviour:
@@ -178,7 +179,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 1
-  m_IgnoreTag: Player
+  m_IgnoreTag: BowlingBall
   m_UseImpactDirection: 0
   m_ScaleImpactWithMass: 0
   m_ScaleImpactWithSpeed: 1

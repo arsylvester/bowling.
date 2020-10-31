@@ -237,6 +237,7 @@ public class scoreMaster : MonoBehaviour {
                 //adjust displayScore
                 displayScore[frame, roll] = "X";
                 displayScore[frame, roll + 1] = " ";
+                AkSoundEngine.PostEvent("Strike", gameObject); // Create function
 
                 //enqueue 2 bonus rolls
                 int[] b = new int[2];
@@ -263,6 +264,7 @@ public class scoreMaster : MonoBehaviour {
                 //adjust displayScore
                 displayScore[frame, roll] = "" + pinFall;
                 roll++;
+                AkSoundEngine.PostEvent("Score", gameObject);
             }
         } else if (roll == 1) {
             score[frame, roll] = pinFall;
@@ -302,8 +304,10 @@ public class scoreMaster : MonoBehaviour {
                 b[0] = frame;
                 b[1] = 1;
                 bonus.Add (b);
+                AkSoundEngine.PostEvent("Spare", gameObject);
             } else {
                 displayScore[frame, roll] = "" + pinFall;
+                AkSoundEngine.PostEvent("Score", gameObject);
                 if (frame == 9) { //No Mark on frame 10
                     print("no mark on frame 10. Game over.");
                     //GAME OVER
