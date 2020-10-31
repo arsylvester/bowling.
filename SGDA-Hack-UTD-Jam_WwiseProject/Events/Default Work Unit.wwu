@@ -147,6 +147,38 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Music" ID="{6E8A44AB-EA49-4C77-B704-22565B07542D}">
+					<ChildrenList>
+						<Action Name="" ID="{8943F531-9F08-49AD-8622-D708AEFDC66B}" ShortID="669665370">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RagtimeMusic" ID="{B86B72BE-1FC9-4EBC-9B84-8CBFE56551C4}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="LastFrame" ID="{195655F4-4E6E-41BB-A75F-6A3618A49ED1}">
+					<ChildrenList>
+						<Action Name="" ID="{BB4B3D98-A307-45CF-A9A2-29A27F3C6567}" ShortID="345718275">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DO_NOT_go_with_AM_on_5900" ID="{6F4E4776-A2A5-491B-9B58-3774287E0075}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="MusicStop" ID="{557C53B0-024F-42A5-BB2D-CDF05D53E849}">
+					<ChildrenList>
+						<Action Name="" ID="{2B803353-86A4-48C4-A4FC-FC1E43567BCC}" ShortID="679611540">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
