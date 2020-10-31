@@ -29,6 +29,8 @@ public class GameStateController : MonoBehaviour
     [SerializeField] float pitchChange = 5f;
     [SerializeField] float fogIncrease = .001f;
 
+    public UnityEvent SpawnStrongBall;
+
     private void Awake()
     {
         if (_instance == null)
@@ -123,6 +125,7 @@ public class GameStateController : MonoBehaviour
 
     public IEnumerator finalRoll(){
         //spawn strong ball
+        SpawnStrongBall.Invoke();
 
         //play new sounds
 

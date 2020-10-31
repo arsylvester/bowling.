@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6259297621817797218}
   - component: {fileID: 1022176311632253552}
   - component: {fileID: 1748732704687034751}
+  - component: {fileID: 7173474240538057922}
   m_Layer: 0
   m_Name: Spooky Ball Spawner
   m_TagString: Untagged
@@ -85,6 +86,19 @@ MonoBehaviour:
   onScore: 1
   onThrow: 1
   strongMan: 1
+--- !u!114 &7173474240538057922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6259297621817797217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2f35d380fec2ae46b015ede56e0c00a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  balls: []
 --- !u!1001 &312051385802086911
 PrefabInstance:
   m_ObjectHideFlags: 0
