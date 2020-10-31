@@ -9,15 +9,23 @@
 						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 						<Property Name="Lowpass" Type="int16">
 							<ValueList>
-								<Value>10</Value>
+								<Value>20</Value>
 							</ValueList>
 						</Property>
 						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>-30</Value>
+							</ValueList>
 							<ModifierList>
 								<ModifierInfo>
 									<Modifier Name="" ID="{0F8570C3-1529-4B79-909C-9776FFB4C7BC}"/>
 								</ModifierInfo>
 							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-4</Value>
+							</ValueList>
 						</Property>
 					</PropertyList>
 					<ReferenceList>

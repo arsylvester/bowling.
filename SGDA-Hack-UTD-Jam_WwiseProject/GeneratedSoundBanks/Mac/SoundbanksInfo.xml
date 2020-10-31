@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="77978275" Language="SFX" Hash="2683731273">
+		<SoundBank Id="77978275" Language="SFX" Hash="2887790027">
 			<ObjectPath>\SoundBanks\Default Work Unit\Ambient</ObjectPath>
 			<ShortName>Ambient</ShortName>
 			<Path>Ambient.bnk</Path>
