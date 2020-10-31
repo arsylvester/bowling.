@@ -23,7 +23,7 @@ public class BallCatcher : MonoBehaviour {
     }
 
     private IEnumerator MoveBall(GameObject ball) {
-        ball.GetComponent<Rigidbody>().useGravity = false;
+        //ball.GetComponent<Rigidbody>().useGravity = false;
         ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
         yield return new WaitForSeconds(delay);
         dispenser.MoveBall(ball);

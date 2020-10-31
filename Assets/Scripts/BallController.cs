@@ -52,11 +52,11 @@ public class BallController : MonoBehaviour
                 // get mouse velocity
                 Vector2 averageVelocity = getAverageVelocity();
                 showAverageVelocity = averageVelocity;
-                //print(averageVelocity);
+                print(averageVelocity);
                 
                 // get ball speed from mouse velocity
                 float modifiedVectorMagnitude = Mathf.Sqrt(Mathf.Pow(averageVelocity.x, 2f) + Mathf.Pow(averageVelocity.y / 2, 2f));
-                ballSpeed = Mathf.Log(modifiedVectorMagnitude, 2) * speedModifyer * symbolicWeight;
+                ballSpeed = Mathf.Log(Mathf.Pow(modifiedVectorMagnitude + 0.5f, 1.5f), 2) * speedModifyer * symbolicWeight;
                 print(ballSpeed);
 
                 LaunchBall();
