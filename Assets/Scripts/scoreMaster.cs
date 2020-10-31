@@ -89,7 +89,8 @@ public class scoreMaster : MonoBehaviour {
         
         //despawn ball
         GameObject bowler = pinZone.touchedBy;
-        bowler.SetActive (false);
+        if(bowler)
+            bowler.SetActive (false);
 
         //reset remaining pins
         foreach (GameObject pin in pin_script.pins) {
@@ -108,9 +109,41 @@ public class scoreMaster : MonoBehaviour {
             }
         }
 
+
+
+
+
+
+
+        //remove pin obscuring object
+
+
+
+        //respawn ball in ball return
+
+        if(bowler) {
+
+            bowler.GetComponent<Rigidbody>().useGravity = false;
+
+            bowler.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+            dispenser.MoveBall(bowler);
+
+            bowler.SetActive(true);
+
+        }
+
         
 
         //remove pin obscuring object
+
+        //Final roll actions
+        if (frame == 10 && displayScore[9,1] == "/"){
+            GetComponent<GameStateController> ().finalRoll();
+        }
+        else if (frame == 10 && roll == 1 && displayScore[9,0] == "X") {
+            GetComponent<GameStateController> ().finalRoll();
+        }
 
         //respawn ball in ball return
         bowler.GetComponent<Rigidbody>().useGravity = false;
@@ -256,8 +289,12 @@ public class scoreMaster : MonoBehaviour {
 
             applyBonus(pinFall);
 
-            if (pinFall == 10 && frame == 10 && displayScore[11, 0] == "X") { //frame 10 3rd strike
+            if (pinFall == 10 && frame == 10 && displayScore[10, 0] == "X") { //frame 10 3rd strike
                 displayScore[frame, roll] = "X";
+                //GAME OVER
+                //TRUE ENDING
+                gameOver();
+                return;
             } else if (total[frame] == 10) { //spare
                 displayScore[frame, roll] = "/";
 
@@ -309,9 +346,15 @@ public class scoreMaster : MonoBehaviour {
             pin.transform.rotation = pin.GetComponent<pinScript> ().defaultRot;
             pin.transform.position = pin.GetComponent<pinScript> ().defaultPos;
         }
+        for (int z = 0; z < knocked_pins.Length; z++){
+            if (knocked_pins[z] != null)
+                knocked_pins[z] = null;
+        }
     }
 
     public void skipToFrameTen (){
+        pin_script.getKnockedInt();
+        
         for (int x = 0; x < 10; x++) {
             total[x] = 6;
             for (int y = 0; y < 2; y++) {

@@ -65,7 +65,7 @@ public class PauseMenuController : MonoBehaviour {
     private void Pause() {
         //Time.timeScale = 0;
         paused = true;
-        Debug.Log("pause");
+        //Debug.Log("pause");
         pauseMenu.SetActive(true);
         scoreboard.SetActive(false);
         menuButtons.SetActive(true);
@@ -75,7 +75,7 @@ public class PauseMenuController : MonoBehaviour {
     public void Unpause() {
         //Time.timeScale = 1;
         paused = false;
-        Debug.Log("unpause");
+        //Debug.Log("unpause");
         pauseMenu.SetActive(false);
         scoreboard.SetActive(true);
         menuButtons.SetActive(false);
