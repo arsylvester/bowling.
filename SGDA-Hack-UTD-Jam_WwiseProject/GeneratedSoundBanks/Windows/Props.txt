@@ -3,6 +3,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1692875524	Ballreturn			\Default Work Unit\Ballreturn	
 	2039252157	Pinhit			\Default Work Unit\Pinhit	
 	2167193223	FinalSoundsStop			\Default Work Unit\FinalSoundsStop	
+	3776484516	LastFrameStop			\Default Work Unit\LastFrameStop	
 	4066630945	Ballhit			\Default Work Unit\Ballhit	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size

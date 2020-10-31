@@ -152,6 +152,7 @@ public class GameStateController : MonoBehaviour
         akListener.enabled = false;
         AkSoundEngine.SetRTPCValue("MasterVolume", 50);
         AkSoundEngine.PostEvent("FinalSoundsStop", gameObject);
+        AkSoundEngine.PostEvent("LastFrameStop", gameObject);
 
         bowlingText.color = new Color(0, 0, 0, 1);
 

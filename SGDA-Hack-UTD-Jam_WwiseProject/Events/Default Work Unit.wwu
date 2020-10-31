@@ -179,6 +179,16 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="LastFrameStop" ID="{426B0FE7-D46C-4C6C-A8D0-3CF98988E03C}">
+					<ChildrenList>
+						<Action Name="" ID="{6642E008-DD50-48BF-B6F2-4BA87CC361D1}" ShortID="4601506">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

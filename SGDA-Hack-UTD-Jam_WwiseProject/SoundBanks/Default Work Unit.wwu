@@ -10,6 +10,7 @@
 						<ObjectRef Name="BallColide" ID="{2B0AFCD7-0456-43D3-B624-2FAB95B5214B}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="FinalSoundsStop" ID="{CA384D83-FB3F-451F-9495-183E9C436796}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Pinhit" ID="{13B8C6E7-972C-4B60-81F8-32DD42966AD2}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="LastFrameStop" ID="{426B0FE7-D46C-4C6C-A8D0-3CF98988E03C}" WorkUnitID="{2CCAF289-712E-4FFC-91E3-6A27C72BB383}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

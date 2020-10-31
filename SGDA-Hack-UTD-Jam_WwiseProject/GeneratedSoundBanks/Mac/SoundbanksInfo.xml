@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="77978275" Language="SFX" Hash="1515975649">
+		<SoundBank Id="77978275" Language="SFX" Hash="2683731273">
 			<ObjectPath>\SoundBanks\Default Work Unit\Ambient</ObjectPath>
 			<ShortName>Ambient</ShortName>
 			<Path>Ambient.bnk</Path>
@@ -47,7 +47,7 @@
 			<IncludedMemoryFiles>
 				<File Id="482479033" Language="SFX">
 					<ShortName>DO_NOT_go_with_AM_on_5900.wav</ShortName>
-					<Path>SFX\DO_NOT_go_with_AM_on_5900_60D8314B.wem</Path>
+					<Path>SFX\DO_NOT_go_with_AM_on_5900_512C3D96.wem</Path>
 				</File>
 				<File Id="918713499" Language="SFX">
 					<ShortName>Ragtime_Cut_Short.wav</ShortName>
@@ -55,7 +55,7 @@
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
-		<SoundBank Id="968010305" Language="SFX" Hash="1162770667">
+		<SoundBank Id="968010305" Language="SFX" Hash="3888852744">
 			<ObjectPath>\SoundBanks\Default Work Unit\Props</ObjectPath>
 			<ShortName>Props</ShortName>
 			<Path>Props.bnk</Path>
@@ -93,6 +93,7 @@
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="2167193223" Name="FinalSoundsStop" ObjectPath="\Events\Default Work Unit\FinalSoundsStop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3776484516" Name="LastFrameStop" ObjectPath="\Events\Default Work Unit\LastFrameStop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2039252157" Name="Pinhit" ObjectPath="\Events\Default Work Unit\Pinhit" MaxAttenuation="90.000000" DurationType="OneShot" DurationMin="1.292340" DurationMax="1.452279">
 					<IncludedMemoryFiles>
 						<File Id="257187427" Language="SFX">

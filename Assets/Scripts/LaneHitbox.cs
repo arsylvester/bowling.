@@ -25,8 +25,9 @@ public class LaneHitbox : MonoBehaviour
         if (other.gameObject.tag == "BowlingBall"){
             if (touchedBy == null){
                 touchedBy = other.gameObject;
+                isTouched = true;
             }
-            isTouched = true;
+
             print("TRIGGER HIT");
         }
     }
