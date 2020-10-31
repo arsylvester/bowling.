@@ -116,6 +116,7 @@ public class GameStateController : MonoBehaviour
         {
             l.SetLight(true);
         }
+        GetComponent<scoreMaster> ().inRedSequence = false;
         
     }
 
@@ -125,7 +126,8 @@ public class GameStateController : MonoBehaviour
         //play new sounds
 
         while(true){
-            yield return StartCoroutine(lightControl.FlashAllLights(0f));
+            StartCoroutine(lightControl.FlashAllLights(0f));
+            yield return new WaitForSecondsRealtime(5f);
         }
     }
 
