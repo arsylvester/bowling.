@@ -27,6 +27,7 @@ public class GameStateController : MonoBehaviour
     [SerializeField] float textWaitTime = 5f;
     [SerializeField] GameObject postProcessingMain, postProcessingFR;
     [SerializeField] float pitchChange = 5f;
+    [SerializeField] float fogIncrease = .001f;
 
     private void Awake()
     {
@@ -37,6 +38,8 @@ public class GameStateController : MonoBehaviour
 
         AkSoundEngine.SetRTPCValue("VoicePitch", currentVoicePitch);
         m_NewFrame.AddListener(changeVoicePitch);
+        m_NewFrame.AddListener(increaseFog);
+
         //EndGame();
     }
 
@@ -69,6 +72,11 @@ public class GameStateController : MonoBehaviour
     {
         currentVoicePitch -= pitchChange;
         AkSoundEngine.SetRTPCValue("VoicePitch", currentVoicePitch);
+    }
+
+    private void increaseFog()
+    {
+        RenderSettings.fogDensity += fogIncrease;
     }
 
     public void EndGame()
