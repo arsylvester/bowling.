@@ -3870,7 +3870,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17482
+  m_Name: pb_Mesh19584
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16369,7 +16369,7 @@ PrefabInstance:
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: speedModifyer
-      value: 6
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
@@ -16379,7 +16379,7 @@ PrefabInstance:
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: symbolicWeight
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173502, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
@@ -18945,7 +18945,7 @@ PrefabInstance:
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: speedModifyer
-      value: 6
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
@@ -18955,7 +18955,7 @@ PrefabInstance:
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: symbolicWeight
-      value: 0.75
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173500, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
@@ -20665,7 +20665,7 @@ PrefabInstance:
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: speedModifyer
-      value: 6
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
@@ -20675,7 +20675,7 @@ PrefabInstance:
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: symbolicWeight
-      value: 1.2
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173500, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
