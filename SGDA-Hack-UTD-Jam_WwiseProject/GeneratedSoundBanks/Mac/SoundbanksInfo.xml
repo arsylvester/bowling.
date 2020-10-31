@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="77978275" Language="SFX" Hash="3743656617">
+		<SoundBank Id="77978275" Language="SFX" Hash="1450553456">
 			<ObjectPath>\SoundBanks\Default Work Unit\Ambient</ObjectPath>
 			<ShortName>Ambient</ShortName>
 			<Path>Ambient.bnk</Path>
@@ -36,13 +36,13 @@
 					<IncludedMemoryFiles>
 						<File Id="805918545" Language="SFX">
 							<ShortName>Light.wav</ShortName>
-							<Path>SFX\Light_D79FB2B7.wem</Path>
+							<Path>SFX\Light_1237B537.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="968010305" Language="SFX" Hash="1951612669">
+		<SoundBank Id="968010305" Language="SFX" Hash="1162770667">
 			<ObjectPath>\SoundBanks\Default Work Unit\Props</ObjectPath>
 			<ShortName>Props</ShortName>
 			<Path>Props.bnk</Path>
@@ -71,14 +71,15 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1692875524" Name="Ballreturn" ObjectPath="\Events\Default Work Unit\Ballreturn" DurationType="OneShot" DurationMin="1.134229" DurationMax="1.134229">
+				<Event Id="1692875524" Name="Ballreturn" ObjectPath="\Events\Default Work Unit\Ballreturn" MaxAttenuation="30.000000" DurationType="OneShot" DurationMin="2.134229" DurationMax="2.134229">
 					<IncludedMemoryFiles>
 						<File Id="595865052" Language="SFX">
 							<ShortName>Mechanical.wav</ShortName>
-							<Path>SFX\Mechanical_37BCACEB.wem</Path>
+							<Path>SFX\Mechanical_AFFD067F.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2167193223" Name="FinalSoundsStop" ObjectPath="\Events\Default Work Unit\FinalSoundsStop" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2039252157" Name="Pinhit" ObjectPath="\Events\Default Work Unit\Pinhit" MaxAttenuation="90.000000" DurationType="OneShot" DurationMin="1.292340" DurationMax="1.452279">
 					<IncludedMemoryFiles>
 						<File Id="257187427" Language="SFX">
@@ -89,40 +90,41 @@
 				</Event>
 			</IncludedEvents>
 		</SoundBank>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3666327902">
+		<SoundBank Id="1355168291" Language="SFX" Hash="375120112">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<GameParameters>
 				<GameParameter Id="2918011349" Name="MasterVolume" ObjectPath="\Game Parameters\Default Work Unit\MasterVolume"/>
+				<GameParameter Id="3175469669" Name="VoicePitch" ObjectPath="\Game Parameters\Default Work Unit\VoicePitch"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2748973500" Language="SFX" Hash="719641083">
+		<SoundBank Id="2748973500" Language="SFX" Hash="2031101688">
 			<ObjectPath>\SoundBanks\Default Work Unit\Speaker</ObjectPath>
 			<ShortName>Speaker</ShortName>
 			<Path>Speaker.bnk</Path>
 			<IncludedEvents>
-				<Event Id="2398231425" Name="Score" ObjectPath="\Events\Default Work Unit\Score" MaxAttenuation="30.000000" DurationType="OneShot" DurationMin="1.147097" DurationMax="1.147097">
+				<Event Id="2398231425" Name="Score" ObjectPath="\Events\Default Work Unit\Score" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="1.147097" DurationMax="1.147097">
 					<IncludedMemoryFiles>
 						<File Id="66047327" Language="SFX">
 							<ShortName>bowling_VO.wav</ShortName>
-							<Path>SFX\bowling_VO_6991711D.wem</Path>
+							<Path>SFX\bowling_VO_89A84F04.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="155090442" Name="Spare" ObjectPath="\Events\Default Work Unit\Spare" DurationType="OneShot" DurationMin="1.468284" DurationMax="1.468284">
+				<Event Id="155090442" Name="Spare" ObjectPath="\Events\Default Work Unit\Spare" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="1.468284" DurationMax="1.468284">
 					<IncludedMemoryFiles>
 						<File Id="568556353" Language="SFX">
 							<ShortName>bowling_VO.wav</ShortName>
-							<Path>SFX\bowling_VO_E2641307.wem</Path>
+							<Path>SFX\bowling_VO_CBAB7623.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="4110605575" Name="Strike" ObjectPath="\Events\Default Work Unit\Strike" DurationType="OneShot" DurationMin="1.101213" DurationMax="1.101213">
+				<Event Id="4110605575" Name="Strike" ObjectPath="\Events\Default Work Unit\Strike" MaxAttenuation="20.000000" DurationType="OneShot" DurationMin="1.101213" DurationMax="1.101213">
 					<IncludedMemoryFiles>
 						<File Id="478132973" Language="SFX">
 							<ShortName>bowling_VO.wav</ShortName>
-							<Path>SFX\bowling_VO_09CF2502.wem</Path>
+							<Path>SFX\bowling_VO_4D248777.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

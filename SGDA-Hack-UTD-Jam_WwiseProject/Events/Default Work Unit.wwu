@@ -49,6 +49,9 @@
 				<Event Name="Ballreturn" ID="{A49A0240-E849-42F1-A481-72B972534B7B}">
 					<ChildrenList>
 						<Action Name="" ID="{72B3486A-5955-4358-818C-ACAEECEFAC43}" ShortID="777395290">
+							<PropertyList>
+								<Property Name="Delay" Type="Real64" Value="1"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Mechanical" ID="{7E1A865F-6F5E-41DE-88F9-7F30A82AE801}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
@@ -131,6 +134,16 @@
 									<ObjectRef Name="GreatShot" ID="{6C77FA25-4C60-490B-A646-6365474D04F2}" WorkUnitID="{C5A55A4B-7BBA-4FDC-B8E1-0FB3C2A80F25}"/>
 								</Reference>
 							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="FinalSoundsStop" ID="{CA384D83-FB3F-451F-9495-183E9C436796}">
+					<ChildrenList>
+						<Action Name="" ID="{F4F4D976-49E7-41F0-99D0-E0276B95D3A4}" ShortID="348758837">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="3"/>
+							</PropertyList>
+							<ReferenceList/>
 						</Action>
 					</ChildrenList>
 				</Event>

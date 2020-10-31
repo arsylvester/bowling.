@@ -52,6 +52,34 @@
 								<Value>40</Value>
 							</ValueList>
 						</Property>
+						<Property Name="Pitch" Type="int32">
+							<RTPCList>
+								<RTPC Name="" ID="{63379F91-6A54-4B5F-A9A4-4CA24FEDFDA7}" ShortID="463531921">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="VoicePitch" ID="{EE26CC0B-1289-424E-A748-E415A8245DA7}" WorkUnitID="{9618C30C-5112-420D-8A91-E0F45681DEC4}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{6CB845DF-304B-4771-8F87-20CFCD83523B}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="65537"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>-2489</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>100</XPos>
+												<YPos>-60</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="AudioDevice">

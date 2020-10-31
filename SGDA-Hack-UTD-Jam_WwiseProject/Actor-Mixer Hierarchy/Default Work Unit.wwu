@@ -5,11 +5,19 @@
 			<ChildrenList>
 				<Sound Name="Soft CRT" ID="{A1AB3347-9DEE-4C3A-82BE-4965A45B4938}" ShortID="370166570">
 					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
 						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 						<Property Name="Lowpass" Type="int16">
 							<ValueList>
 								<Value>10</Value>
 							</ValueList>
+						</Property>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{0F8570C3-1529-4B79-909C-9776FFB4C7BC}"/>
+								</ModifierInfo>
+							</ModifierList>
 						</Property>
 					</PropertyList>
 					<ReferenceList>
@@ -271,9 +279,22 @@
 				<Sound Name="Light" ID="{32A95C78-D2E7-4D92-8A6C-AF50D413048D}" ShortID="995935824">
 					<PropertyList>
 						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{CCA9BB5E-85C0-477F-9201-9695C17CDA51}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="100"/>
+											<Property Name="Min" Type="Real64" Value="-100"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>6</Value>
+								<Value>2</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -287,6 +308,11 @@
 					</ReferenceList>
 					<ChildrenList>
 						<AudioFileSource Name="Light" ID="{B02C9897-A621-4808-8EFF-F17C881254AA}">
+							<PropertyList>
+								<Property Name="FadeInDuration" Type="Real64" Value="0.134584929757344"/>
+								<Property Name="FadeOutDuration" Type="Real64" Value="0.067292464878669"/>
+								<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+							</PropertyList>
 							<Language>SFX</Language>
 							<AudioFile>Light.wav</AudioFile>
 							<MediaIDList>
@@ -401,7 +427,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Perfect" ID="{8736AC12-2022-42CA-9078-C8C67FE8AA7B}" ShortID="423852871">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+							</PropertyList>
 							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="VO" ID="{6EB51593-2FA9-4A7C-B071-B60FF48CA184}" WorkUnitID="{02B41AA9-7624-48CE-9E96-2B89033F808F}"/>
+								</Reference>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FFA48498-EF4F-4809-8AEB-529CA18FD4FF}"/>
 								</Reference>
@@ -428,7 +460,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Spare" ID="{4749ACDA-0A76-43D6-AD8F-708FD931954A}" ShortID="28603804">
+							<PropertyList>
+								<Property Name="3DSpatialization" Type="int16" Value="1"/>
+							</PropertyList>
 							<ReferenceList>
+								<Reference Name="Attenuation">
+									<ObjectRef Name="VO" ID="{6EB51593-2FA9-4A7C-B071-B60FF48CA184}" WorkUnitID="{02B41AA9-7624-48CE-9E96-2B89033F808F}"/>
+								</Reference>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FFA48498-EF4F-4809-8AEB-529CA18FD4FF}"/>
 								</Reference>
@@ -457,7 +495,25 @@
 					</ChildrenList>
 				</Folder>
 				<Sound Name="Mechanical" ID="{7E1A865F-6F5E-41DE-88F9-7F30A82AE801}" ShortID="901927472">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{D6F48AE0-031C-4B00-9862-0D946009507F}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-8</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Ambient" ID="{FD65321C-BB75-491C-9842-BA353FE590AA}" WorkUnitID="{02B41AA9-7624-48CE-9E96-2B89033F808F}"/>
+						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{FFA48498-EF4F-4809-8AEB-529CA18FD4FF}"/>
 						</Reference>

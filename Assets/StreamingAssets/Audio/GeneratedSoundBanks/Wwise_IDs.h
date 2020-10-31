@@ -18,6 +18,7 @@ namespace AK
         static const AkUniqueID BALLRETURN = 1692875524U;
         static const AkUniqueID CRT = 731352134U;
         static const AkUniqueID FINALSOUNDS = 2690523175U;
+        static const AkUniqueID FINALSOUNDSSTOP = 2167193223U;
         static const AkUniqueID LIGHTS = 3192784746U;
         static const AkUniqueID PINHIT = 2039252157U;
         static const AkUniqueID SCORE = 2398231425U;
@@ -28,6 +29,7 @@ namespace AK
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID MASTERVOLUME = 2918011349U;
+        static const AkUniqueID VOICEPITCH = 3175469669U;
     } // namespace GAME_PARAMETERS
 
     namespace BANKS
