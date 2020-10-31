@@ -30,8 +30,8 @@ public class Lights : MonoBehaviour {
     }
 
     public void SetLight(bool active) {
-        if(active == lightObj.activeSelf)
-            return;
+        /*if(active == lightObj.activeSelf)
+            return;*/
 
         lightObj.SetActive(active);
         if(onMaterial && offMaterial) {
@@ -52,8 +52,8 @@ public class Lights : MonoBehaviour {
     }
 
     public bool FlickerLight(float length, int amount, float delay = 0f, bool toggle = false, bool onlyIfOn = false) {
-        if(isFlickering)
-            return false;
+        /*if(isFlickering)
+            return false;*/
         if(onlyIfOn && IsLightOn())
             return false;
         StartCoroutine(Flicker(length, amount, delay, toggle));

@@ -18,6 +18,7 @@ public class BallController : MonoBehaviour
     private Boolean launching = false;
     public float speedModifyer = 5.5f;
     public float speedModifyer2;
+    public float symbolicWeight;
     public Vector2 showAverageVelocity;
 
     const int THROW_MOVE_SIZE = 25;
@@ -48,16 +49,22 @@ public class BallController : MonoBehaviour
 
             if(thisBallInHand && launching && Input.GetAxis("Fire1") == 0)
             {
+                // get mouse velocity
                 Vector2 averageVelocity = getAverageVelocity();
                 showAverageVelocity = averageVelocity;
                 //print(averageVelocity);
-
+                
+                // get ball speed from mouse velocity
                 float modifiedVectorMagnitude = Mathf.Sqrt(Mathf.Pow(averageVelocity.x, 2f) + Mathf.Pow(averageVelocity.y / 2, 2f));
-                ballSpeed = Mathf.Log(modifiedVectorMagnitude, 2) * speedModifyer;
+                ballSpeed = Mathf.Log(modifiedVectorMagnitude, 2) * speedModifyer * symbolicWeight;
                 print(ballSpeed);
+
                 LaunchBall();
-                GetComponent<Rigidbody>().angularVelocity = new Vector3(averageVelocity.y * speedModifyer2, 0f, (-1) * averageVelocity.x * speedModifyer2);
-                showAngularVel = GetComponent<Rigidbody>().angularVelocity;
+
+                // set ball curve
+                GetComponent<Rigidbody>().angularVelocity = new Vector3(averageVelocity.y * speedModifyer2 / 2, 0f, (-1) * averageVelocity.x * speedModifyer2);
+                print(GetComponent<Rigidbody>().angularVelocity);
+                //showAngularVel = GetComponent<Rigidbody>().angularVelocity;
                 launching = false;
             }
         }
@@ -151,6 +158,10 @@ public class BallController : MonoBehaviour
         if(collision.gameObject.tag == "PlayArea")
         {
             AkSoundEngine.PostEvent("Ballhit", gameObject);
+        }
+        if (collision.gameObject.tag == "BowlingBall")
+        {
+            AkSoundEngine.PostEvent("BallColide", gameObject);
         }
     }
 }

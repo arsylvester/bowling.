@@ -13,6 +13,9 @@ public class LightsControllerTester : Editor {
         if(GUILayout.Button("Flicker Random Light")) {
             lights.FlickerRandomLight();
         }
+        if(GUILayout.Button("Flicker All Lights")) {
+            lights.FlashAllWrapper();
+        }
     }
 
 }
