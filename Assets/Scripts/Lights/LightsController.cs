@@ -83,7 +83,6 @@ public class LightsController : MonoBehaviour {
         yield return new WaitForSeconds(0.8f);
         for(int i = 0; i < lights.Length; i++) {
             lights[i].SetLight(false);
-            Debug.Log("Set light " + i + " to false");
         }
 
         yield return new WaitForSeconds(pauseDelay);
