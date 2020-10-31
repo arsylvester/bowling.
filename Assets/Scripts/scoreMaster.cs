@@ -19,7 +19,8 @@ public class scoreMaster : MonoBehaviour {
     public int frame, roll, runningTotal;
     public bool exampleMethodCall;
     public bool inSetup;
-    private bool red;
+    public bool red;
+    public bool inRedSequence;
 
     void Start () {
 
@@ -36,6 +37,7 @@ public class scoreMaster : MonoBehaviour {
         roll = 0;
         runningTotal = 0;
         red = false;
+        inRedSequence = false;
 
         printScore ();
     }
@@ -132,9 +134,11 @@ public class scoreMaster : MonoBehaviour {
         //Final roll actions
         if (frame == 9 && roll == 1) {
             red = true;
+            inRedSequence = true;
             StartCoroutine (GetComponent<GameStateController> ().red ());
         } else if (frame == 10 && roll == 0 && !red) {
             red = true;
+            inRedSequence = true;
             StartCoroutine (GetComponent<GameStateController> ().red ());
         } else if (frame == 10 && roll == 1){
             StartCoroutine (GetComponent<GameStateController> ().finalRoll ());
