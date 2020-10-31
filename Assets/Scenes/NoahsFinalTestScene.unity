@@ -6659,7 +6659,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20462
+  m_Name: pb_Mesh24310
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16341,6 +16341,16 @@ PrefabInstance:
       propertyPath: m_Drag
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3559622199897173498, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.0005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559622199897173498, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
+        type: 3}
+      propertyPath: m_Mass
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: player
@@ -16359,11 +16369,16 @@ PrefabInstance:
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: speedModifyer
-      value: 5.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: speedModifyer2
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
+        type: 3}
+      propertyPath: symbolicWeight
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173502, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
@@ -18900,12 +18915,17 @@ PrefabInstance:
     - target: {fileID: 3559622199897173498, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: m_Mass
-      value: 13
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173498, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: m_Drag
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559622199897173498, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.0005
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
@@ -18925,12 +18945,17 @@ PrefabInstance:
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: speedModifyer
-      value: 5.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: speedModifyer2
-      value: 1
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
+        type: 3}
+      propertyPath: symbolicWeight
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173500, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
@@ -20617,6 +20642,11 @@ PrefabInstance:
       propertyPath: m_Drag
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3559622199897173498, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.0005
+      objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: player
@@ -20635,12 +20665,17 @@ PrefabInstance:
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: speedModifyer
-      value: 5.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: speedModifyer2
-      value: 1
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
+        type: 3}
+      propertyPath: symbolicWeight
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173500, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
