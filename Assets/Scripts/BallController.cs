@@ -9,17 +9,13 @@ public class BallController : MonoBehaviour
     public GameObject player;
     public Transform ballHolder;
     public Transform ballReturnPosition;
-    public float ballSpeed;
     private static Boolean anyBallInHand = false;
     private Boolean thisBallInHand = false;
-    public Vector3 showVel;
-    public Vector3 showAngularVel;
 
     private Boolean launching = false;
-    public float speedModifyer = 5.5f;
+    private float ballSpeed;
+    public float speedModifyer = 4.0f;
     public float speedModifyer2;
-    public float symbolicWeight;
-    public Vector2 showAverageVelocity;
 
     const int THROW_MOVE_SIZE = 25;
     private Vector2[] throwingMovements = new Vector2[THROW_MOVE_SIZE];
@@ -27,6 +23,7 @@ public class BallController : MonoBehaviour
     private Vector2 screenScale;
 
     private AudioSource audio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,12 +48,12 @@ public class BallController : MonoBehaviour
             {
                 // get mouse velocity
                 Vector2 averageVelocity = getAverageVelocity();
-                showAverageVelocity = averageVelocity;
                 print(averageVelocity);
                 
                 // get ball speed from mouse velocity
-                float modifiedVectorMagnitude = Mathf.Sqrt(Mathf.Pow(averageVelocity.x, 2f) + Mathf.Pow(averageVelocity.y / 2, 2f));
-                ballSpeed = Mathf.Log(Mathf.Pow(modifiedVectorMagnitude + 0.5f, 1.5f), 2) * speedModifyer * symbolicWeight;
+                float modifiedVectorMagnitude = Mathf.Sqrt(Mathf.Pow(averageVelocity.x / 2, 2f) + Mathf.Pow(averageVelocity.y, 2f));
+
+                ballSpeed = Mathf.Log(Mathf.Pow(modifiedVectorMagnitude + 0.5f, 1.5f), 2) * speedModifyer;
                 print(ballSpeed);
 
                 LaunchBall();
@@ -64,12 +61,9 @@ public class BallController : MonoBehaviour
                 // set ball curve
                 GetComponent<Rigidbody>().angularVelocity = new Vector3(averageVelocity.y * speedModifyer2 / 2, 0f, (-1) * averageVelocity.x * speedModifyer2);
                 print(GetComponent<Rigidbody>().angularVelocity);
-                //showAngularVel = GetComponent<Rigidbody>().angularVelocity;
                 launching = false;
             }
         }
-        showVel = GetComponent<Rigidbody>().velocity;
-
     }
     
     private void OnMouseDown()
