@@ -6659,7 +6659,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24310
+  m_Name: pb_Mesh18434
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11404,6 +11404,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTouched: 0
   touchedBy: {fileID: 0}
+  lastMinOtherBallFix: {fileID: 0}
+  sm: {fileID: 0}
 --- !u!65 &936050893
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16369,12 +16371,12 @@ PrefabInstance:
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: speedModifyer
-      value: 5.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: speedModifyer2
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
@@ -18663,6 +18665,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTouched: 0
   touchedBy: {fileID: 0}
+  lastMinOtherBallFix: {fileID: 0}
+  sm: {fileID: 0}
 --- !u!65 &1488921848
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18915,7 +18919,7 @@ PrefabInstance:
     - target: {fileID: 3559622199897173498, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: m_Mass
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173498, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
@@ -18945,12 +18949,12 @@ PrefabInstance:
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: speedModifyer
-      value: 5.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: speedModifyer2
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
@@ -20635,7 +20639,7 @@ PrefabInstance:
     - target: {fileID: 3559622199897173498, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: m_Mass
-      value: 6
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173498, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
@@ -20665,12 +20669,12 @@ PrefabInstance:
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: speedModifyer
-      value: 5.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: speedModifyer2
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173499, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
