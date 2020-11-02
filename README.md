@@ -1,4 +1,4 @@
-# Bowling.
+# bowling.
 A bowling game with an atmospheric horror twist. Developed over the course of seven days as part of the October 2020 HackUTD game jam.
 
 ## Installation
