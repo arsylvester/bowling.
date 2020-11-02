@@ -92,6 +92,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dark Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 3559622199897173496, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3559622199897173498, guid: 20ff91289ab4d4d4fa5e0cced7c5fb26,
         type: 3}
       propertyPath: m_Mass

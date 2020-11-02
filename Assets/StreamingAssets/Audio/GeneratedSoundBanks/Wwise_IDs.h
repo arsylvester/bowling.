@@ -20,6 +20,7 @@ namespace AK
         static const AkUniqueID FINALSOUNDS = 2690523175U;
         static const AkUniqueID FINALSOUNDSSTOP = 2167193223U;
         static const AkUniqueID LASTFRAME = 1996894508U;
+        static const AkUniqueID LASTFRAMESTOP = 3776484516U;
         static const AkUniqueID LIGHTS = 3192784746U;
         static const AkUniqueID MUSIC = 3991942870U;
         static const AkUniqueID MUSICSTOP = 3978196478U;

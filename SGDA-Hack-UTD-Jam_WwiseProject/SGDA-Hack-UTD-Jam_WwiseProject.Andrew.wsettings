@@ -11,6 +11,7 @@
 				<Property Name="Event Action List\{231DE5DB-1B3A-43A7-A89B-1049534F99E1}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{27B28631-2129-4367-B80A-9465F4430BC9}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{2B0AFCD7-0456-43D3-B624-2FAB95B5214B}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{426B0FE7-D46C-4C6C-A8D0-3CF98988E03C}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{557C53B0-024F-42A5-BB2D-CDF05D53E849}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{63BE9ADB-9C08-42BB-838C-18BDDF03F796}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{6E8A44AB-EA49-4C77-B704-22565B07542D}\x64_Expand States" Type="string" Value=""/>
@@ -38,7 +39,7 @@
 				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value=""/>
 				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="+z3FLzjuNEipW0RVX9IvuYbTWIXPp4VKl0G0ocJ9fPHSfr2u+LTHTaMjqoK9LV7/"/>
 				<Property Name="HardwareController\CurrentSession" Type="string" Value="{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}"/>
-				<Property Name="HardwareController\{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}\x64_ActiveGroups" Type="string" Value="HdHLjdPiKE6Y8zDut2+n9wGEdLH/////e0pK5g+p60us38LCLC3kMQGEdLH/////"/>
+				<Property Name="HardwareController\{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}\x64_ActiveGroups" Type="string" Value="HdHLjdPiKE6Y8zDut2+n9wGEV7r/////e0pK5g+p60us38LCLC3kMQGEV7r/////"/>
 				<Property Name="MeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
 				<Property Name="MeterView\MeterMode1" Type="int32" Value="1"/>
 				<Property Name="MeterView\MeterMode1Viewpoint0" Type="int32" Value="1"/>

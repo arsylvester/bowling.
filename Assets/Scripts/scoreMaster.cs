@@ -95,6 +95,7 @@ public class scoreMaster : MonoBehaviour {
         GameObject bowler = pinZone.touchedBy;
         if (bowler)
             bowler.SetActive (false);
+        
 
         //reset remaining pins
         foreach (GameObject pin in pin_script.pins) {

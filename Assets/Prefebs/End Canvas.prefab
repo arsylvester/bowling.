@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 6679318283944352605}
   - component: {fileID: 6679318283944352604}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: End Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,7 +249,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'High score: '
+  m_Text: 'score: '
 --- !u!1 &6679318284775376847
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,6 +29,8 @@ public class GameStateController : MonoBehaviour
     [SerializeField] float pitchChange = 5f;
     [SerializeField] float fogIncrease = .001f;
 
+    public UnityEvent SpawnStrongBall;
+
     private void Awake()
     {
         if (_instance == null)
@@ -109,6 +111,7 @@ public class GameStateController : MonoBehaviour
         yield return new WaitForSecondsRealtime(5f);
 
         //PLAY DO NOT
+        AkSoundEngine.PostEvent("LastFrame", gameObject);
 
         //turn on lights
         StartCoroutine(lightControl.FlickerMonitor(0f, 0, 0f, true));
@@ -122,6 +125,7 @@ public class GameStateController : MonoBehaviour
 
     public IEnumerator finalRoll(){
         //spawn strong ball
+        SpawnStrongBall.Invoke();
 
         //play new sounds
 
@@ -148,12 +152,13 @@ public class GameStateController : MonoBehaviour
         akListener.enabled = false;
         AkSoundEngine.SetRTPCValue("MasterVolume", 50);
         AkSoundEngine.PostEvent("FinalSoundsStop", gameObject);
+        AkSoundEngine.PostEvent("LastFrameStop", gameObject);
 
         bowlingText.color = new Color(0, 0, 0, 1);
 
         yield return new WaitForSeconds(textWaitTime);
 
-        highscoreText.text = "Highscore: " + GetComponent<scoreMaster>().runningTotal;
+        highscoreText.text = "score: " + GetComponent<scoreMaster>().runningTotal;
         alpha = highscoreText.color.a;
         while (alpha < 1)
         {
