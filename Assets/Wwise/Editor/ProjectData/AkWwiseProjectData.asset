@@ -30,7 +30,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 223ed953ebecbe4399c37b70ae8ea072
     GuidInternal: 
-    m_lastTime: -8585975066978048495
+    m_lastTime: -8585975009002418885
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -58,7 +58,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 9bd209d6bea0b64da5f05fad442cb0bc
     GuidInternal: 
-    m_lastTime: -8585975092073771300
+    m_lastTime: -8585974868676827471
     List:
     - name: Ambient
       guid: fb3dc52f38ee3448a95b44555fd22fb9
@@ -95,7 +95,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 89f2ca2c2e71fc4f91e36a27c72bb383
     GuidInternal: 
-    m_lastTime: -8585975025805692807
+    m_lastTime: -8585974868676721207
     List:
     - name: BallColide
       guid: d7fc0a2b5604d343b6242fab95b5214b
@@ -106,9 +106,9 @@ MonoBehaviour:
       - ElementName: BallColide
         ObjectType: 3
       Path: Default Work Unit\BallColide
-      maxAttenuation: 90
-      maxDuration: 0.291906
-      minDuration: 0.291906
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Ballhit
       guid: 3186b22729216743b80a9465f4430bc9
       id: 4066630945
@@ -118,7 +118,7 @@ MonoBehaviour:
       - ElementName: Ballhit
         ObjectType: 3
       Path: Default Work Unit\Ballhit
-      maxAttenuation: 90
+      maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
     - name: Ballreturn
@@ -130,9 +130,9 @@ MonoBehaviour:
       - ElementName: Ballreturn
         ObjectType: 3
       Path: Default Work Unit\Ballreturn
-      maxAttenuation: 30
-      maxDuration: 2.134229
-      minDuration: 2.134229
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: CRT
       guid: dbe51d233a1ba743a89b1049534f99e1
       id: 731352134
@@ -142,7 +142,7 @@ MonoBehaviour:
       - ElementName: CRT
         ObjectType: 3
       Path: Default Work Unit\CRT
-      maxAttenuation: 30
+      maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
     - name: FinalSounds
@@ -154,6 +154,42 @@ MonoBehaviour:
       - ElementName: FinalSounds
         ObjectType: 3
       Path: Default Work Unit\FinalSounds
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: FinalSoundsStop
+      guid: 834d38ca3ffb1f459495183e9c436796
+      id: 2167193223
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: FinalSoundsStop
+        ObjectType: 3
+      Path: Default Work Unit\FinalSoundsStop
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: LastFrame
+      guid: f45556196e4ebb41a75f6a3618a49ed1
+      id: 1996894508
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: LastFrame
+        ObjectType: 3
+      Path: Default Work Unit\LastFrame
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: LastFrameStop
+      guid: e70f6b426cd46c4ca8d03cf98988e03c
+      id: 3776484516
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: LastFrameStop
+        ObjectType: 3
+      Path: Default Work Unit\LastFrameStop
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -169,6 +205,30 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
+    - name: Music
+      guid: ab448a6e49ea774cb70422565b07542d
+      id: 3991942870
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 3
+      Path: Default Work Unit\Music
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: MusicStop
+      guid: b0537c554f02a542bb2dcdf05d53e849
+      id: 3978196478
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: MusicStop
+        ObjectType: 3
+      Path: Default Work Unit\MusicStop
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Pinhit
       guid: e7c6b8132c97604b81f832dd42966ad2
       id: 2039252157
@@ -178,9 +238,9 @@ MonoBehaviour:
       - ElementName: Pinhit
         ObjectType: 3
       Path: Default Work Unit\Pinhit
-      maxAttenuation: 90
-      maxDuration: 1.452279
-      minDuration: 1.29234
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Score
       guid: db9abe63089cbb42838c18bddf03f796
       id: 2398231425
@@ -190,9 +250,9 @@ MonoBehaviour:
       - ElementName: Score
         ObjectType: 3
       Path: Default Work Unit\Score
-      maxAttenuation: 20
-      maxDuration: 1.147097
-      minDuration: 1.147097
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Spare
       guid: 3378551bc75d4541aa36b1ad3c3fd303
       id: 155090442
@@ -202,9 +262,9 @@ MonoBehaviour:
       - ElementName: Spare
         ObjectType: 3
       Path: Default Work Unit\Spare
-      maxAttenuation: 20
-      maxDuration: 1.468284
-      minDuration: 1.468284
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
     - name: Strike
       guid: 850e0116949cad40b2116390ff695cbd
       id: 4110605575
@@ -214,9 +274,9 @@ MonoBehaviour:
       - ElementName: Strike
         ObjectType: 3
       Path: Default Work Unit\Strike
-      maxAttenuation: 20
-      maxDuration: 1.101213
-      minDuration: 1.101213
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -225,7 +285,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 0cc3189612510d428a91e0f45681dec4
     GuidInternal: 
-    m_lastTime: -8585975303534804147
+    m_lastTime: -8585975009002538916
     List:
     - name: MasterVolume
       guid: 628a9b3d6c5eb242bc46a9629adb5240
@@ -236,6 +296,15 @@ MonoBehaviour:
       - ElementName: MasterVolume
         ObjectType: 13
       Path: Default Work Unit\MasterVolume
+    - name: VoicePitch
+      guid: 0bcc26ee89124e42a748e415a8245da7
+      id: 3175469669
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: VoicePitch
+        ObjectType: 13
+      Path: Default Work Unit\VoicePitch
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     PathAndIcons:
